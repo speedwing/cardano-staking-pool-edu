@@ -5,7 +5,7 @@ ENV QEMU_URL https://github.com/balena-io/qemu/releases/download/v3.0.0%2Bresin/
 RUN apk add curl && curl -L ${QEMU_URL} | tar zxvf - -C . --strip-components 1
 
 
-FROM ubuntu:focal
+FROM arm64v8/ubuntu:focal
 
 # Add QEMU
 COPY --from=builder qemu-aarch64-static /usr/bin
