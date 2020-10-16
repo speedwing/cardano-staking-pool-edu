@@ -1,0 +1,7 @@
+image: ckulka/multi-arch-example:latest
+manifests:
+  - image: ckulka/multi-arch-example:arm64v8
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8
