@@ -1,6 +1,6 @@
-image: ckulka/multi-arch-example:latest
+image: speedwing/cardano-node-buider:latest
 manifests:
-  - image: ckulka/multi-arch-example:arm64v8
+  - image: speedwing/cardano-node-buider:arm64v8
     platform:
       architecture: arm64
       os: linux
