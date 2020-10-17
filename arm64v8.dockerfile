@@ -16,19 +16,19 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y libsodium-dev build-essential \
     pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ \
-    tmux git jq wget libncursesw5 llvm haskell-platform
+    tmux git jq wget libncursesw5 llvm cabal-install
 
 ## Cabal update
-RUN cabal update
-RUN cabal install Cabal
-RUN cabal -V
+RUN cabal -V && sleep 10
+#RUN cabal install Cabal
+#RUN cabal -V
 
-ENV PATH="/root/.cabal/bin:${PATH}"
+#ENV PATH="/root/.cabal/bin:${PATH}"
 
-RUN cabal -V
+#RUN cabal -V
 
 ## This seems to have worked
-RUN wget https://downloads.haskell.org/ghc/8.6.5/ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
-RUN tar -xf ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
-RUN cd ghc-8.6.5/ && ./configure && make install
+#RUN wget https://downloads.haskell.org/ghc/8.6.5/ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
+#RUN tar -xf ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
+#RUN cd ghc-8.6.5/ && ./configure && make install
 
