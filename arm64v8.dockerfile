@@ -5,7 +5,7 @@ ENV QEMU_URL https://github.com/balena-io/qemu/releases/download/v3.0.0%2Bresin/
 RUN apk add curl && curl -L ${QEMU_URL} | tar zxvf - -C . --strip-components 1
 
 
-FROM arm64v8/ubuntu:focal
+FROM arm64v8/ubuntu:20.04
 
 # Add QEMU
 COPY --from=builder qemu-aarch64-static /usr/bin
@@ -16,19 +16,16 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y libsodium-dev build-essential \
     pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ \
-    tmux git jq wget libncursesw5 llvm cabal-install
+    tmux git jq wget libncursesw5 llvm
 
-## Cabal update
-RUN cabal -V && sleep 10
-#RUN cabal install Cabal
-#RUN cabal -V
+RUN apt-get install -y cabal-install ghc
 
-#ENV PATH="/root/.cabal/bin:${PATH}"
+ARG CARDANO_NODE_COMMIT=1.21.1
+ENV CARDANO_NODE_COMMIT ${CARDANO_NODE_COMMIT}
 
-#RUN cabal -V
-
-## This seems to have worked
-#RUN wget https://downloads.haskell.org/ghc/8.6.5/ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
-#RUN tar -xf ghc-8.6.5-aarch64-ubuntu18.04-linux.tar.xz
-#RUN cd ghc-8.6.5/ && ./configure && make install
+RUN git clone https://github.com/input-output-hk/cardano-node.git && \
+    cd cardano-node && \
+    git checkout ${CARDANO_NODE_COMMIT} && \
+    cabal update && \
+    for target in cardano-node cardano-cli; do cabal new-build ${target}; done
 
