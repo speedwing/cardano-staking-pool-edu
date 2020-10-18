@@ -1,4 +1,4 @@
-FROM arm64v8/ubuntu:18.04
+FROM arm64v8/ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -27,7 +27,7 @@ RUN wget -qO- https://github.com/haskell/cabal/archive/Cabal-v${CABAL_VERSION}.t
   && cp ./dist/build/cabal/cabal /usr/local/bin
 
 # DOWNLOAD AND PREPARE CARDANO SOURCE CODE
-ARG NODE_VERSION="1.13.0-rewards"
+ARG NODE_VERSION="1.21.1"
 WORKDIR /build/cardano
 RUN git clone https://github.com/input-output-hk/cardano-node.git . \
  && git fetch --all --tags \
