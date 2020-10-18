@@ -31,3 +31,13 @@ RUN wget -qO- https://github.com/haskell/cabal/archive/Cabal-v${CABAL_VERSION}.t
   && cd cabal-install \
   && ./bootstrap.sh \
   && cp ./dist/build/cabal/cabal /usr/local/bin
+
+# DOWNLOAD AND PREPARE CARDANO SOURCE CODE
+WORKDIR /build/cardano
+RUN git clone https://github.com/input-output-hk/cardano-node.git . \
+ && git fetch --all --tags \
+ && tag=$([ "${NODE_VERSION}" = "latest" ] && echo $(git describe --tags $(git rev-list --tags --max-count=1)) || echo ${NODE_VERSION}) \
+ && git checkout tags/${tag} \
+ && cabal update
+# BUILD CARDANO-NODE AND CARDANO-CLI
+RUN cabal build all
