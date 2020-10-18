@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y libsodium-dev build-essential \
+RUN apt-get install -y build-essential \
     pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ \
     tmux git jq wget libncursesw5 xz-utils llvm \
     ghc
@@ -35,5 +35,7 @@ RUN git clone https://github.com/input-output-hk/cardano-node.git . \
  && tag=$([ "${NODE_VERSION}" = "latest" ] && echo $(git describe --tags $(git rev-list --tags --max-count=1)) || echo ${NODE_VERSION}) \
  && git checkout tags/${tag} \
  && cabal update
+ &&
 # BUILD CARDANO-NODE AND CARDANO-CLI
-RUN cabal build all
+RUN echo -e "package cardano-crypto-praos\n  flags: -external-libsodium-vrf" > cabal.project.local \
+    && cabal build all
