@@ -2,15 +2,6 @@ FROM arm64v8/ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG NODE_VERSION="1.13.0-rewards"
-ARG USER_NAME="cardano-node"
-ARG USER_ID="256"
-ARG GROUP_NAME="cardano-node"
-ARG GROUP_ID="256"
-ARG CABAL_VERSION="3.2.0.0"
-ARG GHC_VERSION="8.6.5"
-ARG OS_ARCH="aarch64"
-
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y libsodium-dev build-essential \
@@ -19,6 +10,8 @@ RUN apt-get install -y libsodium-dev build-essential \
 
 # INSTALL GHC
 # The Glasgow Haskell Compiler
+ARG GHC_VERSION="8.6.5"
+ARG OS_ARCH="aarch64"
 WORKDIR /build/ghc
 RUN wget -qO-  https://downloads.haskell.org/ghc/${GHC_VERSION}/ghc-${GHC_VERSION}-${OS_ARCH}-ubuntu18.04-linux.tar.xz | tar xJf - -C . --strip-components 1 \
  && ./configure \
@@ -26,6 +19,7 @@ RUN wget -qO-  https://downloads.haskell.org/ghc/${GHC_VERSION}/ghc-${GHC_VERSIO
 
 # INSTALL CABAL
 # The Haskell Common Architecture for Building Applications and Libraries
+ARG CABAL_VERSION="3.2.0.0"
 WORKDIR /build/cabal
 RUN wget -qO- https://github.com/haskell/cabal/archive/Cabal-v${CABAL_VERSION}.tar.gz | tar xzfv - -C . --strip-components 1 \
   && cd cabal-install \
@@ -33,6 +27,7 @@ RUN wget -qO- https://github.com/haskell/cabal/archive/Cabal-v${CABAL_VERSION}.t
   && cp ./dist/build/cabal/cabal /usr/local/bin
 
 # DOWNLOAD AND PREPARE CARDANO SOURCE CODE
+ARG NODE_VERSION="1.13.0-rewards"
 WORKDIR /build/cardano
 RUN git clone https://github.com/input-output-hk/cardano-node.git . \
  && git fetch --all --tags \
