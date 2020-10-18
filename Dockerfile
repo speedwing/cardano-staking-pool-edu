@@ -6,16 +6,17 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y libsodium-dev build-essential \
     pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ \
-    tmux git jq wget libncursesw5 xz-utils llvm
+    tmux git jq wget libncursesw5 xz-utils llvm \
+    ghc
 
 # INSTALL GHC
 # The Glasgow Haskell Compiler
-ARG GHC_VERSION="8.6.5"
-ARG OS_ARCH="aarch64"
-WORKDIR /build/ghc
-RUN wget -qO-  https://downloads.haskell.org/ghc/${GHC_VERSION}/ghc-${GHC_VERSION}-${OS_ARCH}-ubuntu20.04-linux.tar.xz | tar xJf - -C . --strip-components 1 \
- && ./configure \
- && make install
+#ARG GHC_VERSION="8.6.5"
+#ARG OS_ARCH="aarch64"
+#WORKDIR /build/ghc
+#RUN wget -qO-  https://downloads.haskell.org/ghc/${GHC_VERSION}/ghc-${GHC_VERSION}-${OS_ARCH}-ubuntu20.04-linux.tar.xz | tar xJf - -C . --strip-components 1 \
+# && ./configure \
+# && make install
 
 # INSTALL CABAL
 # The Haskell Common Architecture for Building Applications and Libraries
