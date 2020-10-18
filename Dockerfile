@@ -13,7 +13,7 @@ RUN apt-get install -y libsodium-dev build-essential \
 ARG GHC_VERSION="8.6.5"
 ARG OS_ARCH="aarch64"
 WORKDIR /build/ghc
-RUN wget -qO-  https://downloads.haskell.org/ghc/${GHC_VERSION}/ghc-${GHC_VERSION}-${OS_ARCH}-ubuntu18.04-linux.tar.xz | tar xJf - -C . --strip-components 1 \
+RUN wget -qO-  https://downloads.haskell.org/ghc/${GHC_VERSION}/ghc-${GHC_VERSION}-${OS_ARCH}-ubuntu20.04-linux.tar.xz | tar xJf - -C . --strip-components 1 \
  && ./configure \
  && make install
 
