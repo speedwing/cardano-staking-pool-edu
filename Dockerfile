@@ -35,7 +35,7 @@ RUN git clone https://github.com/input-output-hk/cardano-node.git . \
  && tag=$([ "${NODE_VERSION}" = "latest" ] && echo $(git describe --tags $(git rev-list --tags --max-count=1)) || echo ${NODE_VERSION}) \
  && git checkout tags/${tag} \
  && cabal update
- &&
+
 # BUILD CARDANO-NODE AND CARDANO-CLI
 RUN echo -e "package cardano-crypto-praos\n  flags: -external-libsodium-vrf" > cabal.project.local \
     && cabal build all
