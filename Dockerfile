@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y build-essential \
+RUN apt-get install -y libsodium-dev build-essential \
     pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ \
     tmux git jq wget libncursesw5 xz-utils llvm \
     ghc
