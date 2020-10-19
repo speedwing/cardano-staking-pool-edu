@@ -1,7 +1,0 @@
-image: speedwing/cardano-node-buider:latest
-manifests:
-  - image: speedwing/cardano-node-buider:arm64v8
-    platform:
-      architecture: arm64
-      os: linux
-      variant: v8
