@@ -32,5 +32,4 @@ ARG CABAL_VERSION="3.2.0.0"
 WORKDIR /build/cabal
 RUN wget -qO- https://github.com/haskell/cabal/archive/Cabal-v${CABAL_VERSION}.tar.gz | tar xzfv - -C . --strip-components 1 \
   && cd cabal-install \
-  && ./bootstrap.sh \
-  && cp ./dist/build/cabal/cabal /usr/local/bin
+  && ./bootstrap.sh
