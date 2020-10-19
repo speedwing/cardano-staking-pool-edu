@@ -33,3 +33,16 @@ WORKDIR /build/cabal
 RUN wget -qO- https://github.com/haskell/cabal/archive/Cabal-v${CABAL_VERSION}.tar.gz | tar xzfv - -C . --strip-components 1 \
   && cd cabal-install \
   && ./bootstrap.sh
+
+# Cabal to PATH
+ENV PATH="/root/.cabal/bin:${PATH}"
+
+ARG CARDANO_VERSION="1.21.1"
+WORKDIR /build/cardano-node
+RUN git clone --branch ${CARDANO_VERSION} https://github.com/input-output-hk/cardano-node.git && \
+    cd cardano-node && \
+    cabal update && \
+    cabal build all
+
+RUN mkdir -p /root/cardano/bin/ && \
+    cabal install cardano-node cardano-cli --installdir=/root/bin/
