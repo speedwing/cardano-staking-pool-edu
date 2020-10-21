@@ -10,7 +10,7 @@ spec:
     app: relay-node-{{ $attributes.name }}
   ports:
     - protocol: TCP
-      port: 80
+      port: {{ $attributes.port }}
       targetPort: {{ $attributes.port }}
       nodePort: {{ $attributes.nodePort }}
   type: NodePort

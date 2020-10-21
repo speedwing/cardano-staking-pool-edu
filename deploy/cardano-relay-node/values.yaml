@@ -10,8 +10,8 @@ nodes:
   - name: tau
     enabled: true
     port: 3000
-    nodePort: 13000
+    nodePort: 30000
   - name: phi
     enabled: false
     port: 3001
-    nodePort: 13001
+    nodePort: 30010
