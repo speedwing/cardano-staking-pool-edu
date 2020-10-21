@@ -47,5 +47,6 @@ spec:
         - name: db
           persistentVolumeClaim:
             claimName: relay-node-alpha
+  strategy: Replace
 {{ end }}
 {{ end }}
