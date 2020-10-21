@@ -6,7 +6,6 @@ metadata:
   labels:
     {{- include "cardano-relay-node.labels" . | nindent 4 }}
 spec:
-  storageClassName: standard
   accessModes:
     - ReadWriteOnce
   resources:
