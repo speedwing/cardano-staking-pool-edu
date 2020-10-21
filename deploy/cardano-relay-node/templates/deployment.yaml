@@ -48,6 +48,6 @@ spec:
           persistentVolumeClaim:
             claimName: relay-node-alpha
   strategy:
-    type: Replace
+    type: Recreate
 {{ end }}
 {{ end }}
