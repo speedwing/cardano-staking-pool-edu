@@ -22,20 +22,27 @@ spec:
           image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
           command: [ "cardano-node" ]
           args:
-            - run
-            - --topology
-            - path/to/mainnet-topology.json
-            - --database-path
-            - /db
-            - --socket-path
-            - /db/node.socket
-            - --host-addr
-            - {{ $.Values.publicIp }}
-            - --port
-            - {{ $attributes.port }}
-            - --config
-            - path/to/mainnet-config.json
+            - "run"
+            - "--topology"
+            - "/etc/config/{{ $.Values.network }}-topology.json"
+            - "--database-path"
+            - "/db"
+            - "--socket-path"
+            - "/db/node.socket"
+            - "--host-addr"
+            - {{ $.Values.publicIp | quote }}
+            - "--port"
+            - {{ $attributes.port | quote }}
+            - "--config"
+            - "/etc/config/{{ $.Values.network }}-config.json"
           ports:
             - containerPort: {{ $attributes.port }}
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
+      volumes:
+        - name: config-files
+          configMap:
+            name: node-configuration
 {{ end }}
 {{ end }}
