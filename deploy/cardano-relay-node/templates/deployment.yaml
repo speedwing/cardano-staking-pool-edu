@@ -36,7 +36,7 @@ spec:
           ports:
             - containerPort: {{ $attributes.port }}
           volumeMounts:
-            - name: config-volume
+            - name: config-files
               mountPath: /etc/config
       volumes:
         - name: config-files
