@@ -4,6 +4,8 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.21.1"
 
+publicIp: 79.97.151.246
+
 nodes:
   - name: tau
     enabled: true

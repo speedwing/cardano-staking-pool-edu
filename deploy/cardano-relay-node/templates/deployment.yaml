@@ -30,7 +30,7 @@ spec:
             - --socket-path
             - /db/node.socket
             - --host-addr
-            - x.x.x.x
+            - {{ $.Values.publicIp }}
             - --port
             - {{ $attributes.port }}
             - --config
