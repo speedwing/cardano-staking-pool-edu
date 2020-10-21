@@ -38,9 +38,14 @@ spec:
           volumeMounts:
             - name: config-files
               mountPath: /etc/config
+            - name: db
+              mountPath: /db
       volumes:
         - name: config-files
           configMap:
             name: node-configuration
+        - name: db
+          persistentVolumeClaim:
+            claimName: relay-node-alpha
 {{ end }}
 {{ end }}
