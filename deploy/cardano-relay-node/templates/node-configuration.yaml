@@ -6,4 +6,10 @@ metadata:
   labels:
     {{- include "cardano-relay-node.labels" . | nindent 4 }}
 data:
-{{ (.Files.Glob "configuration/*.json").AsConfig | indent 2 }}
+{{ if eq .Values.network "mainnet" }}
+{{ (.Files.Glob "configuration/mainnet-*.json").AsConfig | indent 2 }}
+{{ else if eq .Values.network "testnet" }}
+{{ (.Files.Glob "configuration/testnet-*.json").AsConfig | indent 2 }}
+{{ else }}
+{{ (.Files.Glob "configuration/testnet-*.json").AsConfig | indent 2 }}
+{{ end }}

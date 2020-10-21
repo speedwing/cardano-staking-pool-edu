@@ -1,15 +1,18 @@
+{{ range $attributes := .Values.nodes }}
+{{ if $attributes.enabled }}
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "cardano-relay-node.fullname" . }}
-  labels:
-    {{- include "cardano-relay-node.labels" . | nindent 4 }}
+  name: relay-node-{{ $attributes.name }}
 spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
   selector:
-    {{- include "cardano-relay-node.selectorLabels" . | nindent 4 }}
+    app: relay-node-{{ $attributes.name }}
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: {{ $attributes.port }}
+      nodePort: {{ $attributes.nodePort }}
+  type: NodePort
+{{ end }}
+{{ end }}
