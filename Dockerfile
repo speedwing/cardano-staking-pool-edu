@@ -46,6 +46,11 @@ RUN git clone --branch ${CARDANO_VERSION} https://github.com/input-output-hk/car
 
 FROM ubuntu:18.04
 
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends netbase && \
+    rm -rf /var/lib/apt/lists/*
+
 ## Libsodium refs
 COPY --from=builder /usr/local/lib /usr/local/lib
 
