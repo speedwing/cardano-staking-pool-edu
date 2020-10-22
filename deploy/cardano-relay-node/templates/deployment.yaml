@@ -33,9 +33,6 @@ spec:
             - {{ $attributes.port | quote }}
             - "--config"
             - "/etc/config/{{ $.Values.network }}-config.json"
-          env:
-            - name: PROMETHEUS_HOST
-              value: "0.0.0.0"
           ports:
             - name: node
               containerPort: {{ $attributes.port }}
