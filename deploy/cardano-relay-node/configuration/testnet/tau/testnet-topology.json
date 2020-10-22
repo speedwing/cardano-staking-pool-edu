@@ -6,7 +6,7 @@
       "valency": 2
     },
     {
-      "addr": "relay-node-phi",
+      "addr": "relay-node-phi.cardano-relay.svc",
       "port": 3001,
       "valency": 1
     }
