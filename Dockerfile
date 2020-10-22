@@ -54,6 +54,10 @@ RUN apt-get update && \
 ## Libsodium refs
 COPY --from=builder /usr/local/lib /usr/local/lib
 
+ENV OS_ARCH="aarch64"
+ENV GHC_VERSION="8.6.5"
+ENV CARDANO_VERSION="1.21.1"
+
 ## Not sure I still need thse
 ENV LD_LIBRARY_PATH="/usr/local/lib"
 ENV PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
