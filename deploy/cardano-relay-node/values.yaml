@@ -2,7 +2,7 @@ image:
   repository: speedwing/cardano-node
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.21.1"
+  tag: "1.21.1-2"
 
 publicIp: 79.97.151.246
 
