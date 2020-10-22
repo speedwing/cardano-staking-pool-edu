@@ -37,7 +37,7 @@
   "TraceTxInbound": true,
   "TraceTxOutbound": true,
   "TraceTxSubmissionProtocol": true,
-  "TracingVerbosity": "MaximalVerbosity",
+  "TracingVerbosity": "NormalVerbosity",
   "TurnOnLogMetrics": true,
   "TurnOnLogging": true,
   "ViewMode": "SimpleView",
@@ -55,7 +55,7 @@
     "127.0.0.1",
     12798
   ],
-  "minSeverity": "Debug",
+  "minSeverity": "Info",
   "options": {
     "mapBackends": {
       "cardano.node-metrics": [
