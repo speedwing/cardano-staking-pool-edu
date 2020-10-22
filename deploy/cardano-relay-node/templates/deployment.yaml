@@ -42,7 +42,14 @@ spec:
             httpGet:
               path: /metrics
               port: prom
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
+            periodSeconds: 5
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: prom
+            initialDelaySeconds: 50
             periodSeconds: 5
             timeoutSeconds: 10
           volumeMounts:
