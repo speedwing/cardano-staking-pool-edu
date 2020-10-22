@@ -12,6 +12,6 @@ nodes:
     port: 3000
     nodePort: 30000
   - name: phi
-    enabled: false
+    enabled: true
     port: 3001
     nodePort: 30010

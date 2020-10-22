@@ -4,16 +4,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "relay-node-{{ $attributes.name }}"
+  name: "cardano-node-{{ $attributes.name }}"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "relay-node-{{ $attributes.name }}"
+      app: "cardano-node-{{ $attributes.name }}"
   template:
     metadata:
       labels:
-        app: "relay-node-{{ $attributes.name }}"
+        app: "cardano-node-{{ $attributes.name }}"
     spec:
       containers:
         - name: cardano-node
@@ -63,7 +63,7 @@ spec:
             name: node-configuration-{{ $attributes.name }}
         - name: db
           persistentVolumeClaim:
-            claimName: relay-node-alpha
+            claimName: cardano-node-{{ $attributes.name }}
   strategy:
     type: Recreate
 {{ end }}
