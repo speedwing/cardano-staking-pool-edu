@@ -28,7 +28,7 @@ spec:
             - "--socket-path"
             - "/db/node.socket"
             - "--host-addr"
-            - {{ $.Values.publicIp | quote }}
+            - "0.0.0.0"
             - "--port"
             - {{ $attributes.port | quote }}
             - "--config"
