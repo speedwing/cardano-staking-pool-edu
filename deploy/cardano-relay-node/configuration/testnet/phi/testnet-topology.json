@@ -6,7 +6,7 @@
       "valency": 2
     },
     {
-      "addr": "relay-node-tau.cardano-relay.svc",
+      "addr": "relay-node-tau.cardano-relay.svc.cluster.local",
       "port": 3000,
       "valency": 1
     }
