@@ -38,20 +38,20 @@ spec:
               containerPort: {{ $attributes.port }}
             - name: prom
               containerPort: {{ $attributes.prometheusPort | default 12798 }}
-#          livenessProbe:
-#            httpGet:
-#              path: /metrics
-#              port: prom
-#            initialDelaySeconds: 60
-#            periodSeconds: 5
-#            timeoutSeconds: 10
-#          readinessProbe:
-#            httpGet:
-#              path: /metrics
-#              port: prom
+          livenessProbe:
+            httpGet:
+              path: /metrics
+              port: prom
+            initialDelaySeconds: 120
+            periodSeconds: 5
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: prom
 #            initialDelaySeconds: 50
-#            periodSeconds: 5
-#            timeoutSeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 10
           volumeMounts:
             - name: config-files
               mountPath: /etc/config

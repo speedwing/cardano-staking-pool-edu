@@ -12,7 +12,7 @@ spec:
     - protocol: TCP
       name: node
       port: {{ $attributes.port }}
-      targetPort: {{ $attributes.port }}
+      targetPort: node
       nodePort: {{ $attributes.nodePort }}
   type: NodePort
 {{ end }}
