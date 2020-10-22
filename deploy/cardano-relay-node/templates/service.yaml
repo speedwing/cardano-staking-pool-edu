@@ -11,6 +11,8 @@ spec:
   ports:
     - protocol: TCP
       name: node
+      port: {{ $attributes.port }}
+      targetPort: {{ $attributes.port }}
       nodePort: {{ $attributes.nodePort }}
   type: NodePort
 {{ end }}
