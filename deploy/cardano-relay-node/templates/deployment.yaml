@@ -43,7 +43,7 @@ spec:
       volumes:
         - name: config-files
           configMap:
-            name: node-configuration
+            name: node-configuration-{{ $attributes.name }}
         - name: db
           persistentVolumeClaim:
             claimName: relay-node-alpha

@@ -1,15 +1,19 @@
+{{ range $attributes := .Values.nodes }}
+
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: node-configuration
-  labels:
-    {{- include "cardano-relay-node.labels" . | nindent 4 }}
+  name: node-configuration-{{ $attributes.name }}
 data:
-{{ if eq .Values.network "mainnet" }}
-{{ (.Files.Glob "configuration/mainnet-*.json").AsConfig | indent 2 }}
-{{ else if eq .Values.network "testnet" }}
-{{ (.Files.Glob "configuration/testnet-*.json").AsConfig | indent 2 }}
-{{ else }}
-{{ (.Files.Glob "configuration/testnet-*.json").AsConfig | indent 2 }}
+{{ if eq $.Values.network "mainnet" }}
+{{ ($.Files.Glob "configuration/mainnet/*.json").AsConfig | indent 2 }}
+{{ else if eq $.Values.network "testnet" }}
+{{ ($.Files.Glob "configuration/testnet/*.json").AsConfig | indent 2 }}
+{{ if eq $attributes.name "tau" }}
+{{ ($.Files.Glob "configuration/testnet/tau/*.json").AsConfig | indent 2 }}
+{{ else if eq $attributes.name "phi" }}
+{{ ($.Files.Glob "configuration/testnet/phi/*.json").AsConfig | indent 2 }}
+{{ end }}
+{{ end }}
 {{ end }}
