@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ddclient
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ddclient
+  template:
+    metadata:
+      labels:
+        app: ddclient
+    spec:
+      containers:
+        - name: ddclient
+          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+          volumeMounts:
+            - name: ddclient-conf
+              mountPath: /etc
+      volumes:
+        - name: ddclient-conf
+          secret:
+            secretName: ddclient-conf
