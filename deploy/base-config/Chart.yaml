@@ -1,5 +1,4 @@
 ---
 apiVersion: v2
-name: rpi-cluster-base-configuration
-description: Bla
+name: base-configuration
 version: 0.0.1
