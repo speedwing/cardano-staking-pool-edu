@@ -18,7 +18,7 @@ spec:
           image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
           volumeMounts:
             - name: ddclient-conf
-              mountPath: /etc
+              mountPath: /config
       volumes:
         - name: ddclient-conf
           secret:
