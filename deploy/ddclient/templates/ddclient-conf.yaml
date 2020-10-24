@@ -9,5 +9,5 @@ spec:
     metadata:
       creationTimestamp: null
       name: ddclient-conf
-      namespace: default
+      namespace: {{ .Release.Namespace }}
 
