@@ -8,8 +8,3 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: dnsutil
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: cardano-relay
