@@ -62,6 +62,9 @@ spec:
             - name: config-files
               mountPath: "/etc/config/{{ $.Values.network }}-topology.json"
               subPath: "{{ $.Values.network }}-topology.json"
+            - name: config-files
+              mountPath: "/etc/config/{{ $.Values.network }}-config.json"
+              subPath: "{{ $.Values.network }}-config.json"
             - name: db
               mountPath: /db
       volumes:
