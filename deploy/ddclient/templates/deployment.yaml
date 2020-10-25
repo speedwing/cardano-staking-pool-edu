@@ -16,6 +16,13 @@ spec:
       containers:
         - name: ddclient
           image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "Europe/Dublin"
           volumeMounts:
             - name: ddclient-conf
               mountPath: /config
