@@ -6,7 +6,7 @@ metadata:
   name: node-configuration-{{ $attributes.name }}
 data:
 {{ if eq $.Values.network "mainnet" }}
-{{ (.Files.Glob "configuration/mainnet-*.json").AsConfig | indent 2 }}
+{{ ($.Files.Glob "configuration/mainnet-*.json").AsConfig | indent 2 }}
 {{ if eq $attributes.name "lambda" }}
 {{ ($.Files.Glob "configuration/mainnet/lambda/*.json").AsConfig | indent 2 }}
 {{ else if eq $attributes.name "rho" }}
@@ -15,7 +15,7 @@ data:
 {{ ($.Files.Glob "configuration/mainnet/alpha/*.json").AsConfig | indent 2 }}
 {{ end }}
 {{ else if eq $.Values.network "testnet" }}
-{{ (.Files.Glob "configuration/testnet-*.json").AsConfig | indent 2 }}
+{{ ($.Files.Glob "configuration/testnet-*.json").AsConfig | indent 2 }}
 {{ if eq $attributes.name "tau" }}
 {{ ($.Files.Glob "configuration/testnet/tau/*.json").AsConfig | indent 2 }}
 {{ else if eq $attributes.name "phi" }}
