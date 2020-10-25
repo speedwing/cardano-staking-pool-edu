@@ -1,0 +1,17 @@
+network: testnet
+
+nodes:
+  - name: tau
+    type: relay
+    enabled: true
+    port: 3000
+  - name: phi
+    type: relay
+    enabled: true
+    port: 3000
+  - name: omega
+    type: block-producer
+    enabled: false
+    port: 3000
+
+nodePort: 30000

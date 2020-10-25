@@ -9,11 +9,17 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "cardano-node-{{ $attributes.name }}"
+      app: cardano-node
+      name: {{ $attributes.name }}
+      type: {{ $attributes.type }}
+      network: {{ .Values.network }}
   template:
     metadata:
       labels:
-        app: "cardano-node-{{ $attributes.name }}"
+        app: cardano-node
+        name: {{ $attributes.name }}
+        type: {{ $attributes.type }}
+        network: {{ .Values.network }}
     spec:
       containers:
         - name: cardano-node

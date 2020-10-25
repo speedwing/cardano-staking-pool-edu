@@ -1,0 +1,38 @@
+{{ range $attributes := .Values.nodes }}
+{{ if $attributes.enabled }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cardano-node-{{ $attributes.name }}
+spec:
+  selector:
+    app: cardano-node
+    name: {{ $attributes.name }}
+    type: {{ $attributes.type }}
+    network: {{ .Values.network }}
+  ports:
+    - protocol: TCP
+      name: node
+      port: {{ $attributes.port }}
+      targetPort: node
+{{ end }}
+{{ end }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cardano-relay-node
+spec:
+  selector:
+    app: cardano-node
+    type: relay
+    network: {{ .Values.network }}
+  ports:
+    - protocol: TCP
+      name: node
+      port: 3000
+      targetPort: node
+      nodePort: {{ .Values.nodePort }}
+      

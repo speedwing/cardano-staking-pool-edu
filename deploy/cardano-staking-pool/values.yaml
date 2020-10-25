@@ -4,12 +4,10 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.21.1-2"
 
-nodes:
-  - name: tau
-    enabled: true
-    port: 3000
-    nodePort: 30000
-  - name: phi
-    enabled: true
-    port: 3001
-    nodePort: 30010
+#nodes:
+#  - name: name of the node
+#    type: [ relay | block-producer ]
+#    enabled: true
+#    port: 3000 [ port ]
+#
+#nodePort: 30000
