@@ -139,7 +139,8 @@ spec:
             timeoutSeconds: 10
           volumeMounts:
             - name: config-files
-              mountPath: /etc/config
+              mountPath: "/etc/config/{{ $.Values.network }}-config.json"
+              subPath: "{{ $.Values.network }}-config.json"
             - name: secret-keys
               mountPath: /etc/keys
             - name: db
