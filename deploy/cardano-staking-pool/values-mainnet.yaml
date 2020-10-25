@@ -5,7 +5,7 @@ nodes:
     type: relay
     enabled: true
     port: 3000
-    replicas: 0
+    replicas: 1
   - name: rho
     type: relay
     enabled: true
