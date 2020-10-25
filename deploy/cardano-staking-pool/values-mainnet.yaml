@@ -1,1 +1,17 @@
 network: mainnet
+
+nodes:
+  - name: lambda
+    type: relay
+    enabled: true
+    port: 3000
+  - name: rho
+    type: relay
+    enabled: false
+    port: 3000
+  - name: alpha
+    type: block-producer
+    enabled: false
+    port: 3000
+
+nodePort: 30001
