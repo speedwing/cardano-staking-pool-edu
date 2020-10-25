@@ -8,3 +8,13 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: dnsutils
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cardano-staking-mainnet
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cardano-staking-testnet
