@@ -1,5 +1,4 @@
 {{ range $attributes := .Values.nodes }}
-
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -7,7 +6,6 @@ metadata:
   name: node-configuration-{{ $attributes.name }}
 data:
 {{ if eq $.Values.network "mainnet" }}
-{{ ($.Files.Glob "configuration/mainnet/*.json").AsConfig | indent 2 }}
 {{ if eq $attributes.name "tau" }}
 {{ ($.Files.Glob "configuration/mainnet/lambda/*.json").AsConfig | indent 2 }}
 {{ else if eq $attributes.name "phi" }}
@@ -16,7 +14,6 @@ data:
 {{ ($.Files.Glob "configuration/mainnet/omega/*.json").AsConfig | indent 2 }}
 {{ end }}
 {{ else if eq $.Values.network "testnet" }}
-{{ ($.Files.Glob "configuration/testnet/*.json").AsConfig | indent 2 }}
 {{ if eq $attributes.name "tau" }}
 {{ ($.Files.Glob "configuration/testnet/tau/*.json").AsConfig | indent 2 }}
 {{ else if eq $attributes.name "phi" }}
