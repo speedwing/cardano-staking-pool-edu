@@ -4,6 +4,14 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.21.1-3"
 
+resources:
+  limits:
+    memory: "3Gi"
+    cpu: 2
+  requests:
+    memory: "2Gi"
+    cpu: 1
+
 #nodes:
 #  - name: name of the node
 #    type: [ relay | block-producer ]

@@ -58,6 +58,10 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 5
             timeoutSeconds: 10
+          {{- with $.Values.resources }}
+          resources:
+{{ toYaml . | indent 12 }}
+          {{- end }}
           volumeMounts:
             - name: config-files
               mountPath: "/etc/config/{{ $.Values.network }}-topology.json"
