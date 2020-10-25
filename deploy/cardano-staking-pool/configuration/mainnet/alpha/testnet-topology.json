@@ -1,0 +1,14 @@
+{
+  "Producers": [
+    {
+      "addr": "cardano-node-lambda.cardano-staking-mainnet.svc.cluster.local",
+      "port": 3000,
+      "valency": 1
+    },
+    {
+      "addr": "cardano-node-rho.cardano-staking-mainnet.svc.cluster.local",
+      "port": 3000,
+      "valency": 1
+    }
+  ]
+}
