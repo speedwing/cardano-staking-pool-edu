@@ -6,7 +6,7 @@ kind: Deployment
 metadata:
   name: "cardano-node-{{ $attributes.name }}"
 spec:
-  replicas: {{ $attributes.replicas | default 1}}
+  replicas: {{ $attributes.replicas }}
   selector:
     matchLabels:
       app: cardano-node
@@ -80,7 +80,7 @@ kind: Deployment
 metadata:
   name: "cardano-node-{{ $attributes.name }}"
 spec:
-  replicas: 1
+  replicas: {{ $attributes.replicas }}
   selector:
     matchLabels:
       app: cardano-node

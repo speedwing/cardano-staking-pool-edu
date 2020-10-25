@@ -5,6 +5,7 @@ nodes:
     type: relay
     enabled: true
     port: 3000
+    replicas: 1
   - name: phi
     type: relay
     enabled: true
@@ -14,5 +15,6 @@ nodes:
     type: block-producer
     enabled: false
     port: 3000
+    replicas: 1
 
 nodePort: 30000

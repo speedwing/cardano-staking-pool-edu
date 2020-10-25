@@ -5,13 +5,16 @@ nodes:
     type: relay
     enabled: true
     port: 3000
+    replicas: 1
   - name: rho
     type: relay
     enabled: false
     port: 3000
+    replicas: 1
   - name: alpha
     type: block-producer
     enabled: false
     port: 3000
+    replicas: 1
 
 nodePort: 30001
