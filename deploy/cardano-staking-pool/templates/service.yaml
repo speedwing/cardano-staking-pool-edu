@@ -10,7 +10,7 @@ spec:
     app: cardano-node
     name: {{ $attributes.name }}
     type: {{ $attributes.type }}
-    network: {{ .Values.network }}
+    network: {{ $.Values.network }}
   ports:
     - protocol: TCP
       name: node

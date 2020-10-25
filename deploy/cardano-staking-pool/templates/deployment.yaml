@@ -12,14 +12,14 @@ spec:
       app: cardano-node
       name: {{ $attributes.name }}
       type: {{ $attributes.type }}
-      network: {{ .Values.network }}
+      network: {{ $.Values.network }}
   template:
     metadata:
       labels:
         app: cardano-node
         name: {{ $attributes.name }}
         type: {{ $attributes.type }}
-        network: {{ .Values.network }}
+        network: {{ $.Values.network }}
     spec:
       containers:
         - name: cardano-node
