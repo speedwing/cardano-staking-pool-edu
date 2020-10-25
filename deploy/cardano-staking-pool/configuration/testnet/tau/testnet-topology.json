@@ -6,8 +6,8 @@
       "valency": 2
     },
     {
-      "addr": "cardano-node-phi.cardano-relay.svc.cluster.local",
-      "port": 3001,
+      "addr": "cardano-node-phi.cardano-staking-testnet.svc.cluster.local",
+      "port": 3000,
       "valency": 1
     }
   ]
