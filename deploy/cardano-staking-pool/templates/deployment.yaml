@@ -60,8 +60,8 @@ spec:
             timeoutSeconds: 10
           volumeMounts:
             - name: config-files
-              mountPath: "/etc/config/{{ $.Values.network }}-config.json"
-              subPath: "{{ $.Values.network }}-config.json"
+              mountPath: "/etc/config/{{ $.Values.network }}-topology.json"
+              subPath: "{{ $.Values.network }}-topology.json"
             - name: db
               mountPath: /db
       volumes:
@@ -140,8 +140,8 @@ spec:
             timeoutSeconds: 10
           volumeMounts:
             - name: config-files
-              mountPath: "/etc/config/{{ $.Values.network }}-config.json"
-              subPath: "{{ $.Values.network }}-config.json"
+              mountPath: "/etc/config/{{ $.Values.network }}-topology.json"
+              subPath: "{{ $.Values.network }}-topology.json"
             - name: secret-keys
               mountPath: /etc/keys
             - name: db
