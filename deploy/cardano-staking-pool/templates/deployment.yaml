@@ -162,7 +162,7 @@ spec:
             name: node-configuration-{{ $attributes.name }}
         - name: secret-keys
           secret:
-            secretName: node-secret-keys-{{ $attributes.name }}
+            secretName: cardano-node-producer-secret
         - name: db
           persistentVolumeClaim:
             claimName: cardano-node-{{ $attributes.name }}
