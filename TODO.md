@@ -1,7 +1,8 @@
 # Todo
 
 * test volume snapshotting in k8s
-* backup testnet chain once downloaded
+* backup mainnet and testnet chain once downloaded
+  * test how to copy blockchain
 * configure home router to open mainnet port
 * ensure relay nodes test net can talk to eachother
 
