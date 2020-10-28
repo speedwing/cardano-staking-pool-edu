@@ -17,6 +17,6 @@ spec:
       - {{ $serviceMonitor.namespace }}
   selector:
     matchLabels:
-      app: {{ $serviceMonitor.name }}
+      app: {{ $serviceMonitor.serviceName }}
 {{ end }}
 {{ end }}
