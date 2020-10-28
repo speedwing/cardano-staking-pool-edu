@@ -8,12 +8,12 @@ nodes:
     replicas: 1
   - name: rho
     type: relay
-    enabled: true
+    enabled: false
     port: 3000
     replicas: 1
   - name: alpha
     type: block-producer
-    enabled: true
+    enabled: false
     port: 3000
     replicas: 1
 
