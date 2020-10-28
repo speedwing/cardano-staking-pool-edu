@@ -6,13 +6,13 @@ kind: ServiceMonitor
 metadata:
   name: {{ $serviceMonitor.serviceName }}
   namespace: monitoring
+  generation: 1
   labels:
     k8s-app: {{ $serviceMonitor.app }}
 spec:
   endpoints:
     - path: {{ $serviceMonitor.endpoint | default "/metrics" }}
       port: {{ $serviceMonitor.port | default "prom" }}
-  jobLabel: k8s-app
   namespaceSelector:
     matchNames:
       - {{ $serviceMonitor.namespace }}
