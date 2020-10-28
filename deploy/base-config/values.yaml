@@ -3,9 +3,7 @@ serviceMonitors:
     app: cardano-node
     enabled: true
     namespace: cardano-staking-mainnet
-    port: "12798"
   - serviceName: cardano-node-testnet
     app: cardano-node
     enabled: true
     namespace: cardano-staking-testnet
-    port: "12798"

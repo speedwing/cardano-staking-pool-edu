@@ -16,6 +16,10 @@ spec:
       name: node
       port: {{ $attributes.port }}
       targetPort: node
+    - protocol: TCP
+      name: prom
+      port: 12798
+      targetPort: prom
 {{ end }}
 {{ end }}
 
