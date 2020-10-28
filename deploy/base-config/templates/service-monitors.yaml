@@ -4,7 +4,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: {{ $serviceMonitor.name }}
+  name: {{ $serviceMonitor.serviceName }}
   namespace: {{ $serviceMonitor.namespace }}
   labels:
     release: prometheus
