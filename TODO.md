@@ -1,12 +1,12 @@
 # Todo
 
 * test volume snapshotting in k8s
-* close ssh to cert only
 * move ssh port 
 * check router open ports
 * seetup dyndns for mainnet
 
 # Done
+* close ssh to cert only
 * ensure relay nodes test net can talk to eachother
 * move default json into docker image
 * launch mainnet relay node
