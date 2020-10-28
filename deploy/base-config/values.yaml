@@ -1,7 +1,7 @@
 serviceMonitors:
   - serviceName: cardano-node
     enabled: true
-    namespace: cardano-staking-testnet
+    namespace: cardano-staking-mainnet
   - serviceName: cardano-node
     enabled: true
     namespace: cardano-staking-testnet
