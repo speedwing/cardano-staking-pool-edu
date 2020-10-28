@@ -10,12 +10,13 @@ metadata:
     release: prometheus
 spec:
   endpoints:
-    - path: {{ $serviceMonitor.endpoint | "/metrics" }}
-      port: {{ $serviceMonitor.port | "prom" }}
+    - path: {{ $serviceMonitor.endpoint | default "/metrics" }}
+      port: {{ $serviceMonitor.port | default "prom" }}
   namespaceSelector:
     matchNames:
       - {{ $serviceMonitor.namespace }}
   selector:
     matchLabels:
       app: {{ $serviceMonitor.name }}
+{{ end }}
 {{ end }}
