@@ -1,8 +1,25 @@
 defaultRules:
-  rules:
-    alertmanager: false
+  create: false
+
+alertmanager:
+  enabled: false
 
 grafana:
   service:
     type: NodePort
     nodePort: 30100
+
+coreDns:
+  enabled: false
+
+kubeEtcd:
+  enabled: false
+
+kubeScheduler:
+  enabled: false
+
+kubeProxy:
+  enabled: false
+
+kubeStateMetrics:
+  enabled: false
