@@ -5,10 +5,9 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: {{ $serviceMonitor.serviceName }}
-  namespace: monitoring
-  generation: 1
+  namespace: {{ $serviceMonitor.namespace }}
   labels:
-    k8s-app: {{ $serviceMonitor.app }}
+    release: kube-prometheus-stack
 spec:
   endpoints:
     - path: {{ $serviceMonitor.endpoint | default "/metrics" }}

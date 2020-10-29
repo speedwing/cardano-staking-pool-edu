@@ -5,6 +5,7 @@
 * check router open ports
 * seetup dyndns for mainnet
 * cronjob to backup chains
+* microk8s restarated upon server bounce
 
 # Done
 * close ssh to cert only
