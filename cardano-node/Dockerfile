@@ -37,7 +37,7 @@ RUN wget -qO- https://github.com/haskell/cabal/archive/Cabal-v${CABAL_VERSION}.t
 # Cabal to PATH
 ENV PATH="/root/.cabal/bin:${PATH}"
 
-ENV CARDANO_VERSION="1.21.1"
+ENV CARDANO_VERSION="1.22.0"
 WORKDIR /build/cardano-node
 RUN git clone --branch ${CARDANO_VERSION} https://github.com/input-output-hk/cardano-node.git && \
     cd cardano-node && \
