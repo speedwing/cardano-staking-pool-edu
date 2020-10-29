@@ -19,7 +19,6 @@ spec:
     - protocol: TCP
       name: prom
       port: 12798
-      targetPort: prom
 {{ end }}
 {{ end }}
 
