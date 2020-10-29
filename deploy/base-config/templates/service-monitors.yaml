@@ -20,18 +20,3 @@ spec:
       app: {{ $serviceMonitor.app }}
 {{ end }}
 {{ end }}
----
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  name: test
-  namespace: cardano-staking-testnet
-  labels:
-    release: kube-prometheus-stack
-spec:
-  endpoints:
-    - path: "/metrics"
-      port: "prom"
-  selector:
-    matchLabels:
-      app: cardano-node
