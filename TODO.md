@@ -4,6 +4,7 @@
 * move ssh port 
 * check router open ports
 * seetup dyndns for mainnet
+* cronjob to backup chains
 
 # Done
 * close ssh to cert only

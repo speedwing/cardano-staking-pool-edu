@@ -1,0 +1,8 @@
+defaultRules:
+  rules:
+    alertmanager: false
+
+grafana:
+  service:
+    type: NodePort
+    nodePort: 30100
