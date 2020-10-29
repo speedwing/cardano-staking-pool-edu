@@ -56,7 +56,7 @@ COPY --from=builder /usr/local/lib /usr/local/lib
 
 ENV OS_ARCH="aarch64"
 ENV GHC_VERSION="8.6.5"
-ENV CARDANO_VERSION="1.21.1"
+ENV CARDANO_VERSION="1.22.0"
 
 ## Not sure I still need thse
 ENV LD_LIBRARY_PATH="/usr/local/lib"
