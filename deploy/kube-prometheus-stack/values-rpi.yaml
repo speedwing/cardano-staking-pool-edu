@@ -9,6 +9,11 @@ grafana:
     type: NodePort
     nodePort: 30100
 
+prometheus:
+  service:
+    type: NodePort
+    nodePort: 30200
+
 coreDns:
   enabled: false
 

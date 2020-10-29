@@ -6,6 +6,7 @@
 * seetup dyndns for mainnet
 * cronjob to backup chains
 * microk8s restarated upon server bounce
+* fstab SSD
 
 # Done
 * close ssh to cert only
