@@ -179,6 +179,19 @@ spec:
         - name: db
           persistentVolumeClaim:
             claimName: cardano-node-{{ $attributes.name }}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                - key: network
+                  labelSelector:
+                    matchExpressions:
+                      - key: network
+                        operator: In
+                        values:
+                          - {{ $.Values.network }}
+                        topologyKey: "kubernetes.io/hostname"
   strategy:
     type: Recreate
 {{ end }}
