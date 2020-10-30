@@ -145,11 +145,6 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 5
             timeoutSeconds: 10
-          podAntiAffinityLabelSelector:
-            - key: network
-              operator: In
-              values: {{ $.Values.network }}
-              topologyKey: "kubernetes.io/hostname"
           volumeMounts:
             - name: config-files
               mountPath: "/etc/config/{{ $.Values.network }}-topology.json"
