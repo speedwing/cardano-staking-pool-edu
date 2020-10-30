@@ -153,7 +153,14 @@ spec:
               mountPath: "/etc/config/{{ $.Values.network }}-config.json"
               subPath: "{{ $.Values.network }}-config.json"
             - name: secret-keys
-              mountPath: /etc/keys
+              mountPath: /etc/keys/vrf.skey
+              subPath: vrf.skey
+            - name: secret-keys
+              mountPath: /etc/keys/kes.skey
+              subPath: kes.skey
+            - name: secret-keys
+              mountPath: /etc/keys/node.cert
+              subPath: node.cert
             - name: db
               mountPath: /db
       volumes:
@@ -163,6 +170,7 @@ spec:
         - name: secret-keys
           secret:
             secretName: cardano-node-producer-secret
+            defaultMode: 0400
         - name: db
           persistentVolumeClaim:
             claimName: cardano-node-{{ $attributes.name }}
