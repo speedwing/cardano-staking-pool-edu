@@ -1,7 +1,7 @@
 network: testnet
 
-image:
-  tag: "1.22.0"
+#image:
+#  tag: "1.22.0"
 
 nodes:
   - name: tau
