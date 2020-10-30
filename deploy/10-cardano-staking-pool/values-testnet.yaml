@@ -1,8 +1,5 @@
 network: testnet
 
-image:
-  tag: "1.21.2"
-
 nodes:
   - name: tau
     type: relay
