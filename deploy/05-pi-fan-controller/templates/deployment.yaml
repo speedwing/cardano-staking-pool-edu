@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pi-fan-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pi-fan-controller
+  template:
+    metadata:
+      labels:
+        app: pi-fan-controller
+    spec:
+      containers:
+        - name: pi-fan-controller
+          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+          volumeMounts:
+            - name: termal-info
+              readOnly: true
+              mountPath: /sys/class/thermal/thermal_zone0/temp
+      volumes:
+        - name: termal-info
+          hostPath:
+            path: /sys/class/thermal/thermal_zone0/temp
+            # this field is optional
+            type: File

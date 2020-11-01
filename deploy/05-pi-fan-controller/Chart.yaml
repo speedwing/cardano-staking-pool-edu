@@ -1,0 +1,4 @@
+---
+apiVersion: v2
+name: pi-fan-controller
+version: 0.0.1
