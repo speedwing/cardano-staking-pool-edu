@@ -24,7 +24,8 @@ spec:
               mountPath: /dev
           securityContext:
             capabilities:
-              add: ["SYS_RAWIO"]
+              add: ["ALL"]
+            privileged: true
       volumes:
         - name: termal-info
           hostPath:
