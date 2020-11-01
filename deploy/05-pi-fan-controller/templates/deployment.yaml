@@ -22,14 +22,13 @@ spec:
               mountPath: /sys/class/thermal/thermal_zone0/temp
             - name: dev-mem
               mountPath: /dev/mem
+          securityContext:
+            capabilities:
+              add: ["CAP_SYS_RAWIO"]
       volumes:
         - name: termal-info
           hostPath:
             path: /sys/class/thermal/thermal_zone0/temp
             # this field is optional
             type: File
-        - name: dev-mem
-          hostPath:
-            path: /dev/mem
-            # this field is optional
-            type: Directory
+
