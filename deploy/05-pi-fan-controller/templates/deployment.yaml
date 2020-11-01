@@ -20,13 +20,18 @@ spec:
             - name: termal-info
               readOnly: true
               mountPath: /sys/class/thermal/thermal_zone0/temp
+            - name: devices
+              mountPath: /dev
           securityContext:
             capabilities:
-              add: ["CAP_SYS_RAWIO"]
+              add: ["SYS_RAWIO"]
       volumes:
         - name: termal-info
           hostPath:
             path: /sys/class/thermal/thermal_zone0/temp
             # this field is optional
             type: File
+        - name: devices
+          hostPath:
+            path: /dev
 
