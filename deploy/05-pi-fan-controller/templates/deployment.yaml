@@ -20,8 +20,6 @@ spec:
             - name: termal-info
               readOnly: true
               mountPath: /sys/class/thermal/thermal_zone0/temp
-            - name: dev-mem
-              mountPath: /dev/mem
           securityContext:
             capabilities:
               add: ["CAP_SYS_RAWIO"]
