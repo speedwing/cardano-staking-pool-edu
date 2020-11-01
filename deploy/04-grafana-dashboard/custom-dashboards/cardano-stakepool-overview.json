@@ -17,7 +17,7 @@
   "gnetId": 12469,
   "graphTooltip": 0,
   "id": 22,
-  "iteration": 1604103372531,
+  "iteration": 1604237995263,
   "links": [],
   "panels": [
     {
@@ -389,152 +389,47 @@
       }
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": "Prometheus",
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "links": []
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
         },
         "overrides": []
       },
-      "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 6,
         "x": 0,
         "y": 7
       },
-      "hiddenSeries": false,
-      "id": 26,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.2.1",
-      "pointradius": 2,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "cardano_node_BlockFetchDecision_peers_connectedPeers_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
-          "legendFormat": "{{namespace}}-{{pod}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "cardano-node/connected-peers",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "none",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "links": []
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 6,
-        "w": 6,
-        "x": 6,
-        "y": 7
-      },
-      "hiddenSeries": false,
       "id": 23,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": false,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
       },
-      "percentage": false,
       "pluginVersion": "7.2.1",
-      "pointradius": 2,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
           "expr": "cardano_node_ChainDB_metrics_slotInEpoch_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
@@ -542,144 +437,121 @@
           "refId": "A"
         }
       ],
-      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [],
       "timeShift": null,
       "title": "cardano-node/slot-in-epoch",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "none",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "stat"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": "Prometheus",
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "links": []
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
         },
         "overrides": []
       },
-      "fill": 1,
-      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 7
+      },
+      "id": 92,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "432000 - cardano_node_ChainDB_metrics_slotInEpoch_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
+          "interval": "",
+          "legendFormat": "{{namespace}}-{{pod}}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "cardano-node/slot-in-epoch-left",
+      "type": "stat"
+    },
+    {
+      "datasource": "Prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 6,
         "w": 6,
         "x": 12,
         "y": 7
       },
-      "hiddenSeries": false,
-      "id": 52,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": null,
-        "sortDesc": null,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
+      "id": 93,
       "options": {
-        "alertThreshold": true
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
       },
-      "percentage": false,
       "pluginVersion": "7.2.1",
-      "pointradius": 2,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
-          "expr": "cardano_node_ChainDB_metrics_density_real{namespace=~\"$namespace\", pod=~\"$pod\"} * 100",
+          "expr": "432000 - cardano_node_ChainDB_metrics_slotInEpoch_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
+          "interval": "",
           "legendFormat": "{{namespace}}-{{pod}}",
           "refId": "A"
         }
       ],
-      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [],
       "timeShift": null,
-      "title": "cardano-node/chain-density",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "percent",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "title": "Time to end of slot",
+      "type": "stat"
     },
     {
       "aliasColors": {},
@@ -787,7 +659,6 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -804,16 +675,14 @@
         "y": 13
       },
       "hiddenSeries": false,
-      "id": 83,
+      "id": 26,
       "legend": {
         "alignAsTable": true,
         "avg": true,
-        "current": false,
+        "current": true,
         "max": true,
         "min": true,
         "show": true,
-        "sort": "min",
-        "sortDesc": false,
         "total": false,
         "values": true
       },
@@ -826,7 +695,7 @@
       "percentage": false,
       "pluginVersion": "7.2.1",
       "pointradius": 2,
-      "points": false,
+      "points": true,
       "renderer": "flot",
       "seriesOverrides": [],
       "spaceLength": 10,
@@ -834,23 +703,16 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(cardano_node_ChainDB_metrics_blockNum_int{namespace=~\"$namespace\", pod=~\"$pod\"}[150s])*60",
-          "interval": "",
+          "expr": "cardano_node_BlockFetchDecision_peers_connectedPeers_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
           "legendFormat": "{{namespace}}-{{pod}}",
           "refId": "A"
-        },
-        {
-          "expr": "rate(cardano_node_metrics_ChainDB_blockNum_int{namespace=~\"$namespace\", pod=~\"$pod\"}[150s])*60",
-          "interval": "",
-          "legendFormat": "{{namespace}}-{{pod}}",
-          "refId": "B"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "cardano-node/block-sync-speed (blocks / min)",
+      "title": "cardano-node/connected-peers",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -866,7 +728,7 @@
       },
       "yaxes": [
         {
-          "format": "short",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -992,7 +854,6 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1009,7 +870,7 @@
         "y": 13
       },
       "hiddenSeries": false,
-      "id": 77,
+      "id": 52,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -1017,8 +878,8 @@
         "max": true,
         "min": true,
         "show": true,
-        "sort": "max",
-        "sortDesc": true,
+        "sort": null,
+        "sortDesc": null,
         "total": false,
         "values": true
       },
@@ -1039,8 +900,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "cardano_node_metrics_txsProcessedNum_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
-          "interval": "",
+          "expr": "cardano_node_ChainDB_metrics_density_real{namespace=~\"$namespace\", pod=~\"$pod\"} * 100",
           "legendFormat": "{{namespace}}-{{pod}}",
           "refId": "A"
         }
@@ -1049,7 +909,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "cardano-node/txs-processed",
+      "title": "cardano-node/chain-density",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1065,7 +925,7 @@
       },
       "yaxes": [
         {
-          "format": "none",
+          "format": "percent",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -1187,13 +1047,219 @@
       }
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 19
+      },
+      "hiddenSeries": false,
+      "id": 83,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "min",
+        "sortDesc": false,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(cardano_node_ChainDB_metrics_blockNum_int{namespace=~\"$namespace\", pod=~\"$pod\"}[150s])*60",
+          "interval": "",
+          "legendFormat": "{{namespace}}-{{pod}}",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(cardano_node_metrics_ChainDB_blockNum_int{namespace=~\"$namespace\", pod=~\"$pod\"}[150s])*60",
+          "interval": "",
+          "legendFormat": "{{namespace}}-{{pod}}",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "cardano-node/block-sync-speed (blocks / min)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 19
+      },
+      "hiddenSeries": false,
+      "id": 77,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "max",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "cardano_node_metrics_txsProcessedNum_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
+          "interval": "",
+          "legendFormat": "{{namespace}}-{{pod}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "cardano-node/txs-processed",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "collapsed": false,
       "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 19
+        "y": 25
       },
       "id": 72,
       "panels": [],
@@ -1220,7 +1286,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 20
+        "y": 26
       },
       "hiddenSeries": false,
       "id": 88,
@@ -1332,7 +1398,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 20
+        "y": 26
       },
       "hiddenSeries": false,
       "id": 70,
@@ -1444,7 +1510,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 20
+        "y": 26
       },
       "hiddenSeries": false,
       "id": 73,
@@ -1556,7 +1622,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 20
+        "y": 26
       },
       "hiddenSeries": false,
       "id": 74,
@@ -1654,7 +1720,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 26
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 53,
@@ -1752,7 +1818,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 26
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 80,
@@ -1849,7 +1915,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 26
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 25,
@@ -1961,7 +2027,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 26
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 81,
@@ -2046,7 +2112,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 32
+        "y": 38
       },
       "id": 19,
       "panels": [],
@@ -2073,7 +2139,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 33
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 1,
@@ -2198,7 +2264,7 @@
         "h": 7,
         "w": 6,
         "x": 6,
-        "y": 33
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 3,
@@ -2339,7 +2405,7 @@
         "h": 7,
         "w": 8,
         "x": 12,
-        "y": 33
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 91,
@@ -2452,7 +2518,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 40
+        "y": 46
       },
       "id": 35,
       "panels": [],
@@ -2478,7 +2544,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 41
+        "y": 47
       },
       "hiddenSeries": false,
       "id": 7,
@@ -2579,7 +2645,7 @@
         "h": 10,
         "w": 9,
         "x": 7,
-        "y": 41
+        "y": 47
       },
       "hiddenSeries": false,
       "id": 87,
@@ -2721,7 +2787,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 41
+        "y": 47
       },
       "hiddenSeries": false,
       "id": 11,
@@ -2821,7 +2887,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 47
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 6,
@@ -2921,7 +2987,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 47
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 10,
@@ -3021,7 +3087,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 51
+        "y": 57
       },
       "hiddenSeries": false,
       "id": 12,
@@ -3121,7 +3187,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 51
+        "y": 57
       },
       "hiddenSeries": false,
       "id": 13,
@@ -3233,7 +3299,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 57
+        "y": 63
       },
       "id": 90,
       "interval": null,
@@ -3316,7 +3382,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 57
+        "y": 63
       },
       "hiddenSeries": false,
       "id": 76,
@@ -3400,7 +3466,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 63
+        "y": 69
       },
       "id": 69,
       "panels": [
@@ -3625,7 +3691,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 64
+        "y": 70
       },
       "id": 33,
       "panels": [
@@ -4308,7 +4374,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 65
+        "y": 71
       },
       "id": 43,
       "panels": [
@@ -4378,8 +4444,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "cardano-staking-mainnet",
-          "value": "cardano-staking-mainnet"
+          "text": "cardano-staking-testnet",
+          "value": "cardano-staking-testnet"
         },
         "hide": 0,
         "includeAll": false,
@@ -4388,12 +4454,12 @@
         "name": "namespace",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "cardano-staking-mainnet",
             "value": "cardano-staking-mainnet"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "cardano-staking-testnet",
             "value": "cardano-staking-testnet"
           }
@@ -4406,9 +4472,9 @@
       {
         "allValue": "",
         "current": {
-          "selected": true,
-          "text": "cardano-node-alpha-67f6687c68-zjg99",
-          "value": "cardano-node-alpha-67f6687c68-zjg99"
+          "selected": false,
+          "text": "cardano-node-omega-5c655477b7-bqmgj",
+          "value": "cardano-node-omega-5c655477b7-bqmgj"
         },
         "datasource": "$datasource",
         "definition": "label_values(cardano_node_metrics_upTime_ns{namespace=~\"$namespace\"}, pod)",
@@ -4432,7 +4498,7 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {
@@ -4462,5 +4528,5 @@
   "timezone": "",
   "title": "cardano-node (stakepool overview)",
   "uid": "0000b0d919ec0ea5f6543124e16c42a1",
-  "version": 1
+  "version": 2
 }
