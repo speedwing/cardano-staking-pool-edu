@@ -17,7 +17,7 @@
   "gnetId": 12469,
   "graphTooltip": 0,
   "id": 22,
-  "iteration": 1604237995265,
+  "iteration": 1604242364233,
   "links": [],
   "panels": [
     {
@@ -198,103 +198,73 @@
       "type": "stat"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": "Prometheus",
       "description": "",
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "links": []
+          "links": [],
+          "mappings": [],
+          "max": 432000,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 50
+              },
+              {
+                "color": "orange",
+                "value": 100
+              }
+            ]
+          }
         },
         "overrides": []
       },
-      "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 6,
-        "w": 6,
+        "w": 4,
         "x": 12,
         "y": 1
       },
-      "hiddenSeries": false,
-      "id": 24,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": false,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
+      "id": 94,
       "options": {
-        "alertThreshold": true
+        "displayMode": "lcd",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
       },
-      "percentage": false,
       "pluginVersion": "7.2.1",
-      "pointradius": 2,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
-          "expr": "cardano_node_ChainDB_metrics_slotNum_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
-          "legendFormat": "{{namespace}}-{{pod}}",
+          "expr": "cardano_node_ChainDB_metrics_slotInEpoch_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
+          "interval": "",
+          "legendFormat": "Slot in Epoch",
           "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "cardano-node/slot-height",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "none",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
         },
         {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
+          "expr": "432000 - cardano_node_ChainDB_metrics_slotInEpoch_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
+          "interval": "",
+          "legendFormat": "Slot in Epoch left",
+          "refId": "B"
         }
       ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Slot in Epoch left",
+      "type": "bargauge"
     },
     {
       "datasource": "Prometheus",
@@ -625,7 +595,7 @@
         "y": 7
       },
       "hiddenSeries": false,
-      "id": 21,
+      "id": 24,
       "legend": {
         "alignAsTable": true,
         "avg": false,
@@ -649,14 +619,13 @@
       "pointradius": 2,
       "points": true,
       "renderer": "flot",
-      "repeat": null,
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "expr": "cardano_node_ChainDB_metrics_blockNum_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
+          "expr": "cardano_node_ChainDB_metrics_slotNum_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
           "legendFormat": "{{namespace}}-{{pod}}",
           "refId": "A"
         }
@@ -665,7 +634,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "cardano-node/block-height",
+      "title": "cardano-node/slot-height",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1031,15 +1000,15 @@
         "y": 13
       },
       "hiddenSeries": false,
-      "id": 78,
+      "id": 21,
       "legend": {
         "alignAsTable": true,
-        "avg": true,
+        "avg": false,
         "current": true,
-        "max": true,
+        "max": false,
         "min": true,
         "show": true,
-        "sort": "max",
+        "sort": "current",
         "sortDesc": true,
         "total": false,
         "values": true
@@ -1055,14 +1024,14 @@
       "pointradius": 2,
       "points": true,
       "renderer": "flot",
+      "repeat": null,
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "expr": "cardano_node_metrics_txsInMempool_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
-          "interval": "",
+          "expr": "cardano_node_ChainDB_metrics_blockNum_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
           "legendFormat": "{{namespace}}-{{pod}}",
           "refId": "A"
         }
@@ -1071,7 +1040,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "cardano-node/txs-in-mempool",
+      "title": "cardano-node/block-height",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1207,13 +1176,113 @@
       }
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 19
+      },
+      "hiddenSeries": false,
+      "id": 78,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "max",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "cardano_node_metrics_txsInMempool_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
+          "interval": "",
+          "legendFormat": "{{namespace}}-{{pod}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "cardano-node/txs-in-mempool",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "collapsed": false,
       "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 19
+        "y": 25
       },
       "id": 72,
       "panels": [],
@@ -1240,7 +1309,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 20
+        "y": 26
       },
       "hiddenSeries": false,
       "id": 88,
@@ -1352,7 +1421,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 20
+        "y": 26
       },
       "hiddenSeries": false,
       "id": 70,
@@ -1464,7 +1533,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 20
+        "y": 26
       },
       "hiddenSeries": false,
       "id": 73,
@@ -1576,7 +1645,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 20
+        "y": 26
       },
       "hiddenSeries": false,
       "id": 74,
@@ -1674,7 +1743,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 26
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 53,
@@ -1772,7 +1841,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 26
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 80,
@@ -1869,7 +1938,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 26
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 25,
@@ -1981,7 +2050,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 26
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 81,
@@ -2066,7 +2135,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 32
+        "y": 38
       },
       "id": 19,
       "panels": [],
@@ -2093,7 +2162,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 33
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 1,
@@ -2218,7 +2287,7 @@
         "h": 7,
         "w": 6,
         "x": 6,
-        "y": 33
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 3,
@@ -2359,7 +2428,7 @@
         "h": 7,
         "w": 8,
         "x": 12,
-        "y": 33
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 91,
@@ -2472,7 +2541,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 40
+        "y": 46
       },
       "id": 35,
       "panels": [],
@@ -2498,7 +2567,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 41
+        "y": 47
       },
       "hiddenSeries": false,
       "id": 7,
@@ -2599,7 +2668,7 @@
         "h": 10,
         "w": 9,
         "x": 7,
-        "y": 41
+        "y": 47
       },
       "hiddenSeries": false,
       "id": 87,
@@ -2741,7 +2810,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 41
+        "y": 47
       },
       "hiddenSeries": false,
       "id": 11,
@@ -2841,7 +2910,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 47
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 6,
@@ -2941,7 +3010,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 47
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 10,
@@ -3041,7 +3110,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 51
+        "y": 57
       },
       "hiddenSeries": false,
       "id": 12,
@@ -3141,7 +3210,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 51
+        "y": 57
       },
       "hiddenSeries": false,
       "id": 13,
@@ -3253,7 +3322,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 57
+        "y": 63
       },
       "id": 90,
       "interval": null,
@@ -3336,7 +3405,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 57
+        "y": 63
       },
       "hiddenSeries": false,
       "id": 76,
@@ -3420,7 +3489,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 63
+        "y": 69
       },
       "id": 69,
       "panels": [
@@ -3645,7 +3714,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 64
+        "y": 70
       },
       "id": 33,
       "panels": [
@@ -4328,7 +4397,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 65
+        "y": 71
       },
       "id": 43,
       "panels": [
@@ -4426,7 +4495,7 @@
       {
         "allValue": "",
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "cardano-node-alpha-67f6687c68-zjg99",
           "value": "cardano-node-alpha-67f6687c68-zjg99"
         },
@@ -4452,7 +4521,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
@@ -4482,5 +4551,5 @@
   "timezone": "",
   "title": "cardano-node (stakepool overview)",
   "uid": "0000b0d919ec0ea5f6543124e16c42a1",
-  "version": 2
+  "version": 3
 }
