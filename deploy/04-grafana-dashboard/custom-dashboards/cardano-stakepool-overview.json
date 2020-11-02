@@ -17,7 +17,7 @@
   "gnetId": 12469,
   "graphTooltip": 0,
   "id": 22,
-  "iteration": 1604242364233,
+  "iteration": 1604326435766,
   "links": [],
   "panels": [
     {
@@ -45,6 +45,61 @@
             "mode": "absolute",
             "steps": [
               {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ns"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 1
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "cardano_node_metrics_upTime_ns{namespace=~\"$namespace\", pod=~\"$pod\"}",
+          "interval": "",
+          "legendFormat": "{{namespace}}-{{pod}}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "cardano-node/uptime",
+      "type": "stat"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
                 "color": "blue",
                 "value": null
               }
@@ -56,7 +111,7 @@
       "gridPos": {
         "h": 6,
         "w": 6,
-        "x": 0,
+        "x": 6,
         "y": 1
       },
       "id": 22,
@@ -96,115 +151,6 @@
           "custom": {},
           "links": [],
           "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 6,
-        "y": 1
-      },
-      "id": 23,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "expr": "cardano_node_ChainDB_metrics_slotInEpoch_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
-          "legendFormat": "{{namespace}}-{{pod}}",
-          "refId": "A"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Slot in Epoch",
-      "type": "stat"
-    },
-    {
-      "datasource": "Prometheus",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "links": [],
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 9,
-        "y": 1
-      },
-      "id": 92,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "expr": "432000 - cardano_node_ChainDB_metrics_slotInEpoch_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
-          "interval": "",
-          "legendFormat": "{{namespace}}-{{pod}}",
-          "refId": "A"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Slot in Epoch left",
-      "type": "stat"
-    },
-    {
-      "datasource": "Prometheus",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "links": [],
-          "mappings": [],
           "max": 432000,
           "min": 0,
           "thresholds": {
@@ -229,7 +175,7 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 4,
+        "w": 6,
         "x": 12,
         "y": 1
       },
@@ -263,63 +209,9 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Slot in Epoch left",
+      "title": "Epoch details",
+      "transparent": true,
       "type": "bargauge"
-    },
-    {
-      "datasource": "Prometheus",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "links": [],
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "ns"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 6,
-        "x": 18,
-        "y": 1
-      },
-      "id": 27,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "center",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "value"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "expr": "cardano_node_metrics_upTime_ns{namespace=~\"$namespace\", pod=~\"$pod\"}",
-          "interval": "",
-          "legendFormat": "{{namespace}}-{{pod}}",
-          "refId": "A"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "cardano-node/uptime",
-      "type": "stat"
     },
     {
       "datasource": "Prometheus",
@@ -343,10 +235,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 6,
-        "y": 4
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 1
       },
       "id": 93,
       "options": {
@@ -4467,8 +4359,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "cardano-staking-mainnet",
-          "value": "cardano-staking-mainnet"
+          "text": "cardano-staking-testnet",
+          "value": "cardano-staking-testnet"
         },
         "hide": 0,
         "includeAll": false,
@@ -4477,12 +4369,12 @@
         "name": "namespace",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "cardano-staking-mainnet",
             "value": "cardano-staking-mainnet"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "cardano-staking-testnet",
             "value": "cardano-staking-testnet"
           }
@@ -4495,9 +4387,9 @@
       {
         "allValue": "",
         "current": {
-          "selected": true,
-          "text": "cardano-node-alpha-67f6687c68-zjg99",
-          "value": "cardano-node-alpha-67f6687c68-zjg99"
+          "selected": false,
+          "text": "cardano-node-omega-5c655477b7-bqmgj",
+          "value": "cardano-node-omega-5c655477b7-bqmgj"
         },
         "datasource": "$datasource",
         "definition": "label_values(cardano_node_metrics_upTime_ns{namespace=~\"$namespace\"}, pod)",
@@ -4551,5 +4443,5 @@
   "timezone": "",
   "title": "cardano-node (stakepool overview)",
   "uid": "0000b0d919ec0ea5f6543124e16c42a1",
-  "version": 3
+  "version": 4
 }
