@@ -13,19 +13,6 @@ prometheus:
   service:
     type: NodePort
     nodePort: 30200
-  server:
-    persistentVolume:
-      enabled: true
-  prometheusSpec:
-    storageSpec:
-      volumeClaimTemplate:
-        spec:
-          accessModes:
-            - ReadWriteOnce
-          volumeMode: Filesystem
-          resources:
-            requests:
-              storage: 5Gi
 
 prometheusOperator:
   tlsProxy:
