@@ -1,2 +1,2 @@
 #!/bin/bash
-helm upgrade --install -n observe prom-stack . -f values-rpi.yaml
+helm upgrade --install kube-prometheus-stack -n observe prometheus-community/kube-prometheus-stack -f values-rpi.yaml
