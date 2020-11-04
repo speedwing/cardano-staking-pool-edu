@@ -32,5 +32,10 @@ kubeScheduler:
 kubeProxy:
   enabled: false
 
-kubeStateMetrics:
-  enabled: false
+#kubeStateMetrics:
+#  enabled: true
+#  image.repository:  k8s.gcr.io/kube-state-metrics/kube-state-metrics
+
+kube-state-metrics:
+  image:
+    repository:  k8s.gcr.io/kube-state-metrics/kube-state-metrics
