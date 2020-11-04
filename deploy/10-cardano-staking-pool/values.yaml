@@ -4,6 +4,8 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.21.2"
 
+volumeSize: 5Gi
+
 resources:
   limits:
     memory: "4Gi"

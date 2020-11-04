@@ -1,5 +1,7 @@
 network: mainnet
 
+volumeSize: 15Gi
+
 nodes:
   - name: lambda
     type: relay

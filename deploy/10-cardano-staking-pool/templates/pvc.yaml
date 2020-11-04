@@ -10,6 +10,6 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 25Gi
+      storage: {{ $.Values.volumeSize }}
 {{ end }}
 {{ end }}
