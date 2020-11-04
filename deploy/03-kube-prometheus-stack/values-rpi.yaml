@@ -38,4 +38,5 @@ kubeProxy:
 
 kube-state-metrics:
   image:
-    repository: gcr.io/k8s-staging-kube-state-metrics/kube-state-metrics-arm64
+    repository: carlosedp/kube-state-metrics
+    tag: v1.9.6
