@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": 12469,
   "graphTooltip": 0,
-  "id": 22,
-  "iteration": 1604326435766,
+  "id": 7,
+  "iteration": 1604607470332,
   "links": [],
   "panels": [
     {
@@ -320,6 +320,7 @@
       "targets": [
         {
           "expr": "cardano_node_BlockFetchDecision_peers_connectedPeers_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
+          "interval": "",
           "legendFormat": "{{namespace}}-{{pod}}",
           "refId": "A"
         }
@@ -1169,12 +1170,317 @@
     },
     {
       "collapsed": false,
-      "datasource": "Prometheus",
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
         "y": 25
+      },
+      "id": 96,
+      "panels": [],
+      "title": "Key Evolving Signature (KES) Stats",
+      "type": "row"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "min": -2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 0,
+        "y": 26
+      },
+      "id": 99,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "cardano_node_Forge_metrics_currentKESPeriod_int{namespace=\"$namespace\", pod=\"$pod\"}",
+          "interval": "",
+          "legendFormat": "Current KES Period",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Current KES Period",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "min": -2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 5,
+        "y": 26
+      },
+      "id": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "cardano_node_Forge_metrics_operationalCertificateStartKESPeriod_int{namespace=\"$namespace\", pod=\"$pod\"}",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "op Cert Start KES period",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "min": -2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 10,
+        "y": 26
+      },
+      "id": 101,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "cardano_node_Forge_metrics_operationalCertificateExpiryKESPeriod_int{namespace=\"$namespace\", pod=\"$pod\"}",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "op Cert Expiry KES period",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "min": -2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 4
+              },
+              {
+                "color": "orange",
+                "value": 10
+              },
+              {
+                "color": "green",
+                "value": 20
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 15,
+        "y": 26
+      },
+      "id": 102,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "cardano_node_Forge_metrics_remainingKESPeriods_int{namespace=\"$namespace\", pod=\"$pod\"}",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "op Cert Remaining KES period",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "min": -2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 20,
+        "y": 26
+      },
+      "id": 103,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "cardano_node_Forge_metrics_remainingKESPeriods_int{namespace=\"$namespace\", pod=\"$pod\"} * 129600",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "KES Expiration",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "datasource": "Prometheus",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 32
       },
       "id": 72,
       "panels": [],
@@ -1201,7 +1507,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 26
+        "y": 33
       },
       "hiddenSeries": false,
       "id": 88,
@@ -1313,7 +1619,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 26
+        "y": 33
       },
       "hiddenSeries": false,
       "id": 70,
@@ -1425,7 +1731,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 26
+        "y": 33
       },
       "hiddenSeries": false,
       "id": 73,
@@ -1537,7 +1843,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 26
+        "y": 33
       },
       "hiddenSeries": false,
       "id": 74,
@@ -1635,7 +1941,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 32
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 53,
@@ -1733,7 +2039,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 32
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 80,
@@ -1830,7 +2136,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 32
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 25,
@@ -1942,7 +2248,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 32
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 81,
@@ -2027,7 +2333,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 38
+        "y": 45
       },
       "id": 19,
       "panels": [],
@@ -2054,7 +2360,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 39
+        "y": 46
       },
       "hiddenSeries": false,
       "id": 1,
@@ -2179,7 +2485,7 @@
         "h": 7,
         "w": 6,
         "x": 6,
-        "y": 39
+        "y": 46
       },
       "hiddenSeries": false,
       "id": 3,
@@ -2320,7 +2626,7 @@
         "h": 7,
         "w": 8,
         "x": 12,
-        "y": 39
+        "y": 46
       },
       "hiddenSeries": false,
       "id": 91,
@@ -2433,7 +2739,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 46
+        "y": 53
       },
       "id": 35,
       "panels": [],
@@ -2459,7 +2765,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 47
+        "y": 54
       },
       "hiddenSeries": false,
       "id": 7,
@@ -2560,7 +2866,7 @@
         "h": 10,
         "w": 9,
         "x": 7,
-        "y": 47
+        "y": 54
       },
       "hiddenSeries": false,
       "id": 87,
@@ -2702,7 +3008,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 47
+        "y": 54
       },
       "hiddenSeries": false,
       "id": 11,
@@ -2802,7 +3108,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 53
+        "y": 60
       },
       "hiddenSeries": false,
       "id": 6,
@@ -2902,7 +3208,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 53
+        "y": 60
       },
       "hiddenSeries": false,
       "id": 10,
@@ -3002,7 +3308,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 57
+        "y": 64
       },
       "hiddenSeries": false,
       "id": 12,
@@ -3102,7 +3408,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 57
+        "y": 64
       },
       "hiddenSeries": false,
       "id": 13,
@@ -3214,7 +3520,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 63
+        "y": 70
       },
       "id": 90,
       "interval": null,
@@ -3297,7 +3603,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 63
+        "y": 70
       },
       "hiddenSeries": false,
       "id": 76,
@@ -3381,7 +3687,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 69
+        "y": 76
       },
       "id": 69,
       "panels": [
@@ -3399,7 +3705,7 @@
             "h": 4,
             "w": 24,
             "x": 0,
-            "y": 35
+            "y": 70
           },
           "id": 59,
           "links": [],
@@ -3434,7 +3740,7 @@
             "h": 4,
             "w": 24,
             "x": 0,
-            "y": 39
+            "y": 74
           },
           "id": 58,
           "links": [],
@@ -3469,7 +3775,7 @@
             "h": 4,
             "w": 24,
             "x": 0,
-            "y": 43
+            "y": 78
           },
           "id": 57,
           "links": [],
@@ -3504,7 +3810,7 @@
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 47
+            "y": 82
           },
           "id": 37,
           "links": [],
@@ -3539,7 +3845,7 @@
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 53
+            "y": 88
           },
           "id": 56,
           "links": [],
@@ -3574,7 +3880,7 @@
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 59
+            "y": 94
           },
           "id": 62,
           "links": [],
@@ -3606,7 +3912,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 70
+        "y": 77
       },
       "id": 33,
       "panels": [
@@ -3624,7 +3930,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 42
+            "y": 71
           },
           "id": 63,
           "links": [],
@@ -3659,7 +3965,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 49
+            "y": 78
           },
           "id": 55,
           "links": [],
@@ -3693,7 +3999,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 56
+            "y": 85
           },
           "id": 66,
           "options": {
@@ -3726,7 +4032,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 63
+            "y": 92
           },
           "id": 38,
           "options": {
@@ -3759,7 +4065,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 70
+            "y": 99
           },
           "id": 48,
           "options": {
@@ -3792,7 +4098,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 77
+            "y": 106
           },
           "id": 39,
           "options": {
@@ -3825,7 +4131,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 84
+            "y": 113
           },
           "id": 65,
           "options": {
@@ -3858,7 +4164,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 91
+            "y": 120
           },
           "id": 64,
           "options": {
@@ -3891,7 +4197,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 98
+            "y": 127
           },
           "id": 40,
           "options": {
@@ -3924,7 +4230,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 105
+            "y": 134
           },
           "id": 41,
           "options": {
@@ -3957,7 +4263,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 112
+            "y": 141
           },
           "id": 46,
           "options": {
@@ -3990,7 +4296,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 119
+            "y": 148
           },
           "id": 45,
           "options": {
@@ -4023,7 +4329,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 126
+            "y": 155
           },
           "id": 44,
           "options": {
@@ -4056,7 +4362,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 133
+            "y": 162
           },
           "id": 47,
           "options": {
@@ -4089,7 +4395,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 140
+            "y": 169
           },
           "id": 49,
           "options": {
@@ -4122,7 +4428,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 147
+            "y": 176
           },
           "id": 50,
           "options": {
@@ -4155,7 +4461,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 154
+            "y": 183
           },
           "id": 67,
           "options": {
@@ -4188,7 +4494,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 161
+            "y": 190
           },
           "id": 51,
           "options": {
@@ -4222,7 +4528,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 168
+            "y": 197
           },
           "id": 61,
           "links": [],
@@ -4257,7 +4563,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 175
+            "y": 204
           },
           "id": 60,
           "links": [],
@@ -4289,7 +4595,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 71
+        "y": 78
       },
       "id": 43,
       "panels": [
@@ -4306,7 +4612,7 @@
             "h": 13,
             "w": 24,
             "x": 0,
-            "y": 29
+            "y": 72
           },
           "id": 29,
           "options": {
@@ -4387,9 +4693,9 @@
       {
         "allValue": "",
         "current": {
-          "selected": false,
-          "text": "cardano-node-omega-5c655477b7-bqmgj",
-          "value": "cardano-node-omega-5c655477b7-bqmgj"
+          "selected": true,
+          "text": "cardano-node-omega-5c655477b7-pfthx",
+          "value": "cardano-node-omega-5c655477b7-pfthx"
         },
         "datasource": "$datasource",
         "definition": "label_values(cardano_node_metrics_upTime_ns{namespace=~\"$namespace\"}, pod)",
@@ -4413,7 +4719,7 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {
@@ -4443,5 +4749,5 @@
   "timezone": "",
   "title": "cardano-node (stakepool overview)",
   "uid": "0000b0d919ec0ea5f6543124e16c42a1",
-  "version": 4
+  "version": 1
 }
