@@ -17,7 +17,7 @@
   "gnetId": 12469,
   "graphTooltip": 0,
   "id": 7,
-  "iteration": 1604607470332,
+  "iteration": 1604613657376,
   "links": [],
   "panels": [
     {
@@ -1195,10 +1195,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
@@ -1253,10 +1249,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
@@ -4693,7 +4685,7 @@
       {
         "allValue": "",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "cardano-node-omega-5c655477b7-pfthx",
           "value": "cardano-node-omega-5c655477b7-pfthx"
         },
@@ -4749,5 +4741,5 @@
   "timezone": "",
   "title": "cardano-node (stakepool overview)",
   "uid": "0000b0d919ec0ea5f6543124e16c42a1",
-  "version": 1
+  "version": 2
 }
