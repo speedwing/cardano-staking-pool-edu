@@ -5,7 +5,8 @@
 * test volume snapshotting in k8s
 * move ssh port 
 * check router open ports
-* seetup dyndns for mainnet
+* setup dyndns for mainnet
+* setup dyndns for testnet (broken)
 * cronjob to backup chains
 * microk8s restarated upon server bounce
 
