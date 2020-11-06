@@ -8,6 +8,11 @@ sudo apt-get update && \
     sudo apt-get upgrade -y && \
     sudo apt-get dist-upgrade
     
+
+## Dynamic DNS w/ ddclient
+
+https://www.techandme.se/setup-multiple-accounts-with-ddclient-and-cloudflare/   
+ 
 ## Disable SSH w/ password
 
 This guide assumes you've setup already SSH keys to log w/o password on such hosts. Check the linked guide below 
