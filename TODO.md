@@ -9,6 +9,7 @@
 * setup dyndns for testnet (broken)
 * cronjob to backup chains
 * microk8s restarated upon server bounce
+* script to update height on pooltool.io
 
 # Done
 * close ssh to cert only
