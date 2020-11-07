@@ -32,7 +32,7 @@ spec:
             - "--database-path"
             - "/db"
             - "--socket-path"
-            - "/db/node.socket"
+            - "/var/cardano/node.socket"
             - "--host-addr"
             - "0.0.0.0"
             - "--port"
@@ -71,6 +71,8 @@ spec:
               subPath: "{{ $.Values.network }}-config.json"
             - name: db
               mountPath: /db
+            - name: cardano-node-socket
+              mountPath: /var/cardano
       volumes:
         - name: config-files
           configMap:
@@ -78,6 +80,8 @@ spec:
         - name: db
           persistentVolumeClaim:
             claimName: cardano-node-{{ $attributes.name }}
+        - name: cardano-node-socket
+          emptyDir: {}
   strategy:
     type: Recreate
 {{ else if and $attributes.enabled (eq $attributes.type "block-producer") }}
