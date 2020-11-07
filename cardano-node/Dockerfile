@@ -2,9 +2,9 @@ FROM ubuntu:18.04 as builder
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get install -y automake build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev \
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y automake build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev \
     zlib1g-dev make g++ tmux git jq wget libncursesw5 libtool autoconf llvm
 
 # INSTALL GHC
@@ -32,7 +32,8 @@ ENV CABAL_VERSION="3.2.0.0"
 WORKDIR /build/cabal
 RUN wget -qO- https://github.com/haskell/cabal/archive/Cabal-v${CABAL_VERSION}.tar.gz | tar xzfv - -C . --strip-components 1 \
   && cd cabal-install \
-  && ./bootstrap.sh
+  && ./bootstrap.sh \
+  && cabal update
 
 # Cabal to PATH
 ENV PATH="/root/.cabal/bin:${PATH}"
@@ -41,7 +42,6 @@ ENV CARDANO_VERSION="1.21.2"
 WORKDIR /build/cardano-node
 RUN git clone --branch ${CARDANO_VERSION} https://github.com/input-output-hk/cardano-node.git && \
     cd cardano-node && \
-    cabal update && \
     cabal build all
 
 FROM ubuntu:18.04
