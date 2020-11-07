@@ -32,11 +32,11 @@ ENV CABAL_VERSION="3.2.0.0"
 WORKDIR /build/cabal
 RUN wget -qO- https://github.com/haskell/cabal/archive/Cabal-v${CABAL_VERSION}.tar.gz | tar xzfv - -C . --strip-components 1 \
   && cd cabal-install \
-  && ./bootstrap.sh \
-  && cabal update
+  && ./bootstrap.sh
 
 # Cabal to PATH
 ENV PATH="/root/.cabal/bin:${PATH}"
+RUN cabal update
 
 ENV CARDANO_VERSION="1.21.2"
 WORKDIR /build/cardano-node
