@@ -5,13 +5,13 @@
 * test volume snapshotting in k8s
 * move ssh port 
 * check router open ports
-* setup dyndns for mainnet
-* setup dyndns for testnet (broken)
 * cronjob to backup chains
 * microk8s restarated upon server bounce
 * script to update height on pooltool.io
 
 # Done
+* setup dyndns for mainnet
+* setup dyndns for testnet (broken)
 * close ssh to cert only
 * ensure relay nodes test net can talk to eachother
 * move default json into docker image
