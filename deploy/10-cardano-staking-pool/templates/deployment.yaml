@@ -163,6 +163,14 @@ spec:
               subPath: node.cert
             - name: db
               mountPath: /db
+        {{- if eq .Values.network "mainnet" }}
+        - name: pool-tool-smt
+          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+          command: [ "shelley-sendmytip.sh" ]
+          envFrom:
+            secretRef:
+              name: cardano-pool-tool
+        {{- end }}
       volumes:
         - name: config-files
           configMap:
