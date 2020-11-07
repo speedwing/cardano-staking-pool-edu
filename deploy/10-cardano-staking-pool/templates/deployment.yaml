@@ -113,7 +113,7 @@ spec:
             - "--database-path"
             - "/db"
             - "--socket-path"
-            - "/db/node.socket"
+            - "/var/cardano/node.socket"
             - "--host-addr"
             - "0.0.0.0"
             - "--port"
@@ -163,10 +163,15 @@ spec:
               subPath: node.cert
             - name: db
               mountPath: /db
+            - name: cardano-node-socket
+              mountPath: /var/cardano
         {{- if eq .Values.network "mainnet" }}
         - name: pool-tool-smt
           image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
           command: [ "shelley-sendmytip.sh" ]
+          env:
+            - name: CARDANO_NODE_SOCKET_PATH
+              value: "/var/cardano/node.socket"
           envFrom:
             secretRef:
               name: cardano-pool-tool
@@ -182,6 +187,8 @@ spec:
         - name: db
           persistentVolumeClaim:
             claimName: cardano-node-{{ $attributes.name }}
+        - name: cardano-node-socket
+          emptyDir: {}
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
