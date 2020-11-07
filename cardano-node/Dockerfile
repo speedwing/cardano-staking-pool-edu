@@ -69,5 +69,5 @@ COPY config/testnet /etc/config
 
 COPY --from=builder /build/cardano-node/cardano-node/dist-newstyle/build/${OS_ARCH}-linux/ghc-${GHC_VERSION}/cardano-node-${CARDANO_VERSION}/x/cardano-node/build/cardano-node/cardano-node /usr/local/bin/
 COPY --from=builder /build/cardano-node/cardano-node/dist-newstyle/build/${OS_ARCH}-linux/ghc-${GHC_VERSION}/cardano-cli-${CARDANO_VERSION}/x/cardano-cli/build/cardano-cli/cardano-cli /usr/local/bin/
-
+COPY bin/shelley-sendmytip.sh /usr/local/bin/
 ENTRYPOINT ["bash", "-c"]
