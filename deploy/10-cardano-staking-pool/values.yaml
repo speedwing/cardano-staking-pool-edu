@@ -14,6 +14,9 @@ resources:
     memory: "2Gi"
     cpu: 1
 
+pool:
+  hostName: hostname.domain
+
 #nodes:
 #  - name: name of the node
 #    type: [ relay | block-producer ]

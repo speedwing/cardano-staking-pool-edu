@@ -2,17 +2,24 @@ network: mainnet
 
 volumeSize: 15Gi
 
+pool:
+  hostName: speedwing.online
+
 nodes:
   - name: lambda
     type: relay
     enabled: true
     port: 3000
     replicas: 1
+    topologyUpdater:
+      enabled: false
   - name: rho
     type: relay
     enabled: true
     port: 3000
     replicas: 1
+    topologyUpdater:
+      enabled: false
   - name: alpha
     type: block-producer
     enabled: true

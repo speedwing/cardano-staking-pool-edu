@@ -73,6 +73,23 @@ spec:
               mountPath: /db
             - name: cardano-node-socket
               mountPath: /var/cardano
+        {{- if $attributes.topologyUpdater.enabled }}
+        - name: topology-updater
+          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+          command: [ "runTopologyUpdater.sh" ]
+          env:
+            - name: CNODE_PORT
+              value: {{ $attributes.port | quote }}
+            - name: SOCKET
+              value: "/var/cardano/node.socket"
+            - name: CONFIG
+              value: "/etc/config/{{ $.Values.network }}-config.json"
+            - name: CNODE_HOSTNAME
+              value: {{ $.Values.pool.hostName }}
+          volumeMounts:
+            - name: cardano-node-socket
+              mountPath: /var/cardano
+        {{- end }}
       volumes:
         - name: config-files
           configMap:
