@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": 12469,
   "graphTooltip": 0,
-  "id": 7,
-  "iteration": 1604613657376,
+  "id": 22,
+  "iteration": 1604874074975,
   "links": [],
   "panels": [
     {
@@ -823,7 +823,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "cardano_node_metrics_txsProcessedNum_int{namespace=~\"$namespace\", pod=~\"$pod\"}",
+          "expr": "rate(cardano_node_metrics_txsProcessedNum_int{namespace=~\"$namespace\", pod=~\"$pod\"}[5m])",
           "interval": "",
           "legendFormat": "{{namespace}}-{{pod}}",
           "refId": "A"
@@ -4657,8 +4657,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "cardano-staking-testnet",
-          "value": "cardano-staking-testnet"
+          "text": "cardano-staking-mainnet",
+          "value": "cardano-staking-mainnet"
         },
         "hide": 0,
         "includeAll": false,
@@ -4667,12 +4667,12 @@
         "name": "namespace",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "cardano-staking-mainnet",
             "value": "cardano-staking-mainnet"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "cardano-staking-testnet",
             "value": "cardano-staking-testnet"
           }
@@ -4686,8 +4686,8 @@
         "allValue": "",
         "current": {
           "selected": false,
-          "text": "cardano-node-omega-5c655477b7-pfthx",
-          "value": "cardano-node-omega-5c655477b7-pfthx"
+          "text": "cardano-node-alpha-67f6687c68-mtj4d",
+          "value": "cardano-node-alpha-67f6687c68-mtj4d"
         },
         "datasource": "$datasource",
         "definition": "label_values(cardano_node_metrics_upTime_ns{namespace=~\"$namespace\"}, pod)",
@@ -4711,7 +4711,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
@@ -4741,5 +4741,5 @@
   "timezone": "",
   "title": "cardano-node (stakepool overview)",
   "uid": "0000b0d919ec0ea5f6543124e16c42a1",
-  "version": 2
+  "version": 1
 }
