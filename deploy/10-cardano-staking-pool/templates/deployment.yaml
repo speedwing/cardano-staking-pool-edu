@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: cardano-node
-          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+          image: "{{ $attributes.repository | default $.Values.image.repository }}:{{ $attributes.imageTag | default $.Values.image.tag }}"
           command: [ "cardano-node" ]
           args:
             - "run"

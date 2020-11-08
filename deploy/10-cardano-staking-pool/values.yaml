@@ -19,5 +19,7 @@ resources:
 #    type: [ relay | block-producer ]
 #    enabled: true
 #    port: 3000 [ port ]
+#    imageRepository: speedwing/cardano-node
+#    imageTag: 1.21.1
 #
 #nodePort: 30000
