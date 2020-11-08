@@ -86,6 +86,8 @@ spec:
               value: "/etc/config/{{ $.Values.network }}-config.json"
             - name: CNODE_HOSTNAME
               value: {{ $.Values.pool.hostName }}
+            - name: CNODE_TOPOLOGY
+              value: /tmp/topology.json
           volumeMounts:
             - name: cardano-node-socket
               mountPath: /var/cardano
