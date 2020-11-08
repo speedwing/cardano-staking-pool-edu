@@ -11,6 +11,18 @@
       "valency": 2
     },
     {
+      "friendly_name": "Green3-FIN",
+      "addr": "relays.greenstakepool.com",
+      "port": 4003,
+      "valency": 1
+    },
+    {
+      "friendly_name": "Green4-SCAND",
+      "addr": "relays.greenstakepool.com",
+      "port": 4004,
+      "valency": 1
+    },
+    {
       "addr": "cardano-node-lambda.cardano-staking-mainnet.svc.cluster.local",
       "port": 3000,
       "valency": 1
