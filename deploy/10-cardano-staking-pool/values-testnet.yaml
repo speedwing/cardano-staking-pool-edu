@@ -1,7 +1,7 @@
 network: testnet
 
 image:
-  tag: "1.21.1-7-extra"
+  tag: "1.21.1-8-extra"
 
 pool:
   hostName: cryptojoe.online
