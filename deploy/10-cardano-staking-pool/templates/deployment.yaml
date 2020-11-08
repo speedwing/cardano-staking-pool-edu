@@ -186,7 +186,7 @@ spec:
               mountPath: /db
             - name: cardano-node-socket
               mountPath: /var/cardano
-        {{- if eq .Values.network "mainnet" }}
+        {{- if eq $.Values.network "mainnet" }}
         - name: pool-tool-smt
           image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
           command: [ "shelley-sendmytip.sh" ]
