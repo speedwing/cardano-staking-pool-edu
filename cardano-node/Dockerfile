@@ -38,7 +38,7 @@ RUN wget -qO- https://github.com/haskell/cabal/archive/Cabal-v${CABAL_VERSION}.t
 ENV PATH="/root/.cabal/bin:${PATH}"
 RUN cabal update
 
-ENV CARDANO_VERSION="1.21.2"
+ENV CARDANO_VERSION="1.21.1"
 WORKDIR /build/cardano-node
 RUN git clone --branch ${CARDANO_VERSION} https://github.com/input-output-hk/cardano-node.git && \
     cd cardano-node && \
@@ -56,7 +56,7 @@ COPY --from=builder /usr/local/lib /usr/local/lib
 
 ENV OS_ARCH="aarch64"
 ENV GHC_VERSION="8.6.5"
-ENV CARDANO_VERSION="1.21.2"
+ENV CARDANO_VERSION="1.21.1"
 
 ## Not sure I still need thse
 ENV LD_LIBRARY_PATH="/usr/local/lib"
