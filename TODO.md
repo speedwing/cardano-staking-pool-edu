@@ -8,6 +8,7 @@
 * cronjob to backup chains
 * microk8s restarated upon server bounce
 * script to update height on pooltool.io
+* try to build cardano-node/cli w/o needing the libsodium sources.
 
 # Done
 * setup dyndns for mainnet
