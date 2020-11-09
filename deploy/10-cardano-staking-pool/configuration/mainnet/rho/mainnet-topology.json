@@ -23,6 +23,12 @@
       "valency": 1
     },
     {
+      "friendly_name": "ChainCrucial_io_US-East01",
+      "addr": "adarelaygcp02.chaincrucial.io",
+      "port": 3001,
+      "valency": 1
+    },
+    {
       "addr": "cardano-node-lambda.cardano-staking-mainnet.svc.cluster.local",
       "port": 3000,
       "valency": 1
