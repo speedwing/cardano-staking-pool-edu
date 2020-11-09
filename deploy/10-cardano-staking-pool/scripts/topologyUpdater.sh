@@ -43,4 +43,4 @@ CURL_COMMAND="curl -s ${BASE_URL}/?port=${CNODE_PORT}&blockNo=${blockNo}${HOSTNA
 
 echo "=> (${CURL_COMMAND})"
 
-#curl -s "${BASE_URL}/?port=${CNODE_PORT}&blockNo=${blockNo}${HOSTNAME_ARG}&valency=${CNODE_VALENCY}&magic=${TESTNET_MAGIC}"
+curl -s "${BASE_URL}/?port=${CNODE_PORT}&blockNo=${blockNo}${HOSTNAME_ARG}&valency=${CNODE_VALENCY}&magic=${TESTNET_MAGIC}"
