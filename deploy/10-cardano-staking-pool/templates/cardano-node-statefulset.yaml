@@ -7,6 +7,7 @@ metadata:
   name: "cardano-node-{{ $attributes.name }}"
 spec:
   replicas: {{ $attributes.replicas }}
+  serviceName: "cardano-node"
   selector:
     matchLabels:
       app: cardano-node
@@ -83,8 +84,6 @@ spec:
       resources:
         requests:
           storage: {{ $.Values.volumeSize }}
-  strategy:
-    type: Recreate
 {{ else if and $attributes.enabled (eq $attributes.type "block-producer") }}
 ---
 apiVersion: apps/v1
