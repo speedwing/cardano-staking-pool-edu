@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: topology-updater
-          image: "{{ .Values.topologyUpdater.image.repository }}-{{ .Values.topologyUpdater.image.tag }}"
+          image: "{{ .Values.topologyUpdater.image.repository }}:{{ .Values.topologyUpdater.image.tag }}"
           args:
             - "while true; do bash /opt/cardano-node/utils/topologyUpdater.sh; sleep 3600; done"
           env:
