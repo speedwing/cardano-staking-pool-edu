@@ -41,3 +41,19 @@ spec:
       targetPort: node
       nodePort: {{ .Values.nodePort }}
   type: NodePort
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cardano-relay-node-internal
+spec:
+  selector:
+    app: cardano-node
+    type: relay
+    network: {{ .Values.network }}
+  ports:
+    - protocol: TCP
+      name: prom
+      port: 12798
+      targetPort: prom
