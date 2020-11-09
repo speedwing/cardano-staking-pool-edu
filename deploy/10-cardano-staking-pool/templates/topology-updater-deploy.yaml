@@ -29,7 +29,7 @@ spec:
             - name: CNODE_HOSTNAME
               value: {{ .Values.cardanoNodeHostname }}
             - name: CNODE_PORT
-              value: {{ .Values.nodePort }}
+              value: {{ .Values.nodePort | quote }}
           volumeMounts:
             - name: cardano-node-utils
               mountPath: "/opt/cardano-node/utils"
