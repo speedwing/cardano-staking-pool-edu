@@ -2,11 +2,12 @@
 {{ if and $attributes.enabled (eq $attributes.type "relay") }}
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: "cardano-node-{{ $attributes.name }}"
 spec:
   replicas: {{ $attributes.replicas }}
+  serviceName: "cardano-node-{{ $attributes.name }}"
   selector:
     matchLabels:
       app: cardano-node
@@ -69,25 +70,41 @@ spec:
             - name: config-files
               mountPath: "/etc/config/{{ $.Values.network }}-config.json"
               subPath: "{{ $.Values.network }}-config.json"
-            - name: db
+            - name: "cardano-node-{{ $attributes.name }}"
               mountPath: /db
       volumes:
         - name: config-files
           configMap:
             name: node-configuration-{{ $attributes.name }}
-        - name: db
-          persistentVolumeClaim:
-            claimName: cardano-node-{{ $attributes.name }}
-  strategy:
-    type: Recreate
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: network
+                      operator: In
+                      values:
+                        - {{ $.Values.network }}
+                topologyKey: "kubernetes.io/hostname"
+  volumeClaimTemplates:
+  - metadata:
+      name: "cardano-node-{{ $attributes.name }}"
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: {{ $.Values.volumeSize }}
 {{ else if and $attributes.enabled (eq $attributes.type "block-producer") }}
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: "cardano-node-{{ $attributes.name }}"
 spec:
   replicas: {{ $attributes.replicas }}
+  serviceName: "cardano-node-{{ $attributes.name }}"
   selector:
     matchLabels:
       app: cardano-node
@@ -161,7 +178,7 @@ spec:
             - name: secret-keys
               mountPath: /etc/keys/node.cert
               subPath: node.cert
-            - name: db
+            - name: "cardano-node-{{ $attributes.name }}"
               mountPath: /db
       volumes:
         - name: config-files
@@ -171,9 +188,6 @@ spec:
           secret:
             secretName: cardano-node-producer-secret
             defaultMode: 0400
-        - name: db
-          persistentVolumeClaim:
-            claimName: cardano-node-{{ $attributes.name }}
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -186,7 +200,13 @@ spec:
                       values:
                         - {{ $.Values.network }}
                 topologyKey: "kubernetes.io/hostname"
-  strategy:
-    type: Recreate
+  volumeClaimTemplates:
+  - metadata:
+      name: "cardano-node-{{ $attributes.name }}"
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: {{ $.Values.volumeSize }}
 {{ end }}
 {{ end }}
