@@ -39,8 +39,8 @@ then
   HOSTNAME_ARG="&hostname=${CNODE_HOSTNAME}"
 fi
 
-CURL_COMMAND="curl -s ${BASE_URL}/?port=${CNODE_PORT}&blockNo=${blockNo}${HOSTNAME_ARG}&valency=${CNODE_VALENCY}&magic=${TESTNET_MAGIC}"
+CURL_COMMAND="curl -v ${BASE_URL}/?port=${CNODE_PORT}&blockNo=${blockNo}${HOSTNAME_ARG}&valency=${CNODE_VALENCY}&magic=${TESTNET_MAGIC}"
 
 echo "=> (${CURL_COMMAND})"
 
-curl -s "${BASE_URL}/?port=${CNODE_PORT}&blockNo=${blockNo}${HOSTNAME_ARG}&valency=${CNODE_VALENCY}&magic=${TESTNET_MAGIC}"
+curl -v "${BASE_URL}/?port=${CNODE_PORT}&blockNo=${blockNo}${HOSTNAME_ARG}&valency=${CNODE_VALENCY}&magic=${TESTNET_MAGIC}"
