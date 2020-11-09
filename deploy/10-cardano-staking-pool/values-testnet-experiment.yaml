@@ -19,3 +19,6 @@ nodes:
 
 cardanoNodeHostname: cryptojoe.online
 nodePort: 30002
+
+topologyUpdater:
+  enabled: false
