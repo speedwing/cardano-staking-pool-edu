@@ -29,6 +29,12 @@
       "valency": 1
     },
     {
+      "friendly_name": "RPST0-relay-valency-2",
+      "addr": "relay.mainnet.cardano.none.guru",
+      "port": 30042,
+      "valency": 1
+    },
+    {
       "addr": "cardano-node-rho.cardano-staking-mainnet.svc.cluster.local",
       "port": 3000,
       "valency": 1
