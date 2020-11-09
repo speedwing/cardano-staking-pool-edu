@@ -22,4 +22,11 @@ resources:
 #    imageRepository: speedwing/cardano-node
 #    imageTag: 1.21.1
 #
+#cardanoNodeHostname: bla.online
 #nodePort: 30000
+
+topologyUpdater:
+  enabled: true
+  image:
+    repository: "speedwing/cardano-node-utils"
+    tag: "0.1-2569369"

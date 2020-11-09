@@ -17,4 +17,5 @@ nodes:
     port: 3000
     replicas: 1
 
+cardanoNodeHostname: cryptojoe.online
 nodePort: 30000

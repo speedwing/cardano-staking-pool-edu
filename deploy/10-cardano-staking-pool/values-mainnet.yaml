@@ -19,4 +19,8 @@ nodes:
     port: 3000
     replicas: 1
 
+cardanoNodeHostname: speedwing.online
 nodePort: 30001
+
+topologyUpdater:
+  enabled: false

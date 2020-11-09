@@ -1,0 +1,8 @@
+{{ range $attributes := .Values.nodes }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cardano-node-utils
+data:
+{{ ($.Files.Glob "scripts/*").AsConfig | indent 2 }}
