@@ -32,7 +32,7 @@ fi
 
 NAMESPACE=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
 
-blockNo=$(curl -s cardano-relay-node."${NAMESPACE}".svc.cluster.local:13788/metrics | grep cardano_node_ChainDB_metrics_blockNum_int | awk '{print $NF}')
+blockNo=$(curl -s cardano-relay-node-internal."${NAMESPACE}".svc.cluster.local:13788/metrics | grep cardano_node_ChainDB_metrics_blockNum_int | awk '{print $NF}')
 
 if [ ! -z "${CNODE_HOSTNAME}" ]
 then
