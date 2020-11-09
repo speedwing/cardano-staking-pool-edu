@@ -29,4 +29,4 @@ topologyUpdater:
   enabled: true
   image:
     repository: "speedwing/cardano-node-utils"
-    tag: "0.1-55325ea"
+    tag: "0.1-762d673"
