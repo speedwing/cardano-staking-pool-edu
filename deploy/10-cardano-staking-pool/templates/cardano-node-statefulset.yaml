@@ -191,7 +191,5 @@ spec:
                       values:
                         - {{ $.Values.network }}
                 topologyKey: "kubernetes.io/hostname"
-  strategy:
-    type: Recreate
 {{ end }}
 {{ end }}
