@@ -25,9 +25,9 @@ fi
 CNODE_VALENCY=1
 
 if [ "${NETWORK}" = "mainnet" ]; then
-  TESTNET_MAGIC="764824073"
+  NWMAGIC="764824073"
 else
-  TESTNET_MAGIC="1097911063"
+  NWMAGIC="1097911063"
 fi
 
 NAMESPACE=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
@@ -39,8 +39,11 @@ then
   HOSTNAME_ARG="&hostname=${CNODE_HOSTNAME}"
 fi
 
-CURL_COMMAND="curl -v ${BASE_URL}/?port=${CNODE_PORT}&blockNo=${blockNo}${HOSTNAME_ARG}&valency=${CNODE_VALENCY}&magic=${TESTNET_MAGIC}"
+CURL_COMMAND="curl ${BASE_URL}/?port=${CNODE_PORT}&blockNo=${blockNo}${HOSTNAME_ARG}&valency=${CNODE_VALENCY}&magic=${NWMAGIC}"
 
 echo "=> (${CURL_COMMAND})"
 
-curl -v "${BASE_URL}/?port=${CNODE_PORT}&blockNo=${blockNo}${HOSTNAME_ARG}&valency=${CNODE_VALENCY}&magic=${TESTNET_MAGIC}"
+date
+
+curl "${BASE_URL}/?port=${CNODE_PORT}&blockNo=${blockNo}${HOSTNAME_ARG}&valency=${CNODE_VALENCY}&magic=${NWMAGIC}"
+curl "${CNODE_TOPOLOGY}".tmp "https://api.clio.one/htopology/v1/fetch/?max=${MAX_PEERS}&magic=${NWMAGIC}"

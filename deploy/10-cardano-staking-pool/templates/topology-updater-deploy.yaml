@@ -29,6 +29,10 @@ spec:
               value: {{ .Values.cardanoNodeHostname }}
             - name: CNODE_PORT
               value: {{ .Values.nodePort | quote }}
+            - name: MAX_PEERS
+              value: {{ .Values.topologyUpdater.maxPeers | quote }}
+            - name: CNODE_TOPOLOGY
+              value: /tmp/topology.json
           volumeMounts:
             - name: cardano-node-utils
               mountPath: "/opt/cardano-node/utils"
