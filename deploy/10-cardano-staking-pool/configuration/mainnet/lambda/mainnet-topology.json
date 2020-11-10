@@ -11,6 +11,11 @@
       "valency": 2
     },
     {
+      "addr": "cardano-node-rho.cardano-staking-mainnet.svc.cluster.local",
+      "port": 3000,
+      "valency": 1
+    },
+    {
       "friendly_name": "Green3-FIN",
       "addr": "relays.greenstakepool.com",
       "port": 4003,
@@ -23,6 +28,12 @@
       "valency": 1
     },
     {
+      "friendly_name": "Cardano24_Alpha-Relay13 - Italy",
+      "addr": "rl.it-n1.alpha.cardano24.net",
+      "port": 3001,
+      "valency": 1
+    },
+    {
       "friendly_name": "ChainCrucial_io_US-East01",
       "addr": "adarelaygcp02.chaincrucial.io",
       "port": 3001,
@@ -32,11 +43,6 @@
       "friendly_name": "RPST0-relay-valency-2",
       "addr": "relay.mainnet.cardano.none.guru",
       "port": 30042,
-      "valency": 1
-    },
-    {
-      "addr": "cardano-node-rho.cardano-staking-mainnet.svc.cluster.local",
-      "port": 3000,
       "valency": 1
     }
   ]
