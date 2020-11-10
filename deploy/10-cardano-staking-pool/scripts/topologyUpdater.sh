@@ -46,4 +46,4 @@ echo "=> (${CURL_COMMAND})"
 date
 
 curl "${BASE_URL}/?port=${CNODE_PORT}&blockNo=${blockNo}${HOSTNAME_ARG}&valency=${CNODE_VALENCY}&magic=${NWMAGIC}"
-curl -o "${CNODE_TOPOLOGY}".tmp "https://api.clio.one/htopology/v1/fetch/?max=${MAX_PEERS}&magic=${NWMAGIC}"
+curl -o "${CNODE_TOPOLOGY}".tmp "${BASE_URL}/fetch/?max=${MAX_PEERS}&magic=${NWMAGIC}"
