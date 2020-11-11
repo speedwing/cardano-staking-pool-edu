@@ -23,4 +23,4 @@ cardanoNodeHostname: speedwing.online
 nodePort: 30001
 
 topologyUpdater:
-  enabled: false
+  enabled: true
