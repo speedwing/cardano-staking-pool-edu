@@ -44,6 +44,69 @@
       "addr": "relay.mainnet.cardano.none.guru",
       "port": 30042,
       "valency": 1
+    },
+    {
+      "addr": "82.69.76.85",
+      "port": 7801,
+      "valency": 1,
+      "distance": 265,
+      "continent": "EU",
+      "country": "GB",
+      "region": "ENG"
+    },
+    {
+      "addr": "77.251.189.27",
+      "port": 3001,
+      "valency": 1,
+      "distance": 724,
+      "continent": "EU",
+      "country": "NL",
+      "region": "ZH"
+    },
+    {
+      "addr": "relaynode5.bravostakepool.nl",
+      "port": 3001,
+      "valency": 1,
+      "distance": 826,
+      "continent": "EU",
+      "country": "NL",
+      "region": "OV"
+    },
+    {
+      "addr": "139.162.187.71",
+      "port": 52070,
+      "valency": 1,
+      "distance": 1085,
+      "continent": "EU",
+      "country": "DE",
+      "region": "HE"
+    },
+    {
+      "addr": "168.119.120.138",
+      "port": 6002,
+      "valency": 1,
+      "distance": 1268,
+      "continent": "EU",
+      "country": "DE",
+      "region": "BY"
+    },
+    {
+      "addr": "195.201.107.73",
+      "port": 3001,
+      "valency": 1,
+      "distance": 1316,
+      "continent": "EU",
+      "country": "DE",
+      "region": "BE"
+    },
+    {
+      "addr": "82.165.248.165",
+      "port": 6000,
+      "valency": 1,
+      "distance": 1492,
+      "continent": "EU",
+      "country": "DE",
+      "region": "null"
     }
   ]
 }
