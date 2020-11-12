@@ -1,7 +1,6 @@
 # Todo
 
 * fstab SSD
-* fix antiaffinity
 * test volume snapshotting in k8s
 * move ssh port 
 * check router open ports
@@ -10,6 +9,8 @@
 * script to update height on pooltool.io
 * try to build cardano-node/cli w/o needing the libsodium sources.
 * Fetch logs to see if we are going to be assigned any slot
+* Update Mainnet and Testnet w/ new cardano-like dns names
+* enable topology update for mainnet (and monitor)
 
 # Done
 * setup dyndns for mainnet
@@ -21,3 +22,4 @@
 * backup mainnet and testnet chain once downloaded
   * test how to copy blockchain
 * configure home router to open mainnet port
+* fix antiaffinity
