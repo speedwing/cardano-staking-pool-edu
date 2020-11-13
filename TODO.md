@@ -11,6 +11,7 @@
 * Fetch logs to see if we are going to be assigned any slot
 * Update Mainnet and Testnet w/ new cardano-like dns names
 * enable topology update for mainnet (and monitor)
+* Testnet: update ddclient for testnet relays on cryptojoe
 
 # Done
 * setup dyndns for mainnet
