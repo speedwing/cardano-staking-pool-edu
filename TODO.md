@@ -10,8 +10,7 @@
 * try to build cardano-node/cli w/o needing the libsodium sources.
 * Fetch logs to see if we are going to be assigned any slot
 * Update Mainnet and Testnet w/ new cardano-like dns names
-* enable topology update for mainnet (and monitor)
-* Testnet: update ddclient for testnet relays on cryptojoe
+
 
 # Done
 * setup dyndns for mainnet
@@ -24,3 +23,6 @@
   * test how to copy blockchain
 * configure home router to open mainnet port
 * fix antiaffinity
+* Testnet: update ddclient for testnet relays on cryptojoe
+* enable topology update for mainnet (and monitor)
+
