@@ -1,21 +1,21 @@
 network: testnet
 
 nodes:
-  - name: tau
+  - name: iota
     type: relay
     enabled: true
     port: 3000
     replicas: 1
-  - name: phi
+  - name: eta
     type: relay
-    enabled: true
+    enabled: false
     port: 3000
     replicas: 1
-  - name: omega
+  - name: beta
     type: block-producer
     enabled: true
     port: 3000
     replicas: 1
 
-cardanoNodeHostname: relays-testnet1.cryptojoe.online
-nodePort: 30000
+cardanoNodeHostname: relays-testnet2.cryptojoe.online
+nodePort: 30002
