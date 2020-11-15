@@ -10,7 +10,9 @@
 * try to build cardano-node/cli w/o needing the libsodium sources.
 * Fetch logs to see if we are going to be assigned any slot
 * Update Mainnet and Testnet w/ new cardano-like dns names
-
+* link testnet pool to each otehr
+* check both testnet pools are configured ok for their DNS
+* configure mainnet DNS properly (with relays name)
 
 # Done
 * setup dyndns for mainnet
