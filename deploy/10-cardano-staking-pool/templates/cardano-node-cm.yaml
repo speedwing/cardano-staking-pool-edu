@@ -23,11 +23,11 @@ data:
 {{ else if eq $attributes.name "omega" }}
 {{ ($.Files.Glob "configuration/testnet/omega/*.json").AsConfig | indent 2 }}
 {{ else if eq $attributes.name "beta" }}
-{{ ($.Files.Glob "configuration/testnet/beta/*.json").AsConfig | indent 2 }}
+{{ ($.Files.Glob "configuration/testnet2/beta/*.json").AsConfig | indent 2 }}
 {{ else if eq $attributes.name "eta" }}
-{{ ($.Files.Glob "configuration/testnet/eta/*.json").AsConfig | indent 2 }}
+{{ ($.Files.Glob "configuration/testnet2/eta/*.json").AsConfig | indent 2 }}
 {{ else if eq $attributes.name "iota" }}
-{{ ($.Files.Glob "configuration/testnet/iota/*.json").AsConfig | indent 2 }}
+{{ ($.Files.Glob "configuration/testnet2/iota/*.json").AsConfig | indent 2 }}
 {{ end }}
 {{ end }}
 {{ end }}

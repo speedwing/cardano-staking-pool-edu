@@ -1,0 +1,14 @@
+{
+  "Producers": [
+    {
+      "addr": "cardano-node-eta.cardano-staking-testnet2.svc.cluster.local",
+      "port": 3000,
+      "valency": 1
+    },
+    {
+      "addr": "cardano-node-iota.cardano-staking-testnet2.svc.cluster.local",
+      "port": 3000,
+      "valency": 1
+    }
+  ]
+}
