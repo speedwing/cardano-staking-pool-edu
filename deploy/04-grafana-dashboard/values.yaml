@@ -7,3 +7,7 @@ serviceMonitors:
     app: cardano-node
     enabled: true
     namespace: cardano-staking-testnet
+  - serviceName: cardano-node-testnet
+    app: cardano-node
+    enabled: true
+    namespace: cardano-staking-testnet2

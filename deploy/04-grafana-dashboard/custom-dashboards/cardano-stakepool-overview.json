@@ -17,7 +17,7 @@
   "gnetId": 12469,
   "graphTooltip": 0,
   "id": 22,
-  "iteration": 1604874074975,
+  "iteration": 1605468138551,
   "links": [],
   "panels": [
     {
@@ -4656,7 +4656,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "cardano-staking-mainnet",
           "value": "cardano-staking-mainnet"
         },
@@ -4675,9 +4675,14 @@
             "selected": false,
             "text": "cardano-staking-testnet",
             "value": "cardano-staking-testnet"
+          },
+          {
+            "selected": false,
+            "text": "cardano-staking-testnet2",
+            "value": "cardano-staking-testnet2"
           }
         ],
-        "query": "cardano-staking-mainnet, cardano-staking-testnet",
+        "query": "cardano-staking-mainnet, cardano-staking-testnet, cardano-staking-testnet2",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
@@ -4686,8 +4691,8 @@
         "allValue": "",
         "current": {
           "selected": false,
-          "text": "cardano-node-alpha-67f6687c68-mtj4d",
-          "value": "cardano-node-alpha-67f6687c68-mtj4d"
+          "text": "cardano-node-alpha-0",
+          "value": "cardano-node-alpha-0"
         },
         "datasource": "$datasource",
         "definition": "label_values(cardano_node_metrics_upTime_ns{namespace=~\"$namespace\"}, pod)",
