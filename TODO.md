@@ -13,6 +13,7 @@
 * link testnet pool to each otehr
 * check both testnet pools are configured ok for their DNS
 * configure mainnet DNS properly (with relays name)
+* monitoring/alerting
 
 # Done
 * setup dyndns for mainnet
