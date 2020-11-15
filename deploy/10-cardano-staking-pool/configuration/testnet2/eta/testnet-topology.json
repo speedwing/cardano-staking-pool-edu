@@ -16,6 +16,11 @@
       "valency": 1
     },
     {
+      "addr": "relays-testnet1.cryptojoe.online",
+      "port": 30000,
+      "valency": 1
+    },
+    {
       "addr": "testnet.casso.io",
       "port": 4001,
       "valency": 1,
