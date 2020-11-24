@@ -1,8 +1,8 @@
 image:
-  repository: tiredpixel/cardano-node:1.21.1
+  repository: tiredpixel/cardano-node
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.21.1-11"
+  tag: "1.21.1"
 
 volumeSize: 5Gi
 
