@@ -1,5 +1,5 @@
 image:
-  repository: speedwing/cardano-node
+  repository: tiredpixel/cardano-node:1.21.1
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.21.1-11"
@@ -26,7 +26,7 @@ resources:
 #nodePort: 30000
 
 topologyUpdater:
-  enabled: true
+  enabled: false
   image:
     repository: "speedwing/cardano-node-utils"
     tag: "0.1-762d673"
