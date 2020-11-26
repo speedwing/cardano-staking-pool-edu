@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cardano-pool-tn
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/speedwing/cardano-node-builder.git
+    targetRevision: {{ .Values.git.targetRevision }}
+    path: deploy/cardano-staking-pool
+    valueFiles:
+      - values-testnet.yaml
+
+  destination:
+    namespace: cardano-tn
+    server: {{ .Values.spec.destination.server }}
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    validate: true
