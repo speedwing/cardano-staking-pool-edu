@@ -1,0 +1,10 @@
+server:
+  config:
+    repositories: |
+      - url: git@github.com:speedwing/cardano-node-builder.git
+      - type: helm
+        url: https://kubernetes-charts.storage.googleapis.com
+        name: stable
+#       - type: helm
+#         url: https://argoproj.github.io/argo-helm
+#         name: argo

@@ -1,0 +1,6 @@
+git:
+  targetRevision: HEAD
+
+spec:
+  destination:
+    server: https://kubernetes.default.svc
