@@ -12,19 +12,19 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: cardano-staking-mainnet
+  name: cardano-mn
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: cardano-staking-testnet
+  name: cardano-tn
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: cardano-staking-testnet2
+  name: cardano-tn2
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: cardano-experiment
+  name: cardano-tnx

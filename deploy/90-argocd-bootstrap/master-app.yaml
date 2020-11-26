@@ -8,13 +8,13 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:speedwing/cardano-node-builder.git
-    targetRevision: {{ .Values.git.targetRevision | default "HEAD" }}
+    repoURL: https://github.com/speedwing/cardano-node-builder.git
+    targetRevision: HEAD
     path: deploy/95-master-app
 
   destination:
     namespace: argocd
-    server: {{ .Values.spec.destination.server }}
+    server: https://kubernetes.default.svc
 
   syncPolicy:
     automated:
