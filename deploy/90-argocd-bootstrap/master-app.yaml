@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: base-config
+  name: master-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -9,11 +9,11 @@ spec:
   project: default
   source:
     repoURL: git@github.com:speedwing/cardano-node-builder.git
-    targetRevision: {{ .Values.git.targetRevision }}
-    path: deploy/base-config
+    targetRevision: {{ .Values.git.targetRevision | default "HEAD" }}
+    path: deploy/95-master-app
 
   destination:
-    namespace: default
+    namespace: argocd
     server: {{ .Values.spec.destination.server }}
 
   syncPolicy:
