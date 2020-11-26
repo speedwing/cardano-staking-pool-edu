@@ -1,0 +1,70 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-prometheus-stack
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 1.12.0
+    chart: kube-prometheus-stack
+    helm:
+      values: |
+        defaultRules:
+          create: false
+
+        alertmanager:
+          enabled: false
+
+        grafana:
+          service:
+            type: NodePort
+            nodePort: 30100
+
+        prometheus:
+          service:
+            type: NodePort
+            nodePort: 30200
+
+        prometheusOperator:
+          tlsProxy:
+            enabled: false
+          tls:
+            enabled: true
+
+        coreDns:
+          enabled: false
+
+        kubeEtcd:
+          enabled: false
+
+        kubeScheduler:
+          enabled: false
+
+        kubeProxy:
+          enabled: false
+
+        #kubeStateMetrics:
+        #  enabled: true
+        #  image.repository:  k8s.gcr.io/kube-state-metrics/kube-state-metrics
+
+        #https://github.com/kubernetes/kube-state-metrics/blob/v1.9.7/Makefile
+
+        kube-state-metrics:
+          image:
+            repository: carlosedp/kube-state-metrics
+            tag: v1.9.6
+
+  destination:
+    namespace: observe
+    server: {{ .Values.spec.destination.server }}
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    validate: true
