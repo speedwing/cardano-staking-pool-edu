@@ -11,8 +11,9 @@ spec:
     repoURL: https://github.com/speedwing/cardano-node-builder.git
     targetRevision: {{ .Values.git.targetRevision }}
     path: deploy/cardano-staking-pool
-    valueFiles:
-      - values-testnet.yaml
+    helm:
+      valueFiles:
+        - values-testnet.yaml
 
   destination:
     namespace: cardano-tn
