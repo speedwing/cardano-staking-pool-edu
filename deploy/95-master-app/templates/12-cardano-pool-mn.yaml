@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cardano-pool-mn
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/speedwing/cardano-node-builder.git
+    targetRevision: {{ .Values.git.targetRevision }}
+    path: deploy/cardano-staking-pool
+    helm:
+      valueFiles:
+        - values-mainnet.yaml
+
+  destination:
+    namespace: cardano-mn
+    server: {{ .Values.spec.destination.server }}
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    validate: true
