@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:speedwing/cardano-node-builder.git
+    repoURL: https://github.com/speedwing/cardano-node-builder.git
     targetRevision: {{ .Values.git.targetRevision }}
     path: deploy/base-config
 
