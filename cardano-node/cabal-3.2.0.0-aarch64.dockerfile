@@ -21,3 +21,7 @@ WORKDIR /build/cabal
 RUN wget -qO- https://github.com/haskell/cabal/archive/Cabal-v${CABAL_VERSION}.tar.gz | tar xzfv - -C . --strip-components 1 \
   && cd cabal-install \
   && ./bootstrap.sh
+
+FROM ubuntu:18.04
+
+COPY --from=cabal /root/.cabal/bin/cabal /usr/bin/
