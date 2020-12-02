@@ -1,4 +1,0 @@
-global:
-  image:
-    repository: speedwing/argocd
-    tag: v1.7.10-arm

@@ -1,0 +1,26 @@
+network: mainnet
+
+volumeSize: 15Gi
+
+nodes:
+  - name: lambda
+    type: relay
+    enabled: false
+    port: 3000
+    replicas: 1
+  - name: rho
+    type: relay
+    enabled: false
+    port: 3000
+    replicas: 1
+  - name: alpha
+    type: block-producer
+    enabled: false
+    port: 3000
+    replicas: 1
+
+cardanoNodeHostname: speedwing.online
+nodePort: 30001
+
+topologyUpdater:
+  enabled: true

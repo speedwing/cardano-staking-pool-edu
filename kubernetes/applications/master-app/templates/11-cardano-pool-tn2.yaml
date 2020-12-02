@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cardano-pool-tn2
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/speedwing/cardano-staking-pool-edu.git
+    targetRevision: {{ .Values.git.targetRevision }}
+    path: kubernetes/applications/cardano-staking-pool
+    helm:
+      valueFiles:
+        - values-testnet-2.yaml
+
+  destination:
+    namespace: cardano-tn2
+    server: {{ .Values.spec.destination.server }}
+
+  syncPolicy:
+    automated:
+      prune: true
+    validate: true

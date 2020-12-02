@@ -5,14 +5,11 @@ This guide assumes you're on ubuntu.
 # Update and upgrade the system
 
 sudo apt-get update && \ 
-    sudo apt-get upgrade -y && \
-    sudo apt-get dist-upgrade
+    sudo apt-get full-upgrade -y
     
+Once ran the command above (the `full-upgrade` or `dist-upgrade` one) and you are running on SSD, ensure that no new
+kernel was installed. Should that be the case, or if unsure, visit [SSD](/SSD.md)
 
-## Dynamic DNS w/ ddclient
-
-https://www.techandme.se/setup-multiple-accounts-with-ddclient-and-cloudflare/   
- 
 ## Disable SSH w/ password
 
 This guide assumes you've setup already SSH keys to log w/o password on such hosts. Check the linked guide below 
@@ -42,3 +39,43 @@ Restart ssh server
 ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no <host> -l <user>
 
 [source](https://unix.stackexchange.com/questions/15138/how-to-force-ssh-client-to-use-only-password-auth)
+
+## Installing Kubernetes with SNAP
+
+* [Full documentation](https://microk8s.io/docs)
+* [ARM Specific](https://microk8s.io/docs/install-alternatives#heading--arm)
+
+For arm, edit `sudo vi /boot/firmware/cmdline.txt`
+And add at the end of the line `cgroup_enable=memory cgroup_memory=1`
+
+Then install with `sudo snap install microk8s --classic`
+
+Add user to microk8s users' group
+
+```bash
+sudo usermod -a -G microk8s ubuntu
+sudo chown -f -R ubuntu ~/.kube
+su - ubuntu
+```
+
+### Aliases
+
+```bash
+echo "alias k='microk8s kubectl'
+alias kubectl='microk8s kubectl'
+alias helm='microk8s helm3'" > ~/.bash_aliases
+source ~/.bash_aliases
+```
+
+### Hosts and hostnames
+
+Change hostname via `sudo vi /etc/hostname` with `pi-(one|two...)`
+
+And then host via `sudo vi /etc/hosts`
+
+```bash
+192.168.0.10 pi-one
+192.168.0.11 pi-two
+192.168.0.12 pi-three
+192.168.0.13 pi-four
+```

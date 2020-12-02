@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-dashboards
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/speedwing/cardano-staking-pool-edu.git
+    targetRevision: {{ .Values.git.targetRevision }}
+    path: kubernetes/applications/grafana-dashboards
+
+  destination:
+    namespace: observe
+    server: {{ .Values.spec.destination.server }}
+
+  syncPolicy:
+    automated:
+      prune: true

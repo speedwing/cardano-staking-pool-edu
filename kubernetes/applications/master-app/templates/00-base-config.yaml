@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: base-config
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/speedwing/cardano-staking-pool-edu.git
+    targetRevision: {{ .Values.git.targetRevision }}
+    path: kubernetes/applications/base-config
+
+  destination:
+    namespace: default
+    server: {{ .Values.spec.destination.server }}
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    validate: true

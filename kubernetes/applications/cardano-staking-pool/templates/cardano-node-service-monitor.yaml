@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: cardano-node-service-monitor
+  labels:
+    release: kube-prometheus-stack
+spec:
+  endpoints:
+    - path: /metrics
+      port: prom
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      app: cardano-node

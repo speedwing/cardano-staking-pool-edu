@@ -1,4 +1,0 @@
-global:
-  image:
-    repository: argoproj/argocd
-    tag: v1.7.10

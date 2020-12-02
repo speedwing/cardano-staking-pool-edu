@@ -1,14 +1,25 @@
-# Cardano Node Builder
+# Crypto Staking
+
+
 
 ## Bech32
 
 https://gist.github.com/ilap/3fd57e39520c90f084d25b0ef2b96894
 
-## Boot from SSD
-* https://www.tomshardware.com/how-to/boot-raspberry-pi-4-usb
-* https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd
-* https://lemariva.com/blog/2020/08/raspberry-pi-4-ssd-booting-enabled-trim
+## SSD
+
+Check docs [here](/SSD.md)
 
 ### Prometheus and Microk8s Api Server
 
 https://github.com/ubuntu/microk8s/issues/1598
+
+### Resources
+
+* [CnTools](https://cardano-community.github.io/guild-operators/#/)
+
+### Misc
+
+Turn off history `set +o history`
+And on again history `set -o history`
+To clear history `history -c`

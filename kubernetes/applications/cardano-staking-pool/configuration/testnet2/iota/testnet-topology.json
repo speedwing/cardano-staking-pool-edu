@@ -1,0 +1,69 @@
+{
+  "Producers": [
+    {
+      "addr": "cardano-node-beta.cardano-tn2.svc.cluster.local",
+      "port": 3000,
+      "valency": 1
+    },
+    {
+      "addr": "relays-new.cardano-testnet.iohkdev.io",
+      "port": 3001,
+      "valency": 2
+    },
+    {
+      "addr": "cardano-node-eta.cardano-tn2.svc.cluster.local",
+      "port": 3000,
+      "valency": 1
+    },
+    {
+      "addr": "relays-testnet1.cryptojoe.online",
+      "port": 30000,
+      "valency": 1
+    },
+    {
+      "addr": "testnet.casso.io",
+      "port": 4001,
+      "valency": 1,
+      "distance": 1448,
+      "continent": "EU",
+      "country": "ES",
+      "region": "MD"
+    },
+    {
+      "addr": "95.217.167.219",
+      "port": 3001,
+      "valency": 1,
+      "distance": 2027,
+      "continent": "EU",
+      "country": "FI",
+      "region": "18"
+    },
+    {
+      "addr": "testnet.crypto2099.io",
+      "port": 3001,
+      "valency": 1,
+      "distance": 4752,
+      "continent": "NA",
+      "country": "CA",
+      "region": "QC"
+    },
+    {
+      "addr": "relay0-ctn.adanet.io",
+      "port": 4001,
+      "valency": 1,
+      "distance": 5426,
+      "continent": "NA",
+      "country": "US",
+      "region": "MD"
+    },
+    {
+      "addr": "relays.cardano-testnet.uniquestaking.com",
+      "port": 3001,
+      "valency": 2,
+      "distance": 6425,
+      "continent": "NA",
+      "country": "US",
+      "region": "IA"
+    }
+  ]
+}

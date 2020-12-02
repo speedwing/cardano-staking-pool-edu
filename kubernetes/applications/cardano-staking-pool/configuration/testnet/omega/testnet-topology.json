@@ -1,0 +1,14 @@
+{
+  "Producers": [
+    {
+      "addr": "cardano-node-tau.cardano-tn.svc.cluster.local",
+      "port": 3000,
+      "valency": 1
+    },
+    {
+      "addr": "cardano-node-phi.cardano-tn.svc.cluster.local",
+      "port": 3000,
+      "valency": 1
+    }
+  ]
+}
