@@ -93,6 +93,9 @@ spec:
       name: "cardano-node-{{ $attributes.name }}"
     spec:
       accessModes: [ "ReadWriteOnce" ]
+      {{- if $attributes.storageClassName }}
+      storageClassName: {{ $attributes.storageClassName }}
+      {{- end }}
       resources:
         requests:
           storage: {{ $.Values.volumeSize }}
@@ -205,6 +208,9 @@ spec:
       name: "cardano-node-{{ $attributes.name }}"
     spec:
       accessModes: [ "ReadWriteOnce" ]
+      {{- if $attributes.storageClassName }}
+      storageClassName: {{ $attributes.storageClassName }}
+      {{- end }}
       resources:
         requests:
           storage: {{ $.Values.volumeSize }}

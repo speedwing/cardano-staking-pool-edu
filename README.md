@@ -23,3 +23,5 @@ https://github.com/ubuntu/microk8s/issues/1598
 Turn off history `set +o history`
 And on again history `set -o history`
 To clear history `history -c`
+
+https://github.com/kubernetes-csi/csi-driver-host-path/issues/71

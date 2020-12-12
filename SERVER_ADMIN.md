@@ -50,6 +50,8 @@ And add at the end of the line `cgroup_enable=memory cgroup_memory=1`
 
 Then install with `sudo snap install microk8s --classic`
 
+Start microk8s upon restart `sudo snap start --enable microk8s`
+
 Add user to microk8s users' group
 
 ```bash

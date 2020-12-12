@@ -63,9 +63,14 @@ BOOT_ORDER=0xf41
 FREEZE_VERSION=0
 ```
 
+### Auto Extract vmlinuz
+
+Raspberry pi cannot boot compressed kernel, so it needs to be automatically exploded upon update.
+
+Copy and execute the script in misc [init-auto_decompress_kernel.sh](/misc/init-auto_decompress_kernel.sh)
+
 ## Managing and additional SSD drive
 Nice guide: https://linuxhint.com/list-usb-devices-linux/
 
 * lsblk: `List information about block devices.`
 * Format device: sudo mkfs.ext3 /dev/sda2
-

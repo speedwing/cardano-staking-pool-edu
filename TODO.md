@@ -1,21 +1,25 @@
 # Todo
 
+* landing page
+* cronjob to backup chains
+* script to update height on pooltool.io
+* Fetch logs to see if we are going to be assigned any slot
+* Update Mainnet and Testnet w/ new cardano-like dns names
+* monitoring/alerting
+* twitter bot
+
 * fstab SSD
 * test volume snapshotting in k8s
 * move ssh port 
 * check router open ports
-* cronjob to backup chains
-* microk8s restarated upon server bounce
-* script to update height on pooltool.io
 * try to build cardano-node/cli w/o needing the libsodium sources.
-* Fetch logs to see if we are going to be assigned any slot
-* Update Mainnet and Testnet w/ new cardano-like dns names
 * link testnet pool to each otehr
 * check both testnet pools are configured ok for their DNS
 * configure mainnet DNS properly (with relays name)
-* monitoring/alerting
 
 # Done
+* microk8s restarted upon server bounce
+* auto explode vmlinuz
 * setup dyndns for mainnet
 * setup dyndns for testnet (broken)
 * close ssh to cert only
