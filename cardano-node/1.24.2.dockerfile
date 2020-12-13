@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y automake build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev \
-    zlib1g-dev make g++ tmux git jq wget libncursesw5 libtool autoconf llvm
+    zlib1g-dev make g++ tmux git jq wget libncursesw5 libtool autoconf llvm libnuma-dev
 
 # INSTALL GHC
 # The Glasgow Haskell Compiler
@@ -43,7 +43,7 @@ FROM ubuntu:20.04
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends netbase jq && \
+    apt-get install -y --no-install-recommends netbase jq libnuma-dev && \
     rm -rf /var/lib/apt/lists/*
 
 ## Libsodium refs
