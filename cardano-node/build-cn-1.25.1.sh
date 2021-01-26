@@ -4,7 +4,7 @@ set -x
 
 OS_ARCH=$(uname -m)
 
-CARDANO_NODE_VERSION=1.25.0
+CARDANO_NODE_VERSION=1.25.1
 
 docker build -t cardano-node:"${CARDANO_NODE_VERSION}-${OS_ARCH}" \
   --build-arg GHC_VERSION=8.10.2 \
