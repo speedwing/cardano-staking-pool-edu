@@ -14,9 +14,9 @@ Before starting to work with the cardano node, we have to prepare the Raspberry 
 2. Flash the SSD drive and install ubuntu 20.04
 3. Install Docker
 4. Build docker images:
-  * Build Cabal
-  * Build the Cardano Node
+    * Build Cabal
+    * Build the Cardano Node
 5. Launch a Relay Node
-  * Download the blockchain
+    * Download the blockchain
 6. Generate Stake Pool certificates and keys
 7. Launch the Block Producing node
