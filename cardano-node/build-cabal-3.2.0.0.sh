@@ -13,6 +13,6 @@ else
   exit 1
 fi
 
-docker build -t cabal:3.2.0.0 \
+docker build -t cabal:3.2.0.0-${OS_ARCH} \
   -f ${DOCKERFILE} . \
   --build-arg OS_ARCH="${OS_ARCH}"

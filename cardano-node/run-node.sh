@@ -2,8 +2,14 @@
 
 set -x
 
+NODE_VERSION=1.25.1-x86_64
 DB_FOLDER=$1
 CARDANO_NODE_PORT=$2
+NETWORK=${NETWORK:-mainnet}
+NODE_MODE=${NODE_MODE:-relay}
+KES_SKEY_PATH=${KES_SKEY_PATH:-/root/keys/pool-keys/kes.skey}
+VRF_SKEY_PATH=${VRF_SKEY_PATH:-/root/keys/pool-keys/vrf.skey}
+NODE_OP_CERT_PATH=${NODE_OP_CERT_PATH:-/root/keys/pool-keys-17-01-2021/node.cert}
 
 if [[ -z "${DB_FOLDER}" ]]; then
   echo "Missing required DB_FOLDER, pass it as first param"
@@ -17,11 +23,37 @@ fi
 
 echo "Starting node with DB_FOLDER=$DB_FOLDER and CARDANO_NODE_PORT=$CARDANO_NODE_PORT"
 
-docker run --name cardano-node -d --rm -v $DB_FOLDER:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket "${@:3}" cardano-node:1.24.2 \
-  "cardano-node run \
-  --topology /etc/config/mainnet-topology.json \
-  --database-path /db \
-  --socket-path /db/node.socket \
-  --host-addr 0.0.0.0 \
-  --port $CARDANO_NODE_PORT \
-  --config /etc/config/mainnet-config.json"
+if [ "${NODE_MODE}" = "relay" ]; then
+
+  echo "Starting node in RELAY mode"
+
+  sleep 5
+
+  docker run --name "cardano-node-${NETWORK}" -d --rm -v $DB_FOLDER:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket "${@:3}" "cardano-node:${NODE_VERSION}" \
+    "cardano-node run \
+    --topology /etc/config/${NETWORK}-topology.json \
+    --database-path /db \
+    --socket-path /db/node.socket \
+    --host-addr 0.0.0.0 \
+    --port $CARDANO_NODE_PORT \
+    --config /etc/config/${NETWORK}-config.json"
+
+elif [ "${NODE_MODE}" = "bp" ]; then
+
+  echo "Starting node in BLOCK PRODUCER mode"
+
+  sleep 5
+
+  docker run --name "cardano-node-${NETWORK}" -d --rm -v $DB_FOLDER:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket "${@:3}" "cardano-node:${NODE_VERSION}" \
+    "cardano-node run \
+    --topology /etc/config/${NETWORK}-topology.json \
+    --database-path /db \
+    --socket-path /db/node.socket \
+    --host-addr 0.0.0.0 \
+    --port $CARDANO_NODE_PORT \
+    --config /etc/config/${NETWORK}-config.json \
+    --shelley-kes-key ${KES_SKEY_PATH} \
+    --shelley-vrf-key ${VRF_SKEY_PATH} \
+    --shelley-operational-certificate ${NODE_OP_CERT_PATH}"
+
+fi

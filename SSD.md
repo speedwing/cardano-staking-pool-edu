@@ -1,5 +1,9 @@
 # SSD
 
+
+sudo EDITOR=vi rpi-eeprom-config -e
+
+
 ## Raspberry Pi 4 - Boot from SSD
 * https://eugenegrechko.com/blog/USB-Boot-Ubuntu-Server-20.04-on-Raspberry-Pi-4
 * https://www.tomshardware.com/how-to/boot-raspberry-pi-4-usb
