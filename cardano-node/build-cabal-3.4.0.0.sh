@@ -2,7 +2,7 @@
 
 set -x
 
-CABAL_VERSION=3.2.0.0
+CABAL_VERSION=3.4.0.0
 OS_ARCH=$(uname -m)
 
 if [[ "${OS_ARCH}" = "aarch64" ]]; then
