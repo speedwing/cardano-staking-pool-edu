@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y automake build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev \
-    zlib1g-dev make g++ tmux git jq wget curl libncursesw5 libtool autoconf llvm libnuma-dev
+    zlib1g-dev make g++ tmux git jq curl libncursesw5 libtool autoconf llvm libnuma-dev
 
 # INSTALL GHC
 # The Glasgow Haskell Compiler
