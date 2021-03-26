@@ -41,7 +41,7 @@ The `mmcblk0` is the Micro SD card, while `sda` if present is your SSD drive. Pl
 7. Then execute
 ```bash
 sudo mkdir /mnt/boot
-sudo sudo mount /dev/sda1 /mnt/boot
+sudo mount /dev/sda1 /mnt/boot
 cd ~ && git clone --depth 1 https://github.com/raspberrypi/firmware
 cd ~/firmware/boot && \
   sudo cp *.dat /mnt/boot && \
@@ -50,7 +50,7 @@ cd ~/firmware/boot && \
   sudo cp /tmp/vmlinux /mnt/boot && \
   rm /tmp/vmlinux
 ```
-8. In `vi /mnt/boot/config.txt` replace:
+8. In `sudo vi /mnt/boot/config.txt` replace:
 ```bash
 [pi4]
 kernel=uboot_rpi_4.bin
@@ -76,18 +76,12 @@ initramfs initrd.img followkernel
 ```
 9. Configure BIOS to boot from SSD, run  `sudo EDITOR=vi rpi-eeprom-config -e`
     * set update the line: `BOOT_ORDER=0xf41`
-
-### Auto Extract vmlinuz
-
-Raspberry pi cannot boot compressed kernel, so it needs to be automatically exploded upon update.
-
-Copy and execute the script in misc [init-auto_decompress_kernel.sh](/misc/init-auto_decompress_kernel.sh)
-
-=====
-
-Backup original: BOOT_ORDER=0x1
-
-
-
-
-
+10. Install the "auto_decompress_kernel" script
+```bash
+cd ~ && git clone --depth 1 https://github.com/speedwing/cardano-staking-pool-edu.git
+bash ~/cardano-staking-pool-edu/misc/init-auto_decompress_kernel.sh
+```
+11. We can now update our Ubuntu to the latest and greatest version
+    * `apt-get update && apt-get dist-upgrade` (this is going to take a while)
+   
+Congratulations, your Raspberry PI is now ready to build the `cardano-node` binary.
