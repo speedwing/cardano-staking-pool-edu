@@ -3,6 +3,8 @@
 In this project you will find resources for building progressively more complex Raspberry PI powered,
 cardano stake pools.
 
+If you enjoyed the content of this project, please consider donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
+
 In order to minimise the dependency on the underlying operating system you're using on your Raspberry PI, we will
 make large use of containerised applications. In particular, we will build AND use docker images.
 On top of this, we will leverage the USB 3.0 capabilities and connect SSD via sata to USB in order to have about 4 times 
