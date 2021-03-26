@@ -11,7 +11,7 @@ faster disk IO.
 Before starting to work with the cardano node, we have to prepare the Raspberry PI. These are all the required steps:
 
 1. Flash the SD card and update the Raspberry PI firmware [docs](/MICRO_SD.md)
-2. Flash the SSD drive and install ubuntu 20.04
+2. Flash the SSD drive and install ubuntu 20.04 [docs](/SSD.md)
 3. Install Docker
 4. Build docker images:
     * Build Cabal
