@@ -13,4 +13,5 @@ docker build -m 7Gi --memory-swap -1 -t cardano-node:"${CARDANO_NODE_IMAGE_TAG}"
   --build-arg OS_ARCH="${OS_ARCH}" \
   --build-arg CARDANO_VERSION=${CARDANO_NODE_VERSION} \
   -f "${CARDANO_NODE_VERSION}-${OS_ARCH}.dockerfile" . \
+  2>&1 \
   | tee /tmp/cardano-node-build.logs
