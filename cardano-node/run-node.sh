@@ -2,9 +2,16 @@
 
 set -x
 
-NODE_VERSION=1.25.1-x86_64
+OS_ARCH=$(uname -m)
+NODE_VERSION="1.26.0"
+IMAGE_TAG="${NODE_VERSION}-${OS_ARCH}"
+
+## The folder, on the actual Raspberry Pi where to download the blockchain
 DB_FOLDER=$1
+
+## The port number of the Cardano Node to expose.
 CARDANO_NODE_PORT=$2
+
 NETWORK=${NETWORK:-mainnet}
 NODE_MODE=${NODE_MODE:-relay}
 KES_SKEY_PATH=${KES_SKEY_PATH:-/root/keys/pool-keys/kes.skey}
@@ -17,7 +24,7 @@ if [[ -z "${DB_FOLDER}" ]]; then
 fi
 
 if [[ -z "${CARDANO_NODE_PORT}" ]]; then
-  echo "Missing required DB_FOLDER, pass it as first param"
+  echo "Missing required DB_FOLDER, pass it as second param"
   exit 1
 fi
 
@@ -29,7 +36,7 @@ if [ "${NODE_MODE}" = "relay" ]; then
 
   sleep 5
 
-  docker run --name "cardano-node-${NETWORK}" -d --rm -v $DB_FOLDER:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket "${@:3}" "cardano-node:${NODE_VERSION}" \
+  docker run --name "cardano-node-${NETWORK}" -d --rm -v $DB_FOLDER:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket "${@:3}" "cardano-node:${IMAGE_TAG}" \
     "cardano-node run \
     --topology /etc/config/${NETWORK}-topology.json \
     --database-path /db \
@@ -44,7 +51,7 @@ elif [ "${NODE_MODE}" = "bp" ]; then
 
   sleep 5
 
-  docker run --name "cardano-node-${NETWORK}" -d --rm -v $DB_FOLDER:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket "${@:3}" "cardano-node:${NODE_VERSION}" \
+  docker run --name "cardano-node-${NETWORK}" -d --rm -v $DB_FOLDER:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket "${@:3}" "cardano-node:${IMAGE_TAG}" \
     "cardano-node run \
     --topology /etc/config/${NETWORK}-topology.json \
     --database-path /db \

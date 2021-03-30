@@ -7,7 +7,8 @@ This is divided into three steps:
 2. Update the boot configuration of the newly flashed SSD
 3. Update the RPI boot configuration
 
-If you enjoyed the content of this project, please consider donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
+If you are enjoying the content of this project, please consider supporting me by delegating to my stake pool, ticker EASY1 or
+donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
 
 ## Install Ubuntu 20.04 on the SSD
 

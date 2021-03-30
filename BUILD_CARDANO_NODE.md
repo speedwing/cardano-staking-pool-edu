@@ -7,6 +7,9 @@ us with official docker images. For this reason we will build our own. It's impo
 public docker images for the `cardano-node` for raspberry pi. They could potentially steal your keys and give access to your
 funds to other people.
 
+If you are enjoying the content of this project, please consider supporting me by delegating to my stake pool, ticker EASY1 or
+donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
+
 ## How to build the `cardano-node`
 
 There is really just one step here, actually two if you haven't checked out already the github project of this tutorial.

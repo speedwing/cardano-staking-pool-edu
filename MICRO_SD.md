@@ -2,7 +2,8 @@
 
 In this first part of the tutorial, we will upgrade our Raspberry PI firmware so to be able to boot from SSD.
 
-If you enjoyed the content of this project, please consider donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
+If you are enjoying the content of this project, please consider supporting me by delegating to my stake pool, ticker EASY1 or
+donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
 
 ## Prepare the SD Card
 

@@ -5,7 +5,8 @@ we do not want to have to deal with the underlying Operating System, and go craz
 A couple of examples are Cabal and the GHC. Keeping them updated is important but messy. Having everything into containers
 greatly simplifies the management of the node.
 
-If you enjoyed the content of this project, please consider donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
+If you are enjoying the content of this project, please consider supporting me by delegating to my stake pool, ticker EASY1 or
+donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
 
 ## How to install Docker
 

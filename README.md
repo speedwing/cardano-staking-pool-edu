@@ -3,7 +3,8 @@
 In this project you will find resources for building progressively more complex Raspberry PI powered,
 cardano stake pools.
 
-If you enjoyed the content of this project, please consider donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
+If you are enjoying the content of this project, please consider supporting me by delegating to my stake pool, ticker EASY1 or
+donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
 
 In order to minimise the dependency on the underlying operating system you're using on your Raspberry PI, we will
 make large use of containerised applications. In particular, we will build AND use docker images.
@@ -16,7 +17,7 @@ Before starting to work with the cardano node, we have to prepare the Raspberry 
 2. Flash the SSD drive and install ubuntu 20.04 [docs](/SSD.md)
 3. Install Docker [docs](/DOCKER.md)
 4. Build the `cardano-node` docker image [docs](/BUILD_CARDANO_NODE.md)
-5. Launch a Relay Node
+5. Launch a Relay Node [docs](/RELAY_MODE.md)
     * Download the blockchain
 6. Generate Stake Pool certificates and keys
 7. Launch the Block Producing node
