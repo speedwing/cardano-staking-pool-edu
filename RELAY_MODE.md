@@ -21,6 +21,10 @@ cd ~/cardano-staking-pool-edu/cardano-node && \
   NETWORK=testnet ./run-node.sh /home/ubuntu/cardano-node/testnet 30001 
 ```
 
+> NOTE: if you want to download mainnet instead, I would recommend to create the folder `/home/ubuntu/cardano-node/mainnet`
+> and update the NETWORK variable to NETWORK=mainnet. The full command would look like:
+> `cd ~/cardano-staking-pool-edu/cardano-node && NETWORK=mainnet ./run-node.sh /home/ubuntu/cardano-node/mainnet 30001 `
+
 You should see something like:
 ```bash
 ++ uname -m
