@@ -20,3 +20,60 @@ cd ~/cardano-staking-pool-edu && git pull --rebase # Ensure we're on the latest 
 cd ~/cardano-staking-pool-edu/cardano-node && \
   NETWORK=testnet ./run-node.sh /home/ubuntu/cardano-node/testnet 30001 
 ```
+
+You should see something like:
+```bash
+++ uname -m
++ OS_ARCH=aarch64
++ NODE_VERSION=1.26.0
++ IMAGE_TAG=1.26.0-aarch64
++ DB_FOLDER=/home/ubuntu/cardano-node/testnet
++ CARDANO_NODE_PORT=30001
++ NETWORK=testnet
++ NODE_MODE=relay
++ KES_SKEY_PATH=/root/keys/pool-keys/kes.skey
++ VRF_SKEY_PATH=/root/keys/pool-keys/vrf.skey
++ NODE_OP_CERT_PATH=/root/keys/pool-keys-17-01-2021/node.cert
++ [[ -z /home/ubuntu/cardano-node/testnet ]]
++ [[ -z 30001 ]]
++ echo 'Starting node with DB_FOLDER=/home/ubuntu/cardano-node/testnet and CARDANO_NODE_PORT=30001'
+Starting node with DB_FOLDER=/home/ubuntu/cardano-node/testnet and CARDANO_NODE_PORT=30001
++ '[' relay = relay ']'
++ echo 'Starting node in RELAY mode'
+Starting node in RELAY mode
++ sleep 5
++ docker run --name cardano-node-testnet -d --rm -v /home/ubuntu/cardano-node/testnet:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket cardano-node:1.26.0-aarch64 'cardano-node run     --topology /etc/config/testnet-topology.json     --database-path /db     --socket-path /db/node.socket     --host-addr 0.0.0.0     --port 30001     --config /etc/config/testnet-config.json'
+f35c34fafa38a0b2ad2fa202482b24e4be65e098f9f447d7f9902dffc6157226
+```
+as output.
+
+In particular the `f35c34fafa38a0b2ad2fa202482b24e4be65e098f9f447d7f9902dffc6157226` is the id of the container runnin the 
+`cardano-node`.
+
+After a few seconds, issue the `docker ps` command and check if the node is still running. Something like this should be printed:
+```bash
+CONTAINER ID        IMAGE                         COMMAND                  CREATED              STATUS              PORTS               NAMES
+f35c34fafa38        cardano-node:1.26.0-aarch64   "bash -c 'cardano-no…"   About a minute ago   Up About a minute                       cardano-node-testnet
+```
+
+There we go, our relay is up and running and possibly downloading the blockchain from the beginning. Let's see if it's true.
+
+Run `docker logs cardano-node-testnet` something like this should be printed:
+
+```bash
+[f35c34fa:cardano.node.ChainDB:Notice:34] [2021-03-30 12:16:10.98 UTC] Chain extended, new tip: 3b7ce29c578a1a522fa4bab9aaba0e194aafda05748e8af026e61b0fa65ff867 at slot 4758
+[f35c34fa:cardano.node.ChainDB:Notice:34] [2021-03-30 12:16:12.28 UTC] Chain extended, new tip: 90ee6552293568253b6996faa68058941ce9b10f99456bb013e6d7b53c4f8deb at slot 4786
+[f35c34fa:cardano.node.ChainDB:Notice:34] [2021-03-30 12:16:13.59 UTC] Chain extended, new tip: be45e282614e01138408ee142ee570dca8f8d18da9da0596679e7c95ae91c7f3 at slot 4810
+[f35c34fa:cardano.node.ChainDB:Notice:34] [2021-03-30 12:16:14.89 UTC] Chain extended, new tip: 5443643aaa23dae9295219d227f859f1fab161b368b2ed937628a4ed1cd8b1f9 at slot 4832
+```
+
+Bingo, our node is download the blockchain. Let's check this tip `5443643aaa23dae9295219d227f859f1fab161b368b2ed937628a4ed1cd8b1f9` at what 
+epoch belongs. Let' open the cardano blockchain explorer for testnet.
+
+The cardano testnet blockchain explorer is available at: `https://explorer.cardano-testnet.iohkdev.io`
+
+The URL for that specific tip is: `https://explorer.cardano-testnet.iohkdev.io/en/block?id=5443643aaa23dae9295219d227f859f1fab161b368b2ed937628a4ed1cd8b1f9`, and 
+you can see the block is dated `2019/07/25 23:10:56 UTC`. We will need to check this manually from time to time to see when the full
+blockchain is finally downloaded. 
+
+Congrats on completing this episode!
