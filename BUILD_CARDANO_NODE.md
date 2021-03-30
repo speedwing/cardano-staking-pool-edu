@@ -26,7 +26,7 @@ cd ~/cardano-staking-pool-edu && git pull --rebase
 This will take you to the latest version.
 2. Build the `cardano-node` by issuing:
 ```bash
-cd ~/cardano-staking-pool-edu/cardano-node && ./build-cn-1.26.0.sh > /dev/null &
+cd ~/cardano-staking-pool-edu/cardano-node && ./build-cn-1.26.1.sh > /dev/null &
 ````
 The build should have started, you can actually check that it is progressing by running `docker ps`. You should see something like:
 ```bash
