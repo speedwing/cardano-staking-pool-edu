@@ -28,7 +28,7 @@ This will take you to the latest version.
 ```bash
 cd ~/cardano-staking-pool-edu/cardano-node && ./build-cn-1.26.1.sh > /dev/null &
 ````
-> *NOTE*: While discouraged the use of Raspberry 4B with only 4GB of memory (this could lead to frequent crashes and restarts), 
+> **NOTE**: While discouraged the use of Raspberry 4B with only 4GB of memory (this could lead to frequent crashes and restarts), 
 > you can still build the node by specifying the memory for the build as follows: 
 > `cd ~/cardano-staking-pool-edu/cardano-node && MEMORY=3 ./build-cn-1.26.1.sh > /dev/null &`
 
