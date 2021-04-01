@@ -58,7 +58,7 @@ It means the PI has either completed in error or succeeded. Let's find out, run 
 If you can find:
 ```bash
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-cardano-node        1.26.0-aarch64      659c2616f6ac        41 hours ago        3.1GB
+cardano-node        1.26.1-aarch64      659c2616f6ac        41 hours ago        3.1GB
 ```
 Well, my friend, you and your PI did it.
 
