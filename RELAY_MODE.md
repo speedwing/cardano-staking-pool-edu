@@ -18,12 +18,12 @@ Starting the node in relay mode for testnet should be as easy as:
 sudo mkdir -p /home/ubuntu/cardano-node/testnet
 cd ~/cardano-staking-pool-edu && git pull --rebase # Ensure we're on the latest version of the project
 cd ~/cardano-staking-pool-edu/cardano-node && \
-  NETWORK=testnet ./run-node.sh /home/ubuntu/cardano-node/testnet 30001 
+  NETWORK=testnet ./run-node.sh /home/ubuntu/cardano-node/testnet 30001 --restart unless-stopped
 ```
 
 > NOTE: if you want to download mainnet instead, I would recommend to create the folder `/home/ubuntu/cardano-node/mainnet`
 > and update the NETWORK variable to NETWORK=mainnet. The full command would look like:
-> `cd ~/cardano-staking-pool-edu/cardano-node && NETWORK=mainnet ./run-node.sh /home/ubuntu/cardano-node/mainnet 30001 `
+> `cd ~/cardano-staking-pool-edu/cardano-node && NETWORK=mainnet ./run-node.sh /home/ubuntu/cardano-node/mainnet 30001 --restart unless-stopped`
 
 You should see something like:
 ```bash
