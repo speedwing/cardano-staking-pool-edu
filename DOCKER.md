@@ -54,5 +54,7 @@ The result should be something like:
 ubuntu@ubuntu:~$ cat /boot/firmware/cmdline.txt
 net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc cgroup_enable=memory cgroup_memory=1
 ```
-And this is for this episode. 
 
+In order for these changes to take effect, you have to reboot your pi, so simply run `sudo reboot now`
+
+And this is for this episode. 
