@@ -34,5 +34,25 @@ sudo snap disable docker
 sudo snap enable docker
 ```
 
+On youtube I received the comment: 
+
+> Hi.  I see this Warning during the build " ---> [Warning] Your kernel does not support memory limit capabilities or the cgroup is not mounted. Limitation discarded.
+Is this going to be a problem for me?
+
+So I quickly checked and yes there is an extra step to take in order to enable memory and cpu capabilities. Details below.
+
+## Enabling cgroup
+
+Now that docker is installed, we have to add [cgroup](https://en.wikipedia.org/wiki/Cgroups) capabilities. These are
+required in order to make visible to containers cpu and memory resources.
+
+It is really really simple to do so, first edit this file `sudo vi /boot/firmware/cmdline.txt` 
+and add `cgroup_enable=memory cgroup_memory=1` at the end of the uniq line of the file (not a new line as it won't work)
+
+The result should be something like:
+```bash
+ubuntu@ubuntu:~$ cat /boot/firmware/cmdline.txt
+net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc cgroup_enable=memory cgroup_memory=1
+```
 And this is for this episode. 
 
