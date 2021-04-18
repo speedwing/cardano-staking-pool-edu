@@ -29,8 +29,8 @@ You should see something like:
 ```bash
 ++ uname -m
 + OS_ARCH=aarch64
-+ NODE_VERSION=1.26.1
-+ IMAGE_TAG=1.26.1-aarch64
++ NODE_VERSION=1.26.2
++ IMAGE_TAG=1.26.2-aarch64
 + DB_FOLDER=/home/ubuntu/cardano-node/testnet
 + CARDANO_NODE_PORT=30001
 + NETWORK=testnet
@@ -46,7 +46,7 @@ Starting node with DB_FOLDER=/home/ubuntu/cardano-node/testnet and CARDANO_NODE_
 + echo 'Starting node in RELAY mode'
 Starting node in RELAY mode
 + sleep 5
-+ docker run --name cardano-node-testnet -d --rm -v /home/ubuntu/cardano-node/testnet:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket cardano-node:1.26.1-aarch64 'cardano-node run     --topology /etc/config/testnet-topology.json     --database-path /db     --socket-path /db/node.socket     --host-addr 0.0.0.0     --port 30001     --config /etc/config/testnet-config.json'
++ docker run --name cardano-node-testnet -d --rm -v /home/ubuntu/cardano-node/testnet:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket cardano-node:1.26.2-aarch64 'cardano-node run     --topology /etc/config/testnet-topology.json     --database-path /db     --socket-path /db/node.socket     --host-addr 0.0.0.0     --port 30001     --config /etc/config/testnet-config.json'
 f35c34fafa38a0b2ad2fa202482b24e4be65e098f9f447d7f9902dffc6157226
 ```
 as output.
@@ -57,7 +57,7 @@ In particular the `f35c34fafa38a0b2ad2fa202482b24e4be65e098f9f447d7f9902dffc6157
 After a few seconds, issue the `docker ps` command and check if the node is still running. Something like this should be printed:
 ```bash
 CONTAINER ID        IMAGE                         COMMAND                  CREATED              STATUS              PORTS               NAMES
-f35c34fafa38        cardano-node:1.26.1-aarch64   "bash -c 'cardano-no…"   About a minute ago   Up About a minute                       cardano-node-testnet
+f35c34fafa38        cardano-node:1.26.2-aarch64   "bash -c 'cardano-no…"   About a minute ago   Up About a minute                       cardano-node-testnet
 ```
 
 There we go, our relay is up and running and possibly downloading the blockchain from the beginning. Let's see if it's true.
