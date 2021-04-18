@@ -27,11 +27,11 @@ ENV LD_LIBRARY_PATH="/usr/local/lib"
 ENV PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 # Cabal to PATH
-RUN curl -L https://downloads.haskell.org/~cabal/cabal-install-3.4.0.0/cabal-install-3.4.0.0-${OS_ARCH}-ubuntu-16.04.tar.xz | \
+RUN curl -L https://downloads.haskell.org/~cabal/cabal-install-3.4.0.0/cabal-install-3.4.0.0-${OS_ARCH}-ubuntu-18.04.tar.xz | \
     tar -Jx -C /usr/bin/
 RUN cabal update
 
-ARG CARDANO_VERSION="1.26.1"
+ARG CARDANO_VERSION="1.26.2"
 WORKDIR /build/cardano-node
 RUN git clone --branch ${CARDANO_VERSION} https://github.com/input-output-hk/cardano-node.git && \
     cd cardano-node && \

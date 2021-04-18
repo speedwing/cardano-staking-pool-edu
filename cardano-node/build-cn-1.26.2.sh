@@ -6,7 +6,7 @@ OS_ARCH=$(uname -m)
 
 MEMORY=${MEMORY:-7}
 
-CARDANO_NODE_VERSION=1.26.1
+CARDANO_NODE_VERSION=1.26.2
 CARDANO_NODE_IMAGE_TAG="${CARDANO_NODE_VERSION}-${OS_ARCH}"
 
 docker build -m "${MEMORY}Gi" --memory-swap -1 -t cardano-node:"${CARDANO_NODE_IMAGE_TAG}" \
