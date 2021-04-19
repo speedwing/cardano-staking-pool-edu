@@ -24,7 +24,7 @@ if [[ -z "${DB_FOLDER}" ]]; then
 fi
 
 if [[ -z "${CARDANO_NODE_PORT}" ]]; then
-  echo "Missing required DB_FOLDER, pass it as second param"
+  echo "Missing required CARDANO_NODE_PORT, pass it as second param"
   exit 1
 fi
 
