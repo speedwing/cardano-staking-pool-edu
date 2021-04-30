@@ -9,5 +9,4 @@ mkdir -p ~/tmp/cardano-bin || return 0
 
 docker run -it --rm \
   -v "/home/ubuntu/tmp/cardano-bin:/tmp cardano-node:${CARDANO_NODE_VERSION}-${OS_ARCH}"
-  "cp /usr/local/bin/cardano-cli /tmp/cardano-cli; cp /usr/local/bin/cardano-node /tmp/cardano-cli"
-
+  "cp /usr/local/bin/cardano-cli /tmp/; cp /usr/local/bin/cardano-node /tmp/"
