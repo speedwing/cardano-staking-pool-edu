@@ -3,5 +3,5 @@
 set -x
 
 # Copying the atada script common config to user's home
-cp mainnet/.common.inc ~/
+cp testnet/.common.inc ~/
 
