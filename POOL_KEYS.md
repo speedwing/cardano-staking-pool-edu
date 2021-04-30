@@ -9,6 +9,14 @@ For this reason we will use the [scripts](https://github.com/gitmachtl/scripts) 
 If you are enjoying the content of this project, please consider supporting me by delegating to my stake pool, ticker EASY1 or
 donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
 
+## Update project source
+
+Ensure you're on the latest and greatest version of this docs
+
+```bash
+cd ~/cardano-staking-pool-edu && git pull --rebase
+```
+
 ## Create all the certificates
 The first step is to clone or update the ATADA Scripts. Ssh into you pi and clone
 
