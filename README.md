@@ -20,5 +20,5 @@ Before starting to work with the cardano node, we have to prepare the Raspberry 
 5. Launch a Relay Node [docs](/RELAY_MODE.md)
     * Download the blockchain
 6. Disable password auth mechanism for SSH [docs](/SSH.md)
-7. Generate Stake Pool certificates and keys
+7. Generate Stake Pool certificates and keys [docs](/POOL_KEYS.md)
 8. Launch the Block Producing node
