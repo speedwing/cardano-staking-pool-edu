@@ -1,7 +1,7 @@
 socket="/home/ubuntu/cardano-node/mainnet/db/node.socket"
 
-genesisfile="/etc/config/mainnet-shelley-genesis.json"           #Shelley-Genesis path
-genesisfile_byron="/etc/config/mainnet-byron-genesis.json"       #Byron-Genesis path
+genesisfile="/home/ubuntu/cardano-staking-pool-edu/cardano-node/config/mainnet/mainnet-shelley-genesis.json"           #Shelley-Genesis path
+genesisfile_byron="/home/ubuntu/cardano-staking-pool-edu/cardano-node/config/mainnet/mainnet-byron-genesis.json"       #Byron-Genesis path
 
 cardanocli="/usr/local/bin/cardano-cli"	#Path to your cardano-cli you wanna use
 cardanonode="/usr/local/bin/cardano-node"	#Path to your cardano-node you wanna use
