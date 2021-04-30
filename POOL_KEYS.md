@@ -38,4 +38,80 @@ or update the scripts
 cd ~/scripts && git pull --rebase
 ```
 
-We can now proc
+## Prepare the environment
+
+First step is to create folder for the keys
+
+```shell
+mkdir -p /home/ubuntu/.keys/testnet
+```
+
+Replace `testnet` with `mainnet` if you're planning to use this for mainnet.
+
+We will need to use `cardano-cli` to interact with the `cardano-node` during the registration of the pool, so we 
+need to extract these binaries from the docker image. I've prepared a couple of scripts to do so. You will need to run
+these every time there is version update.
+
+Scripts are available in [misc/atada](#misc/atada)
+
+```shell
+cd /home/ubuntu/cardano-staking-pool-edu/misc/atada && \
+  ./extract-cardano-binaries.sh && \
+  ./init-testnet.sh
+```
+
+Depending on which blockchain you're using (testnet or mainnet), you will be prompted to update your `PATH` env var, this 
+is going to be super handy to have direct access to the ATADA scripts.
+
+The instruction should look something like:
+
+`export PATH=/home/ubuntu/scripts/cardano/testnet:[...]`
+
+Copy, paste and execute it. We are now ready to create all-the-certs
+
+## Create the required address and certificates
+
+```shell
+# Change to the keys folder previously created
+cd /home/ubuntu/.keys/testnet
+
+# Create payment address, verification and signature key
+02_genPaymentAddrOnly.sh africa cli
+
+# Create staking files 
+03a_genStakingPaymentAddr.sh africa cli
+```
+
+We now need to transfer some $tAda (test Ada). We will use the testnet faucet: https://developers.cardano.org/en/testnets/cardano/tools/faucet/
+
+Extract the payment address from the payment file `cat africa.payment.addr`, the result should be something similar to
+
+`addr_test1qpat2377zxrqytzydxmwsgvfc37273wgalrpdtx6xdxnzpdsx7qjpcfupg06qpw3uezee7cnsqyf4ffm75e9uln7ya4sq2zrug`
+
+Use this address in the faucet to get your money.
+
+If you are on mainnet, that's the moment where you transfer from your wallet or from an exchange. Please note that you will:
+1. 500 $ada as deposit for your Stake Pool
+2. The amount of $ada you desire to pledge
+3. Some extra couple of $ada for paying transaction fees
+
+The faucet gives us 1000 $ada, that is perfect for this exercise.
+
+After a few seconds we should have the $tAda in our wallet, let's continue
+
+```shell
+# Ensure funds have arrived
+01_queryAddress.sh africa.payment
+
+# Register Stake address 
+03b_regStakingAddrCert.sh africa.staking africa.payment # press 'Y' when prompted 
+
+# Wait for stake address to be registered
+03c_checkStakingAddrOnChain.sh africa
+
+# Generate node keys 
+04a_genNodeKeys.sh afric cli
+
+
+```
+

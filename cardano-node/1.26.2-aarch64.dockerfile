@@ -67,4 +67,8 @@ COPY --from=builder /build/cardano-node/cardano-node/dist-newstyle/build/${OS_AR
 ## Attempt to check on the prometheus metrics port if the node is up and running
 HEALTHCHECK --interval=10s --timeout=60s --start-period=300s --retries=3 CMD curl -f http://localhost:12798/metrics || exit 1
 
+RUN useradd -ms /bin/bash cardano
+USER cardano
+WORKDIR /home/cardano
+
 ENTRYPOINT ["bash", "-c"]
