@@ -17,7 +17,7 @@ COPY --from=cardano-node /usr/local/lib /usr/local/lib
 ENV LD_LIBRARY_PATH="/usr/local/lib"
 ENV PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
-COPY --from=cardano-node /etc/config/* /etc/config
+COPY --from=cardano-node /etc/config/* /etc/config/
 
 COPY --from=cardano-node /usr/local/bin/cardano-cli /usr/local/bin/cardano-cli
 COPY --from=cardano-node /usr/local/bin/cardano-node /usr/local/bin/cardano-node
