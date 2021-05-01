@@ -63,7 +63,10 @@ Copy it, and execute it. This will put the network specific ATADA scripts on you
 
 Time to create the various certificates
 
-##£ Create the required address and certificates
+### Create the required address and certificates
+
+These docs have been written the week of the first Africa Cardano deal, the one about 5m Ethiopian students being
+onboarded on the blockchain. To celebrate this, we will create certs and keys for a test net pool called AFRIC.
 
 ```shell
 # Change to the keys folder previously created
@@ -106,7 +109,19 @@ After a few seconds we should have the $tAda in our wallet, let's continue
 # Wait for stake address to be registered
 03c_checkStakingAddrOnChain.sh africa
 
-# Generate node keys 
+# Generate Node keys 
 04a_genNodeKeys.sh africa cli
+
+# Generate vrf keys
+04b_genVRFKeys.sh africa
+
+# Generate KES keys
+04c_genKESKeys.sh africa
+
+# Generate Node Operational cert
+04d_genNodeOpCert.sh africa
+
+# Generate Stake Pool Cert
+05a_genStakepoolCert.sh africa
 ```
 
