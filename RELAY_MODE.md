@@ -15,7 +15,7 @@ donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4h
 Starting the node in relay mode for testnet should be as easy as:
 
 ```bash
-sudo mkdir -p /home/ubuntu/cardano-node/testnet
+mkdir -p /home/ubuntu/cardano-node/testnet
 cd ~/cardano-staking-pool-edu && git pull --rebase # Ensure we're on the latest version of the project
 cd ~/cardano-staking-pool-edu/cardano-node && \
   NETWORK=testnet ./run-node.sh /home/ubuntu/cardano-node/testnet 30001 --restart unless-stopped
