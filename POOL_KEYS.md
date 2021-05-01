@@ -17,55 +17,53 @@ Ensure you're on the latest and greatest version of this docs
 cd ~/cardano-staking-pool-edu && git pull --rebase
 ```
 
-## Create all the certificates
-The first step is to clone or update the ATADA Scripts. Ssh into you pi and clone
+## Build the ATADA scripts docker image
 
-```shell
-cd ~ && git clone --depth 1 https://github.com/gitmachtl/scripts.git
+```bash
+cd ~/cardano-staking-pool-edu/atada-scripts/ && ./build-atada-scripts.sh
 ```
 
-or update the scripts
+## Prepare the keys folder
 
-```shell
-cd ~/scripts && git pull --rebase
-```
+Please note that, after creation, all exception relevant keys (operational cert, KES verification signature key, and VRF signature key),
+MUST be saved OUTSIDE the raspberry pi. Should your raspberry pi be compromised, a hacker won't be able to withdraw your funds.
 
-## Prepare the environment
-
-First step is to create folder for the keys
+The default folder we will use for thi tutorial is:
 
 ```shell
 mkdir -p /home/ubuntu/.keys/testnet
 ```
 
-Replace `testnet` with `mainnet` if you're planning to use this for mainnet.
+Replace testnet with mainnet if required.
 
-We will need to use `cardano-cli` to interact with the `cardano-node` during the registration of the pool, so we 
-need to extract these binaries from the docker image. I've prepared a couple of scripts to do so. You will need to run
-these every time there is version update.
+## Run the atada container 
 
-Scripts are available in [misc/atada](#misc/atada)
+This part of the tutorial needs to be followed the first time you're creating your keys, and every time you need to 
+updated your operational certificate or need to rotate you KES Keys.
 
-```shell
-cd /home/ubuntu/cardano-staking-pool-edu/misc/atada && \
-  ./extract-cardano-binaries.sh && \
-  ./init-testnet.sh
+```bash
+cd ~/cardano-staking-pool-edu/atada-scripts/ && ./run-atada-scripts.sh
 ```
 
-Depending on which blockchain you're using (testnet or mainnet), you will be prompted to update your `PATH` env var, this 
-is going to be super handy to have direct access to the ATADA scripts.
+Once the container is launched, we have to set the environment for the proper network (i.e. mainnet or testnet)
 
-The instruction should look something like:
+```shell
+cd /home/cardano/atada && ./init-testnet.sh 
+```
 
-`export PATH=/home/ubuntu/scripts/cardano/testnet:[...]`
+The script should spit a line that looks like:
 
-Copy, paste and execute it. We are now ready to create all-the-certs
+`export PATH=/home/cardano/scripts/cardano/testnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin`
 
-## Create the required address and certificates
+Copy it, and execute it. This will put the network specific ATADA scripts on your path.
+
+Time to create the various certificates
+
+##£ Create the required address and certificates
 
 ```shell
 # Change to the keys folder previously created
-cd /home/ubuntu/.keys/testnet
+cd /home/cardano/keys
 
 # Create payment address, verification and signature key
 02_genPaymentAddrOnly.sh africa cli
