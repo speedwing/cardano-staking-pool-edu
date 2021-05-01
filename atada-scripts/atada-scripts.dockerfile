@@ -7,7 +7,7 @@ FROM ubuntu:20.04
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y jq libnuma-dev curl git netbase bc && \
+    apt-get install -y jq libnuma-dev curl git netbase bc xxd && \
     rm -rf /var/lib/apt/lists/*
 
 ## Libsodium refs

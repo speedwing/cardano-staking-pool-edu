@@ -1,4 +1,4 @@
-socket="/home/ubuntu/cardano-node/mainnet/node.socket"
+socket="/home/ubuntu/cardano-node/node.socket"
 
 genesisfile="/etc/config/mainnet-shelley-genesis.json"           #Shelley-Genesis path
 genesisfile_byron="/etc/config/mainnet-byron-genesis.json"       #Byron-Genesis path
