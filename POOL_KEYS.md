@@ -144,9 +144,23 @@ Here we are going to assume there is just one owner, and it's yourself. Edit the
 * `poolMetaDescription`: description of your pool, this could be a motto, or the charity you're donating to
 * `poolMetaTicker`: the ticker. A 5 digit name for you pool. Letter, numbers and some symbol definitely accepted.
 * `poolMetaHomepage`: self explanatory
-* `poolMetaUrl`: the url of the pool metadata. You can use git gists. TODO: insert link to video with the tricky bit
+* `poolMetaUrl`: the url of the pool metadata. You can use git gists.
 
-We can now resume with the certificates creation and registration.
+We can now re-execute the `05a_genStakepoolCert.sh africa` that will actually generate the metadata json file for use.
+This file is of paramount importance and a step were A LOT of people get stuck. This file is required for your pool 
+to be visible in yoroi/daedalus as well as functioning properly. Take the file exactly as created by the script and 
+publish it at the url you've entered above. You can use gists in git. Please beware that if you go down that route,
+you will need to upload the file first, than re-update the URL in the `africa.pool.json` as gists url change all the time.
+
+You can validate that the content of the metadata file `africa.metadata.json`, and the url you've entered are correct by 
+comparing the hash created by the `cardano-cli` against the one in the field `poolMetaHash` of the `africa.pool.json` file.
+The steps are:
+```shell
+curl -L -o validation-metadata.json https//the_url_of_the_meta 
+cardano-cli stake-pool metadata-hash --pool-metadata-file validation-metadata.json
+```
+You can compare now the result of the operation above, with the `poolMetaHash` field of the `africa.pool.json` file. If 
+they mismatch, ensure the content of the metadata file is correct (check the final new line!) and that the url is correct.
 
 ```shell
 # Re-execute after the changes, so that the metadata file gets created.
