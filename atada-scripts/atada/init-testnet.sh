@@ -7,4 +7,4 @@ cp testnet/.common.inc ~/
 
 # Add scripts to path for ease of use
 echo "Execute the line below so to have scripts in your path"
-echo "export PATH=/home/ubuntu/scripts/cardano/testnet:$PATH"
+echo "export PATH=/home/cardano/scripts/cardano/testnet:$PATH"
