@@ -7,7 +7,7 @@ FROM ubuntu:20.04
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends netbase jq libnuma-dev curl && \
+    apt-get install -y jq curl git && \
     rm -rf /var/lib/apt/lists/*
 
 ## Libsodium refs
@@ -25,5 +25,8 @@ COPY --from=cardano-node /usr/local/bin/cardano-node /usr/local/bin/cardano-node
 RUN useradd -ms /bin/bash cardano
 USER cardano
 WORKDIR /home/cardano
+
+COPY atada /home/cardano/atada/
+RUN id && pwd && ls -lart && git clone --depth 1 https://github.com/gitmachtl/scripts.git
 
 ENTRYPOINT ["bash", "-c"]
