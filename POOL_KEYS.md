@@ -9,14 +9,6 @@ For this reason we will use the [scripts](https://github.com/gitmachtl/scripts) 
 If you are enjoying the content of this project, please consider supporting me by delegating to my stake pool, ticker EASY1 or
 donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
 
-## Install required libraries
-
-ATADA scripts require a program called jq used to manage json.
-
-```shell
-sudo apt-get update && sudo apt-get install -y jq
-```
-
 ## Update project source
 
 Ensure you're on the latest and greatest version of this docs
