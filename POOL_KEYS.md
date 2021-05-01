@@ -1,6 +1,10 @@
 # Pool Keys
 
-This part of the proces of setting up a pool used to be extremely painful. While the official cardano [docs](https://docs.cardano.org/projects/cardano-node/en/latest/index.html)
+> **NOTE**: I realised I had to fix some root vs non-root permissions in an advanced stage of these series of tutorials. If while you follow this 
+> episode you suddenly experience issues with root vs non-root permissions, please check the following [docs](/RUN_NODE_AS_USER.md) 
+> and then come back to this episode.
+
+This part of the process of setting up a pool used to be extremely painful. While the official cardano [docs](https://docs.cardano.org/projects/cardano-node/en/latest/index.html)
 are extremely well written, it is complicated to do all the steps by hand, specially if you consider that signed transaction should promptly be
 submitted, or they will expire, and you will have to create them again.
 
@@ -11,7 +15,7 @@ donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4h
 
 ## Update project source
 
-Ensure you're on the latest and greatest version of this docs
+Ensure you're on the latest and greatest version of this project
 
 ```bash
 cd ~/cardano-staking-pool-edu && git pull --rebase
@@ -25,8 +29,8 @@ cd ~/cardano-staking-pool-edu/atada-scripts/ && ./build-atada-scripts.sh
 
 ## Prepare the keys folder
 
-Please note that, after creation, all exception relevant keys (operational cert, KES verification signature key, and VRF signature key),
-MUST be saved OUTSIDE the raspberry pi. Should your raspberry pi be compromised, a hacker won't be able to withdraw your funds.
+Please note that, after creation, all your keys and certificates, except for the operational cert, KES verification signature key, and VRF signature key,
+MUST be saved OUTSIDE the raspberry pi. Should your raspberry pi be compromised, a hacker won't be able to withdraw your funds or compromise your stake pool
 
 The default folder we will use for thi tutorial is:
 
@@ -72,13 +76,16 @@ cd /home/cardano/keys
 03a_genStakingPaymentAddr.sh africa cli
 ```
 
+> **NOTE**: the `cli` param passed to the ATADA scripts, can be replaced with other param that will allow you to use hardware wallets like ledger/trezor.
+> Check their docs if you want to know more.
+
 We now need to transfer some $tAda (test Ada). We will use the testnet faucet: https://developers.cardano.org/en/testnets/cardano/tools/faucet/
 
 Extract the payment address from the payment file `cat africa.payment.addr`, the result should be something similar to
 
 `addr_test1qpat2377zxrqytzydxmwsgvfc37273wgalrpdtx6xdxnzpdsx7qjpcfupg06qpw3uezee7cnsqyf4ffm75e9uln7ya4sq2zrug`
 
-Use this address in the faucet to get your money.
+Use this address in the [faucet](https://developers.cardano.org/en/testnets/cardano/tools/faucet/) to get your money.
 
 If you are on mainnet, that's the moment where you transfer from your wallet or from an exchange. Please note that you will:
 1. 500 $ada as deposit for your Stake Pool
@@ -100,8 +107,6 @@ After a few seconds we should have the $tAda in our wallet, let's continue
 03c_checkStakingAddrOnChain.sh africa
 
 # Generate node keys 
-04a_genNodeKeys.sh afric cli
-
-
+04a_genNodeKeys.sh africa cli
 ```
 

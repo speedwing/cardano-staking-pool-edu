@@ -24,4 +24,3 @@ Before starting to work with the cardano node, we have to prepare the Raspberry 
 8. Launch the Block Producing node
 
 > **NOTE**: If you're suddenly experiencing issues with root vs non-root users, please check the following [docs](/RUN_NODE_AS_USER.md)
-> 
