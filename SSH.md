@@ -63,7 +63,7 @@ These steps are taken from [source](https://www.cyberciti.biz/faq/how-to-disable
 
 The first step is to "install" your key on the raspberry list of allowed keys.
 
-`ssh-copy-id -i id_rsa ubuntu@192.168.0.215`
+`ssh-copy-id -i id_rsa.pub ubuntu@192.168.0.215`
 
 Where the `192.168.0.215` is the ip of your pi. 
 
