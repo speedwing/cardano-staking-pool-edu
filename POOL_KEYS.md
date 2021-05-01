@@ -1,8 +1,11 @@
 # Pool Keys
 
-> **NOTE**: I realised I had to fix some root vs non-root permissions in an advanced stage of these series of tutorials. If while you follow this 
+> **NOTE 1**: I realised I had to fix some root vs non-root permissions in an advanced stage of these series of tutorials. If while you follow this 
 > episode you suddenly experience issues with root vs non-root permissions, please check the following [docs](/RUN_NODE_AS_USER.md) 
 > and then come back to this episode.
+
+> **NOTE 2**: Before starting it's important to know that there is a step of this tutorial I just can't help you with, and it is the setup of your
+> router and/or how to configure dynamic ip addresses. This is because there are way too many different setups.
 
 This part of the process of setting up a pool used to be extremely painful. While the official cardano [docs](https://docs.cardano.org/projects/cardano-node/en/latest/index.html)
 are extremely well written, it is complicated to do all the steps by hand, specially if you consider that signed transaction should promptly be
@@ -125,3 +128,38 @@ After a few seconds we should have the $tAda in our wallet, let's continue
 05a_genStakepoolCert.sh africa
 ```
 
+Right, we've generated most of our keys, but now we need to customise the pools characteristics. 
+
+Here we are going to assume there is just one owner, and it's yourself. Edit the `vi africa.pool.json` with your favourite cli editor, and set
+
+* `ownerName`: `africa`
+* `poolRewards`: `africa`
+* `poolPledge`: pool pledge in lovelace. So 100 $ada is 100000000
+* `poolCost`: 340000000 (this is the minimum)
+* `poolMargin`: 0.10 means 10%, 0.02 means 2%
+* `relayType`: whether you're going to use a static ip or a dns name
+* `relayEntry`: the value of the type above. if you set up ip, you should set something like `123.123.123.123`, if dns something like `my-relay.my-domain.com`
+* `relayPort`: the port number at which your node is listening for incoming connections
+* `poolMetaName`: the name of the stake pool, not the ticker, this can be longer.
+* `poolMetaDescription`: description of your pool, this could be a motto, or the charity you're donating to
+* `poolMetaTicker`: the ticker. A 5 digit name for you pool. Letter, numbers and some symbol definitely accepted.
+* `poolMetaHomepage`: self explanatory
+* `poolMetaUrl`: the url of the pool metadata. You can use git gists. TODO: insert link to video with the tricky bit
+
+We can now resume with the certificates creation and registration.
+
+```shell
+# Re-execute after the changes, so that the metadata file gets created.
+05a_genStakepoolCert.sh africa
+
+# Generate Delegation Certificate
+05b_genDelegationCert.sh africa africa.staking
+
+# Register Stake Pool Certificate
+05c_regStakepoolCert.sh africa africa.payment
+
+# Register Delegation Certificate
+06_regDelegationCert.sh africa africa.payment
+```
+
+Congratulations. Your pool is not registered.
