@@ -82,12 +82,13 @@ initramfs initrd.img followkernel
 11. Wait a few seconds that the pi turns off, a few more seconds... ok now unplug the power
 12. Remove the microSD
 13. Re-plug the usb-c power cable.
-14. Install the "auto_decompress_kernel" script
+14. Wait a few seconds for the pi to boot and ssh into it. (You may need to re-run nmap if your pi has changed ip)
+15. Install the "auto_decompress_kernel" script
 ```bash
 cd ~ && git clone --depth 1 https://github.com/speedwing/cardano-staking-pool-edu.git
 bash ~/cardano-staking-pool-edu/misc/init-auto_decompress_kernel.sh
 ```
-15. We can now update our Ubuntu to the latest and greatest version
+16. We can now update our Ubuntu to the latest and greatest version
     * `sudo apt-get update && sudo apt-get dist-upgrade` (this is going to take a while)
    
 Congratulations, your Raspberry PI is now ready to build the `cardano-node` binary.
