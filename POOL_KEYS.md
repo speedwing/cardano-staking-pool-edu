@@ -4,7 +4,13 @@
 > episode you suddenly experience issues with root vs non-root permissions, please check the following [docs](/RUN_NODE_AS_USER.md) 
 > and then come back to this episode.
 
-> **NOTE 2**: Before starting it's important to know that there is a step of this tutorial I just can't help you with, and it is the setup of your
+> **NOTE 2**: As we are now about to start dealing with poential real $ADA I want you to take a moment and think about the risks of running a pool,
+> such as loosing keys, getting hacked et cetera. If you feel this is overwhelming or not feel totally comfortable, I would recommend to leave this
+> as a testnet excercise, but not a mainnet one.
+
+> **NOTE 3**: I take no responsibility of lost $ADA or keys, neither if you damage your hardware as a result of following this tutorial
+
+> **NOTE 4**: Before starting it's important to know that there is a step of this tutorial I just can't help you with, and it is the setup of your
 > router and/or how to configure dynamic ip addresses. This is because there are way too many different setups.
 
 This part of the process of setting up a pool used to be extremely painful. While the official cardano [docs](https://docs.cardano.org/projects/cardano-node/en/latest/index.html)
