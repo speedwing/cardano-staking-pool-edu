@@ -21,6 +21,6 @@ Before starting to work with the cardano node, we have to prepare the Raspberry 
     * Download the blockchain
 6. Disable password auth mechanism for SSH [docs](/SSH.md)
 7. Generate Stake Pool certificates and keys [docs](/POOL_KEYS.md)
-8. Launch the Block Producing node
+8. Launch the Block Producing node [docs](/BP_MODE.md)
 
 > **NOTE**: If you're suddenly experiencing issues with root vs non-root users, please check the following [docs](/RUN_NODE_AS_USER.md)
