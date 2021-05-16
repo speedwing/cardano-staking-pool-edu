@@ -13,9 +13,9 @@ NETWORK=${NETWORK:-testnet}
 DB_FOLDER=${DB_FOLDER:-/home/ubuntu/cardano-node/$NETWORK}
 
 # Keys Folder
-KEYS_FOLDER=/home/ubuntu/.keys/$NETWORK
+KEYS_FOLDER=${KEYS_FOLDER:-/home/ubuntu/.keys/$NETWORK}
 
 docker run -it --rm \
-    -v $KEYS_FOLDER:/home/cardano/keys \
-    -v $DB_FOLDER:/home/ubuntu/cardano-node/ \
+    -v "$KEYS_FOLDER:/home/cardano/keys" \
+    -v "$DB_FOLDER:/home/ubuntu/cardano-node/" \
     "atada-scripts:${NODE_VERSION}-${OS_ARCH}" bash
