@@ -4,6 +4,10 @@ set -x
 
 OS_ARCH=$(uname -m)
 
+if [[ $OS_ARCH -eq "arm64" ]];
+then
+  OS_ARCH="aarch64"
+fi
 MEMORY=${MEMORY:-7}
 
 CARDANO_NODE_VERSION=1.27.0
