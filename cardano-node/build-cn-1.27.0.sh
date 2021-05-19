@@ -4,7 +4,7 @@ set -x
 
 OS_ARCH=$(uname -m)
 
-if [[ $OS_ARCH -eq "arm64" ]];
+if [[ "$OS_ARCH" -eq "arm64" ]];
 then
   OS_ARCH="aarch64"
 fi
