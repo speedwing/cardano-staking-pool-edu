@@ -3,7 +3,7 @@
 set -x
 
 OS_ARCH=$(uname -m)
-NODE_VERSION="1.26.2"
+NODE_VERSION="1.27.0"
 IMAGE_TAG="${NODE_VERSION}-${OS_ARCH}"
 
 ## The folder, on the actual Raspberry Pi where to download the blockchain
@@ -14,9 +14,6 @@ CARDANO_NODE_PORT=$2
 
 NETWORK=${NETWORK:-mainnet}
 NODE_MODE=${NODE_MODE:-relay}
-KES_SKEY_PATH=${KES_SKEY_PATH:-/root/keys/pool-keys/kes.skey}
-VRF_SKEY_PATH=${VRF_SKEY_PATH:-/root/keys/pool-keys/vrf.skey}
-NODE_OP_CERT_PATH=${NODE_OP_CERT_PATH:-/root/keys/pool-keys-17-01-2021/node.cert}
 
 if [[ -z "${DB_FOLDER}" ]]; then
   echo "Missing required DB_FOLDER, pass it as first param"
@@ -48,6 +45,21 @@ if [ "${NODE_MODE}" = "relay" ]; then
 elif [ "${NODE_MODE}" = "bp" ]; then
 
   echo "Starting node in BLOCK PRODUCER mode"
+
+  if [[ -z "${KES_SKEY_PATH}" ]]; then
+    echo "Missing required KES_SKEY_PATH, pass it as first param"
+    exit 1
+  fi
+
+  if [[ -z "${VRF_SKEY_PATH}" ]]; then
+    echo "Missing required VRF_SKEY_PATH, pass it as first param"
+    exit 1
+  fi
+
+  if [[ -z "${NODE_OP_CERT_PATH}" ]]; then
+    echo "Missing required NODE_OP_CERT_PATH, pass it as first param"
+    exit 1
+  fi
 
   sleep 5
 
