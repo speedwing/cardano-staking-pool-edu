@@ -4,7 +4,7 @@
 > episode you suddenly experience issues with root vs non-root permissions, please check the following [docs](/RUN_NODE_AS_USER.md) 
 > and then come back to this episode.
 
-> **NOTE 2**: As we are now about to start dealing with poential real $ADA I want you to take a moment and think about the risks of running a pool,
+> **NOTE 2**: As we are now about to start dealing with potential real $ADA I want you to take a moment and think about the risks of running a pool,
 > such as loosing keys, getting hacked et cetera. If you feel this is overwhelming or not feel totally comfortable, I would recommend to leave this
 > as a testnet excercise, but not a mainnet one.
 

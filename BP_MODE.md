@@ -1,11 +1,11 @@
 # Run in Block Producing (BP) Mode
 
-Finally we made it to the last step of this tutorial. I assume you've got the blockchain downloaded by now and you've also got all
-the keys and certificates required to run your block producing node.
+Finally we made it to the last step of this tutorial. I assume you've got the blockchain downloaded by now,
+and you've also got all the keys and certificates required to run your block producing node.
 
-TODO make list of requirements
 Before proceeding remember that you will need:
-* Either 
+* A properly configured home network configuration
+* Someon
 
 If you are enjoying the content of this project, please consider supporting me by delegating to my stake pool, ticker EASY1 or
 donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp

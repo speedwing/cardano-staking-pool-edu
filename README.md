@@ -6,6 +6,37 @@ cardano stake pools.
 If you are enjoying the content of this project, please consider supporting me by delegating to my stake pool, ticker EASY1 or
 donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4hdkune2k9xalx3tgskrva0g243ehggg8wkkpzdquegjwp
 
+## Required hardware
+
+* At lest 1 Raspberry PI 4B 8gb
+* One microSD
+* One SSD Drive, at least 64GB
+* A Raspberry PI power adapter (or a phone charger with USB-C plug)
+* A network cable to connect your PI to the router (no WIFI)
+
+## Disclaimer
+
+This tutorial is aimed to provide educational content to create a Cardano **testnet** Stake Pool. This guide is
+by no means a replacement of the [Cardano Node official documentation](https://docs.cardano.org/projects/cardano-node/en/latest/#). 
+
+Beware that, in case you decide to use this tutorial for spinning your own pool in **mainnet**, I take no 
+responsibility for any loss of $ada you may face for improperly setting up, managing, update you stake pool.
+Please ensure you're proceeding with creating a **mainnet** stake pool only after you've reached a certain level
+of confidence when operating the pool.
+
+While following this tutorial, you will have to handle delicate hardware parts, like the board of the Raspberry PI,
+the microSD card and the SSD drive, plus any additional other hardware component like a case or cooling system.
+
+I do not take any responsibility for any damage to any hardware component or apparel you may be using while following
+this tutorial.
+
+Furthermore, because you may need, in case of mistakes or errors, to erase the microSD or SSD card, ensure sensitive
+data are safely and appropriately backed up.
+
+Follow this tutorial at your own risk. No responsibility are taken of any hardware failure or $ada loss during the process.
+
+## Why docker
+
 In order to minimise the dependency on the underlying operating system you're using on your Raspberry PI, we will
 make large use of containerised applications. In particular, we will build AND use docker images.
 On top of this, we will leverage the USB 3.0 capabilities and connect SSD via sata to USB in order to have about 4 times 
