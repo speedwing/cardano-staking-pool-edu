@@ -10,19 +10,24 @@ donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4h
 
 > Just a reminder that this tutorial will focus on how to create a Block Producing node (BP) on **testnet**
 
+> Please ensure to change the `CARDANO_NODE_PORT` parameter below, with the one you've setup on your router
+> to redirect connections from the router to the pi.
+
 Starting the node in bp mode for testnet should be as easy as:
 
 ```bash
-docker stop cardano-node-testnet
-
 cd ~/cardano-staking-pool-edu && git pull --rebase # Ensure we're on the latest version of the project
 
+docker stop cardano-node-testnet
+docker rm cardano-node-testnet
 cd ~/cardano-staking-pool-edu/cardano-node && \
+  CARDANO_NODE_PORT=3001 \ 
   NODE_MODE=bp \
   NETWORK=testnet \
-  KES_SKEY_PATH=/home/ubuntu/.keys/testnet/africa.kes-000.skey \
-  VRF_SKEY_PATH=/home/ubuntu/.keys/testnet/africa.vrf.skey \
-  NODE_OP_CERT_PATH=/home/ubuntu/.keys/testnet/africa.node-000.opcert \
-  ./run-node.sh /home/ubuntu/cardano-node/testnet 30001 --restart unless-stopped
+  KES_SKEY_PATH=/home/cardano/keys/africa.kes-000.skey \
+  VRF_SKEY_PATH=/home/cardano/keys/africa.vrf.skey \
+  NODE_OP_CERT_PATH=/home/cardano/keys/africa.node-000.opcert \
+  ./run-node.sh /home/ubuntu/cardano-node/testnet 30001 --restart unless-stopped \
+  -v /home/ubuntu/.keys/testnet:/home/cardano/keys
 ```
 
