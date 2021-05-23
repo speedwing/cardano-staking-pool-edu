@@ -13,6 +13,8 @@ donating ₳D₳ to: addr1qyma8s3sehdhn626ls5v8y3xwm0w7lhlwqznxggnw4slcwavatgc4h
 Starting the node in bp mode for testnet should be as easy as:
 
 ```bash
+docker stop cardano-node-testnet
+
 cd ~/cardano-staking-pool-edu && git pull --rebase # Ensure we're on the latest version of the project
 
 cd ~/cardano-staking-pool-edu/cardano-node && \

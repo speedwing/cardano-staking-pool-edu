@@ -3,7 +3,7 @@
 set -x
 
 OS_ARCH=$(uname -m)
-NODE_VERSION="1.27.0"
+NODE_VERSION=${NODE_VERSION:-"1.27.0"}
 IMAGE_TAG="${NODE_VERSION}-${OS_ARCH}"
 
 ## The folder, on the actual Raspberry Pi where to download the blockchain
