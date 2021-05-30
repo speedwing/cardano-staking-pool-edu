@@ -81,7 +81,7 @@ initramfs initrd.img followkernel
 10. Shutdown the pi `sudo shutdown now`
 11. Wait a few seconds that the pi turns off, a few more seconds... ok now unplug the power
 12. Remove the microSD
-13. Re-plug the usb-c power cable.
+13. Re-plug the usb-c power cable. (Note: if for any reason you don't have your PI wired and you are relying on a WiFi connection, please have a look at these [docs](/WIFI_CONFIG.md))
 14. Wait a few seconds for the pi to boot and ssh into it. (You may need to re-run nmap if your pi has changed ip)
 15. Install the "auto_decompress_kernel" script
 ```bash
