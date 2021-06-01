@@ -15,7 +15,7 @@ MEMORY=${MEMORY:-7}
 CARDANO_NODE_VERSION=alonzo-blue1.0
 CARDANO_NODE_IMAGE_TAG="${CARDANO_NODE_VERSION}-${OS_ARCH}"
 
-docker build -m "${MEMORY}Gi" --memory-swap -1 -t cardano-node:"${CARDANO_NODE_IMAGE_TAG}" \
+docker build -t cardano-node:"${CARDANO_NODE_IMAGE_TAG}" \
   --build-arg GHC_VERSION=8.10.2 \
   --build-arg OS_ARCH="${OS_ARCH}" \
   --build-arg CARDANO_VERSION=${CARDANO_NODE_VERSION} \
