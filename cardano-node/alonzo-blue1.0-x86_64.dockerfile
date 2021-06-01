@@ -50,7 +50,7 @@ COPY --from=builder /usr/local/lib /usr/local/lib
 
 ARG OS_ARCH
 ARG GHC_VERSION
-ARG CARDANO_VERSION
+ENV CARDANO_VERSION=1.27.0
 
 ## Not sure I still need thse
 ENV LD_LIBRARY_PATH="/usr/local/lib"
@@ -60,6 +60,7 @@ RUN rm -fr /usr/local/lib/ghc-${GHC_VERSION}
 
 COPY config/mainnet /etc/config
 COPY config/testnet /etc/config
+COPY config/alonzo-blue /etc/config
 
 COPY --from=builder /build/cardano-node/cardano-node/dist-newstyle/build/${OS_ARCH}-linux/ghc-${GHC_VERSION}/cardano-node-${CARDANO_VERSION}/x/cardano-node/build/cardano-node/cardano-node /usr/local/bin/
 COPY --from=builder /build/cardano-node/cardano-node/dist-newstyle/build/${OS_ARCH}-linux/ghc-${GHC_VERSION}/cardano-cli-${CARDANO_VERSION}/x/cardano-cli/build/cardano-cli/cardano-cli /usr/local/bin/
