@@ -186,4 +186,4 @@ they mismatch, ensure the content of the metadata file is correct (check the fin
 06_regDelegationCert.sh africa africa.payment
 ```
 
-Congratulations. Your pool is not registered.
+Congratulations. Your pool is now registered.
