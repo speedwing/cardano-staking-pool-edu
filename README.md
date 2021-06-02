@@ -55,3 +55,7 @@ Before starting to work with the cardano node, we have to prepare the Raspberry 
 8. Launch the Block Producing node [docs](/BP_MODE.md)
 
 > **NOTE**: If you're suddenly experiencing issues with root vs non-root users, please check the following [docs](/RUN_NODE_AS_USER.md)
+
+## Additional docs
+
+* How to check node synchronization: [Node synchronization](/NODE_SYNCHRONIZATION.md)
