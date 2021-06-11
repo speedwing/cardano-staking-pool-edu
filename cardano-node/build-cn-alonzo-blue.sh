@@ -12,7 +12,7 @@ then
 fi
 MEMORY=${MEMORY:-7}
 
-CARDANO_NODE_VERSION=alonzo-blue1.0
+CARDANO_NODE_VERSION=alonzo-blue2.0
 CARDANO_NODE_IMAGE_TAG="${CARDANO_NODE_VERSION}-${OS_ARCH}"
 
 docker build -t cardano-node:"${CARDANO_NODE_IMAGE_TAG}" \
