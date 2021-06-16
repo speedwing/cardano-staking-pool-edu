@@ -89,6 +89,9 @@ cd ~ && git clone --depth 1 https://github.com/speedwing/cardano-staking-pool-ed
 bash ~/cardano-staking-pool-edu/misc/init-auto_decompress_kernel.sh
 ```
 16. We can now update our Ubuntu to the latest and greatest version
-    * `sudo apt-get update && sudo apt-get dist-upgrade` (this is going to take a while)
+    * `sudo apt-get update && sudo apt-get dist-upgrade` (this is going to take a while, see note below in case of errors)
+    
+> **NOTE**: in case you get an error during the `sudo apt-get update && sudo apt-get dist-upgrade` it could be due to the 
+> fact that "important automatic updates" are run automatically. Wait a few minutes, and try again
    
 Congratulations, your Raspberry PI is now ready to build the `cardano-node` binary.

@@ -18,12 +18,12 @@ Starting the node in relay mode for testnet should be as easy as:
 mkdir -p /home/ubuntu/cardano-node/testnet
 cd ~/cardano-staking-pool-edu && git pull --rebase # Ensure we're on the latest version of the project
 cd ~/cardano-staking-pool-edu/cardano-node && \
-  NETWORK=testnet ./run-node.sh /home/ubuntu/cardano-node/testnet 30001 --restart unless-stopped
+  NETWORK=testnet ./run-node.sh /home/ubuntu/cardano-node/testnet 3001 --restart unless-stopped
 ```
 
 > NOTE: if you want to download mainnet instead, I would recommend to create the folder `/home/ubuntu/cardano-node/mainnet`
 > and update the NETWORK variable to NETWORK=mainnet. The full command would look like:
-> `cd ~/cardano-staking-pool-edu/cardano-node && NETWORK=mainnet ./run-node.sh /home/ubuntu/cardano-node/mainnet 30001 --restart unless-stopped`
+> `cd ~/cardano-staking-pool-edu/cardano-node && NETWORK=mainnet ./run-node.sh /home/ubuntu/cardano-node/mainnet 3001 --restart unless-stopped`
 
 You should see something like:
 ```bash
@@ -32,21 +32,21 @@ You should see something like:
 + NODE_VERSION=1.27.0
 + IMAGE_TAG=1.27.0-aarch64
 + DB_FOLDER=/home/ubuntu/cardano-node/testnet
-+ CARDANO_NODE_PORT=30001
++ CARDANO_NODE_PORT=3001
 + NETWORK=testnet
 + NODE_MODE=relay
 + KES_SKEY_PATH=/root/keys/pool-keys/kes.skey
 + VRF_SKEY_PATH=/root/keys/pool-keys/vrf.skey
 + NODE_OP_CERT_PATH=/root/keys/pool-keys-17-01-2021/node.cert
 + [[ -z /home/ubuntu/cardano-node/testnet ]]
-+ [[ -z 30001 ]]
-+ echo 'Starting node with DB_FOLDER=/home/ubuntu/cardano-node/testnet and CARDANO_NODE_PORT=30001'
-Starting node with DB_FOLDER=/home/ubuntu/cardano-node/testnet and CARDANO_NODE_PORT=30001
++ [[ -z 3001 ]]
++ echo 'Starting node with DB_FOLDER=/home/ubuntu/cardano-node/testnet and CARDANO_NODE_PORT=3001'
+Starting node with DB_FOLDER=/home/ubuntu/cardano-node/testnet and CARDANO_NODE_PORT=3001
 + '[' relay = relay ']'
 + echo 'Starting node in RELAY mode'
 Starting node in RELAY mode
 + sleep 5
-+ docker run --name cardano-node-testnet -d --rm -v /home/ubuntu/cardano-node/testnet:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket cardano-node:1.27.0-aarch64 'cardano-node run     --topology /etc/config/testnet-topology.json     --database-path /db     --socket-path /db/node.socket     --host-addr 0.0.0.0     --port 30001     --config /etc/config/testnet-config.json'
++ docker run --name cardano-node-testnet -d --rm -v /home/ubuntu/cardano-node/testnet:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket cardano-node:1.27.0-aarch64 'cardano-node run     --topology /etc/config/testnet-topology.json     --database-path /db     --socket-path /db/node.socket     --host-addr 0.0.0.0     --port 3001     --config /etc/config/testnet-config.json'
 f35c34fafa38a0b2ad2fa202482b24e4be65e098f9f447d7f9902dffc6157226
 ```
 as output.

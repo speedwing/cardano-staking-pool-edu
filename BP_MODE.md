@@ -27,7 +27,7 @@ cd ~/cardano-staking-pool-edu/cardano-node && \
   KES_SKEY_PATH=/home/cardano/keys/africa.kes-000.skey \
   VRF_SKEY_PATH=/home/cardano/keys/africa.vrf.skey \
   NODE_OP_CERT_PATH=/home/cardano/keys/africa.node-000.opcert \
-  ./run-node.sh /home/ubuntu/cardano-node/testnet 30001 --restart unless-stopped \
+  ./run-node.sh /home/ubuntu/cardano-node/testnet "${CARDANO_NODE_PORT}" --restart unless-stopped \
   -v /home/ubuntu/.keys/testnet:/home/cardano/keys
 ```
 
