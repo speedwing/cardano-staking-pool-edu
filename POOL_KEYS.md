@@ -85,9 +85,6 @@ onboarded on the blockchain. To celebrate this, we will create certs and keys fo
 # Change to the keys folder previously created
 cd /home/cardano/keys
 
-# Create payment address, verification and signature key
-02_genPaymentAddrOnly.sh africa cli
-
 # Create staking files 
 03a_genStakingPaymentAddr.sh africa cli
 ```
