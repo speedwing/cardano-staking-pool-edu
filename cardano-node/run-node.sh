@@ -3,6 +3,14 @@
 set -x
 
 OS_ARCH=$(uname -m)
+
+# This is required for MBP M1, the kernel reports arm64 instead of aarch64, despite the
+# to being the same
+if [[ "$OS_ARCH" = "arm64" ]];
+then
+  OS_ARCH="aarch64"
+fi
+
 NODE_VERSION=${NODE_VERSION:-"1.27.0"}
 IMAGE_TAG="${NODE_VERSION}-${OS_ARCH}"
 

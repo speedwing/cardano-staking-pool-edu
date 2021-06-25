@@ -1,6 +1,21 @@
 {
   "Producers": [
     {
+      "addr": "ioga1.relays.alonzo-blue.dev.cardano.org",
+      "port": 3001,
+      "valency": 2
+    },
+    {
+      "addr": "ioga2.relays.alonzo-blue.dev.cardano.org",
+      "port": 3001,
+      "valency": 2
+    },
+    {
+      "addr": "ioga3.relays.alonzo-blue.dev.cardano.org",
+      "port": 3001,
+      "valency": 2
+    },
+    {
       "addr": "relays.alonzo-blue.dev.cardano.org",
       "port": 3001,
       "valency": 2
