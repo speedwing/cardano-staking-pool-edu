@@ -78,12 +78,13 @@ initramfs initrd.img followkernel
 ```
 9. Configure BIOS to boot from SSD, run  `sudo EDITOR=vi rpi-eeprom-config -e`
     * set update the line: `BOOT_ORDER=0xf41`
-10. Shutdown the pi `sudo shutdown now`
-11. Wait a few seconds that the pi turns off, a few more seconds... ok now unplug the power
-12. Remove the microSD
-13. Re-plug the usb-c power cable. (Note: if for any reason you don't have your PI wired and you are relying on a WiFi connection, please have a look at these [docs](/WIFI_CONFIG.md))
-14. Wait a few seconds for the pi to boot and ssh into it. (You may need to re-run nmap if your pi has changed ip)
-15. Install the "auto_decompress_kernel" script
+10. Reboot the Pi `sudo reboot now`
+11. As soon as you're back in the cmd line shutdown the Pi: `sudo shutdown now`
+12. Wait a few seconds that the pi turns off, a few more seconds... ok now unplug the power
+13. Remove the microSD
+14. Re-plug the usb-c power cable. (Note: if for any reason you don't have your PI wired and you are relying on a WiFi connection, please have a look at these [docs](/WIFI_CONFIG.md))
+15. Wait a few seconds for the pi to boot and ssh into it. (You may need to re-run nmap if your pi has changed ip)
+16. Install the "auto_decompress_kernel" script
 ```bash
 cd ~ && git clone --depth 1 https://github.com/speedwing/cardano-staking-pool-edu.git
 bash ~/cardano-staking-pool-edu/misc/init-auto_decompress_kernel.sh
