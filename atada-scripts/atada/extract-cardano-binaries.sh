@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 OS_ARCH=$(uname -m)
-CARDANO_NODE_VERSION=${CARDANO_NODE_VERSION:-1.27.0}
+CARDANO_NODE_VERSION=${CARDANO_NODE_VERSION:-1.29.0}
 
 set -x
 

@@ -19,7 +19,7 @@ The result should be something like:
 
 ```bash 
 CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS                  PORTS               NAMES
-4598d32b54c2        cardano-node:1.27.0-aarch64   "bash -c 'cardano-no…"   46 hours ago        Up 46 hours (healthy)                       cardano-node-testnet
+4598d32b54c2        cardano-node:1.29.0-aarch64   "bash -c 'cardano-no…"   46 hours ago        Up 46 hours (healthy)                       cardano-node-testnet
 ```
 
 Then _ssh_ into the pi as follow:

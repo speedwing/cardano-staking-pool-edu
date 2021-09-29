@@ -31,7 +31,7 @@ RUN curl -L https://downloads.haskell.org/~cabal/cabal-install-3.4.0.0/cabal-ins
     tar -Jx -C /usr/bin/
 RUN cabal update
 
-ARG CARDANO_VERSION="1.27.0"
+ARG CARDANO_VERSION="1.29.0"
 WORKDIR /build/cardano-node
 RUN git clone --branch ${CARDANO_VERSION} https://github.com/input-output-hk/cardano-node.git && \
     cd cardano-node && \

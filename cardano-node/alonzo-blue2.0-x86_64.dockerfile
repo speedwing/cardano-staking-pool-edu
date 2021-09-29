@@ -50,7 +50,7 @@ COPY --from=builder /usr/local/lib /usr/local/lib
 
 ARG OS_ARCH
 ARG GHC_VERSION
-ENV CARDANO_VERSION=1.27.0
+ENV CARDANO_VERSION=1.29.0
 
 ## Not sure I still need thse
 ENV LD_LIBRARY_PATH="/usr/local/lib"
