@@ -1,17 +1,12 @@
 # Setup Monitoring System with Prometheus and Grafana
 
-Once we have a running node (at least one bp or relay), it is suggested to set up a monitoring
-system to check its performance over time. The Cardano node natively provides metrics
-for the Prometheus and EKG monitorig system. This guide provides a step-by-step
-instruction in order to retrieve the Prometheus metrics from all your nodes and
-represent them in a nice graphical Grafana dashboard (as shown in the example below).
+Once we have a running node (at least one bp or relay), it is suggested to set up a monitoring system to check its performance over time. The Cardano node natively provides metrics for the Prometheus and EKG monitorig system. This guide provides a step-by-step instruction in order to retrieve the Prometheus metrics from all your nodes and represent them in a nice graphical Grafana dashboard (as shown in the example below).
 
 ![Grafana dashboard](/images/grafana-dashboard-example.png "Example Grafana dashboard")
 
 ## Prerequisites
 
-The following instructions assume that we have successfully built a Cardano node docker image
-based on the instructions provided in this Github repository. 
+The following instructions assume that we have successfully built a Cardano node docker image based on the instructions provided in this Github repository. 
 
 Check that the port forwarding for the Prometheus port 12798 is active under PORTS. You should see something like this:
 
@@ -24,8 +19,7 @@ c3222adef0e1   cardano-node-1.30.1-aarch64   "entrypoint run"   5 days ago   Up 
 
 ## Setup Prometheus Server
 
-We now need to set up a Prometheus server that scrapes the Prometheus metrics from the node
-via the 12798 port. For this it is recommended to use a separate RaspPi that takes care of this job only.
+We now need to set up a Prometheus server that scrapes the Prometheus metrics from the node via the 12798 port. For this it is recommended to use a separate RaspPi that takes care of this job only.
 
 Install Prometheus on this device.
 
@@ -33,16 +27,14 @@ Install Prometheus on this device.
 sudo apt install prometheus 
 ```
 
-We need to configure the prometheus.yml file so that the server is scaping the metrics from
-the cardano node.
+We need to configure the prometheus.yml file so that the server is scaping the metrics from the cardano node.
 
 ```
 sudo nano /etc/prometheus/prometheus.yml 
 ```
 
 Scroll down to the section 'scrape_config' and add the IP of all the nodes and name tag them accordingly. 
-This example shows the prometheus.yml file for a Cardano pool with totally 4 nodes (1 BP and 3 Relays). If you have
-less nodes, just remove the lines accordingly.
+This example shows the prometheus.yml file for a Cardano pool with totally 4 nodes (1 BP and 3 Relays). If you have less nodes, just remove the lines accordingly.
 
 ```
 scrape_configs:
@@ -123,14 +115,9 @@ still see the state DOWN. No worry, we will fix that in the next chapter.
 
 ## Install Grafana & Configure a Cardano Dashboard
 
-Prometheus is certainly a great monitoring tool but as soon as we’d like to represent several
-metrics on the same dashboard for a better overview of the nodes performance, then Prometheus
-could become inadequate. Grafana provides a much better graphical representation of the metrics
-provided by Prometheus. So let us install and configure a nice Grafana dashboard.
+Prometheus is certainly a great monitoring tool but as soon as we’d like to represent several metrics on the same dashboard for a better overview of the nodes performance, then Prometheus could become inadequate. Grafana provides a much better graphical representation of the metrics provided by Prometheus. So let us install and configure a nice Grafana dashboard.
 
-First we need to download and extract the Prometheus node_exporter on all your node host systems.
-This allows us to scrape additional important metrics about the node that are not provided
-within the cardano-node metrics. Log into your node and execute the following commands:
+First we need to download and extract the Prometheus node_exporter on all your node host systems. This allows us to scrape additional important metrics about the node that are not provided within the cardano-node metrics. Log into your node and execute the following commands:
 
 ```
 wget https://github.com/prometheus/node_exporter/releases/download/v1.1.2/node_exporter-1.1.2.linux-arm64.tar.gz
@@ -184,9 +171,7 @@ Open the web browser and go to localhost:3000. The Grafana client login screen s
 
 ![Grafana loginscreen](/images/grafana-login-example.png "Example Grafana loginscreen")
 
-From this point onwards we refer to a complete ardano-node documentation for the configuration
-of the Grafana dashboard. Go to https://techdocs-cardano.netlify.app/cardano-components/cardano-node/doc/tutorials/grafana.html
-and follow the instructions in the chapter Configuring your dashboard.
+From this point onwards we refer to a complete Cardano-node documentation for the configuration of the Grafana dashboard. Go to https://techdocs-cardano.netlify.app/cardano-components/cardano-node/doc/tutorials/grafana.html and follow the instructions in the chapter Configuring your dashboard.
 
 
 
