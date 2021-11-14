@@ -1,6 +1,6 @@
 # Setup Monitoring System with Prometheus and Grafana
 
-Once we have a running node (bp and/or relays), it is suggested to set up a monitoring
+Once we have a running node (at least one bp or relay), it is suggested to set up a monitoring
 system to check its performance over time. The Cardano node natively provides metrics
 for the Prometheus and EKG monitorig system. This guide provides a step-by-step
 instruction in order to retrieve the Prometheus metrics from all your nodes and
@@ -12,42 +12,6 @@ represent them in a nice graphical Grafana dashboard (as shown in the example be
 
 The following instructions assume that we have successfully built a Cardano node docker image
 based on the instructions provided in this Github repository. 
-
-## Configure Node for Prometheus
-
-Make sure there is no node docker container running. If it is the case, stop it and remove it.
-
-```
-docker stop [CONTAINER_ID]
-docker rm [CONTAINER_ID]
-```
-
-Modify the run-node.sh script in order to add port forwarding for the Prometheus metrics (port 12798).
-
-The exmple below shows the "docker run" command, within the modified run-node.sh script, with port
-forwarding for the Prometheus metrics. 
-
-```
-docker run --name "cardano-node-${NETWORK}" -d -v $DB_FOLDER:/db -v /home/ubuntu/cardano-staking-pool-edu-copy/cardano-node/config/testnet:/etc/config/cardano-node/config -v /home/ubuntu/.keys/testnet:/etc/config/cardano-node/keys -p 30001:30001 -p 12798:12798 -e CARDANO_NODE_SOCKET_PATH=/db/node.socket
-"${@:3}" "cardano-node:${IMAGE_TAG} \
-"cardano-node run \
---topology /etc/config/cardano-node/config/${NETWORK}-topology.json \
---database-path /db \
---socket-path /db/node.socket \
---host-addr 0.0.0.0 \
---port $CARDANO_NODE_PORT \
---config /etc/config/cardano-node/config/${NETWORK}-config.json \
---shelley-kes-key ${KES_SKEY_PATH} \
---shelley-vrf-key ${VRF_SKEY_PATH} \
---shelley-operational-certificate ${NODE_OP_CERT_PATH}"
-```
-
-We can now start the node.
-
-```
-cd ~/cardano-staking-pool-edu-copy/cardano-node
-NETWORK=testnet ./run-node.sh /home/ubuntu/cardano-node/testnet 30001 --restart unless-stopped
-```
 
 Check that the port forwarding for the Prometheus port 12798 is active under PORTS. You should see something like this:
 
@@ -76,8 +40,9 @@ the cardano node.
 sudo nano /etc/prometheus/prometheus.yml 
 ```
 
-Scroll down to the section 'scrape_config' and add the nodes IP and name it. 
-This example shows the prometheus.yml file for a Cardano pool with totally 4 nodes (1 BP and 3 Relays).
+Scroll down to the section 'scrape_config' and add the IP of all the nodes and name tag them accordingly. 
+This example shows the prometheus.yml file for a Cardano pool with totally 4 nodes (1 BP and 3 Relays). If you have
+less nodes, just remove the lines accordingly.
 
 ```
 scrape_configs:
@@ -219,8 +184,8 @@ Open the web browser and go to localhost:3000. The Grafana client login screen s
 
 ![Grafana loginscreen](/images/grafana-login-example.png "Example Grafana loginscreen")
 
-From this point onwards we refer to the official Cardano-node documentation for the configuration
-of the Grafana dashboard. Go to https://docs.cardano.org/projects/cardanonode/en/latest/logging-monitoring/grafana.html
+From this point onwards we refer to a complete ardano-node documentation for the configuration
+of the Grafana dashboard. Go to https://techdocs-cardano.netlify.app/cardano-components/cardano-node/doc/tutorials/grafana.html
 and follow the instructions in the chapter Configuring your dashboard.
 
 

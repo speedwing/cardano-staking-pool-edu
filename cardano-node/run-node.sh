@@ -35,6 +35,7 @@ if [ "${NODE_MODE}" = "relay" ]; then
 
   docker run --name "cardano-node-${NETWORK}" -d -v $DB_FOLDER:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket \
     -p "${CARDANO_NODE_PORT}:${CARDANO_NODE_PORT}" \
+    -p 12798:12798 \
     "${@:3}" "cardano-node:${IMAGE_TAG}" \
     "cardano-node run \
     --topology /etc/config/${NETWORK}-topology.json \
@@ -67,6 +68,7 @@ elif [ "${NODE_MODE}" = "bp" ]; then
 
   docker run --name "cardano-node-${NETWORK}" -d -v $DB_FOLDER:/db -e CARDANO_NODE_SOCKET_PATH=/db/node.socket \
     -p "${CARDANO_NODE_PORT}:${CARDANO_NODE_PORT}" \
+    -p 12798:12798 \
     "${@:3}" "cardano-node:${IMAGE_TAG}" \
     "cardano-node run \
     --topology /etc/config/${NETWORK}-topology.json \
