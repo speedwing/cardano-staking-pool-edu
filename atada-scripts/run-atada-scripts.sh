@@ -3,7 +3,7 @@
 set -x
 
 OS_ARCH=$(uname -m)
-NODE_VERSION="1.29.0"
+NODE_VERSION="1.32.1"
 IMAGE_TAG="${NODE_VERSION}-${OS_ARCH}"
 
 # Network

@@ -11,7 +11,7 @@ then
   OS_ARCH="aarch64"
 fi
 
-NODE_VERSION=${NODE_VERSION:-"1.29.0"}
+NODE_VERSION=${NODE_VERSION:-"1.32.1"}
 IMAGE_TAG="${NODE_VERSION}-${OS_ARCH}"
 
 ## The folder, on the actual Raspberry Pi where to download the blockchain
