@@ -1,7 +1,7 @@
 ARG CARDANO_VERSION="1.32.1"
 ARG OS_ARCH
 
-FROM cardano-node:${CARDANO_VERSION}-${OS_ARCH} as cardano-node
+FROM speedwing/cardano-node:1.30.1-aarch64 as cardano-node
 
 FROM ubuntu:20.04
 

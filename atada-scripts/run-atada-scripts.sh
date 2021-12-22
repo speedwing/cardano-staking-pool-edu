@@ -3,7 +3,13 @@
 set -x
 
 OS_ARCH=$(uname -m)
-NODE_VERSION="1.32.1"
+
+if [[ $OS_ARCH == "arm64" ]];
+then
+  OS_ARCH=aarch65
+fi
+
+NODE_VERSION="1.30.1"
 IMAGE_TAG="${NODE_VERSION}-${OS_ARCH}"
 
 # Network
