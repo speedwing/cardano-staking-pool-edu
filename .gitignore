@@ -1,3 +1,4 @@
 .idea
 cardano-pools-keys
 *keys*.yaml
+cardano-node/config
