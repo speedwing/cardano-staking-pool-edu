@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-set -x
-
 . dl-config.sh
+
+set -x
 
 (download_config)
 
