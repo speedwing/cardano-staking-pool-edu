@@ -4,7 +4,7 @@ CARDANO_NODE_CONF_FOLDER=config
 
 download_config() {
   rm -fr config
-  mkdir -p "${CARDANO_NODE_CONF_FOLDER}" && cd "${CARDANO_NODE_CONF_FOLDER}" \
+  mkdir -p "${CARDANO_NODE_CONF_FOLDER}" && cd "${CARDANO_NODE_CONF_FOLDER}" && \
     curl -LO https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/mainnet-config.json && \
     curl -LO https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/mainnet-byron-genesis.json && \
     curl -LO https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/mainnet-shelley-genesis.json && \
