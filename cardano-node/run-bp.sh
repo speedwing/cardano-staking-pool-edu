@@ -3,7 +3,7 @@
 export CARDANO_NODE_PORT=30000
 export NETWORK=testnet
 export POOL_NAME=joe1
-export KES_VERSION=0005
+export KES_VERSION=005
 
 cd ~/cardano-staking-pool-edu && git pull --rebase # Ensure we're on the latest version of the project
 
