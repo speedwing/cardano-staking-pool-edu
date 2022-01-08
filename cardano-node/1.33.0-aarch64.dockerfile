@@ -11,6 +11,12 @@ RUN curl -LO https://ci.zw3rk.com/build/427926/download/1/aarch64-unknown-linux-
 
 FROM ubuntu:20.04
 
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update \
+    && apt-get upgrade -y curl zip netbase jq libnuma-dev && \
+    rm -rf /var/lib/apt/lists/*
+
 COPY config /etc/config
 
 COPY --from=builder /cardano-node/cardano-node/cardano-node /usr/local/bin/

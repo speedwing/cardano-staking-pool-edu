@@ -35,6 +35,9 @@ fi
 
 echo "Starting node with DB_FOLDER=$DB_FOLDER and CARDANO_NODE_PORT=$CARDANO_NODE_PORT"
 
+docker stop "cardano-node-${NETWORK}"
+docker rm "cardano-node-${NETWORK}"
+
 if [ "${NODE_MODE}" = "relay" ]; then
 
   echo "Starting node in RELAY mode"
