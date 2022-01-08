@@ -60,17 +60,17 @@ elif [ "${NODE_MODE}" = "bp" ]; then
   echo "Starting node in BLOCK PRODUCER mode"
 
   if [[ -z "${KES_SKEY_PATH}" ]]; then
-    echo "Missing required KES_SKEY_PATH, pass it as first param"
+    echo "Missing required environmental variable KES_SKEY_PATH"
     exit 1
   fi
 
   if [[ -z "${VRF_SKEY_PATH}" ]]; then
-    echo "Missing required VRF_SKEY_PATH, pass it as first param"
+    echo "Missing required environmental variable VRF_SKEY_PATH"
     exit 1
   fi
 
   if [[ -z "${NODE_OP_CERT_PATH}" ]]; then
-    echo "Missing required NODE_OP_CERT_PATH, pass it as first param"
+    echo "Missing required environmental variable NODE_OP_CERT_PATH"
     exit 1
   fi
 
