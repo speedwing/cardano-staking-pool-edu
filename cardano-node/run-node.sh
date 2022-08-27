@@ -12,7 +12,7 @@ then
 fi
 
 NODE_VERSION=${NODE_VERSION:-"1.35.2"}
-IMAGE_TAG="${NODE_VERSION}-${OS_ARCH}"
+IMAGE_TAG="${NODE_VERSION}"
 
 ## The folder, on the actual Raspberry Pi where to download the blockchain
 DB_FOLDER=$1

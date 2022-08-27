@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-NETWORK=testnet
-CARDANO_NODE_PORT=3001
+export NETWORK=testnet
 
-./run-node.sh /home/ubuntu/cardano-node/testnet "${CARDANO_NODE_PORT}" --restart unless-stopped
+docker run --name cardano-node-testnet -v ~/cardano-node/testnet:/data/db -e NETWORK=testnet cardano-node:1.35.2-x86_64
