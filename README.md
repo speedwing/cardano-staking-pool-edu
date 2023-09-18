@@ -59,3 +59,4 @@ Before starting to work with the cardano node, we have to prepare the Raspberry 
 ## Additional docs
 
 * How to check node synchronization: [Node synchronization](/NODE_SYNCHRONIZATION.md)
+* How to set-up a monitoring system with Prometheus/Grafana [docs](/SETUP_MONITORING.md)
